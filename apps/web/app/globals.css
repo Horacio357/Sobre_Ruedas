@@ -1,0 +1,421 @@
+/* ============================================================
+   SOBRE RUEDAS — Global CSS
+   Sistema de diseño: variables, tipografía, reset, utilidades
+   ============================================================ */
+
+@import "tailwindcss";
+/* Nota: la fuente Inter se carga desde layout.tsx usando next/font/google */
+
+/* ── CSS CUSTOM PROPERTIES ───────────────────────────────── */
+:root {
+  /* Colores base */
+  /* Fondos cálidos */
+  --color-white: #ffffff;
+  --color-cream: #FFF9F9;
+  --color-cream-dark: #F9EAEA;
+  --color-surface: #FFF0F0;
+  --color-bg: #FFF9F9;
+
+  /* Acento naranja cálido */
+  --color-accent: #D97230;
+  --color-accent-light: #F0945A;
+  --color-accent-dark: #B85C20;
+  --color-accent-glow: rgba(217, 114, 48, 0.20);
+  --color-accent-bg: rgba(217, 114, 48, 0.08);
+
+  /* Texto sobre fondos rosados */
+  --color-text-primary: #1C1612;
+  --color-text-secondary: #B08B8B;
+  --color-text-tertiary: #D4A5A5;
+
+  /* Bordes rosados */
+  --color-border: #F5E1E1;
+  --color-border-light: #F9EAEA;
+
+  /* Tipografía */
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Navbar height */
+  --navbar-height: 52px;
+
+  /* Espaciado de sección — Aire Extremo */
+  --section-padding: clamp(12rem, 20vw, 18rem);
+  --section-padding-sm: clamp(8rem, 12vw, 10rem);
+
+  /* Transiciones */
+  --transition-default: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-slow: 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* ── RESET Y BASE ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Fondo base rosa pastel */
+  background-color: #FFF9F9;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FFF9F9;
+  color: #1C1612;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Focus visible accesible */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Selección de texto con color de marca */
+::selection {
+  background-color: rgba(217, 114, 48, 0.15);
+  color: var(--color-accent-dark);
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8CEBC;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B8A98E;
+}
+
+/* ── TIPOGRAFÍA GLOBAL ────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 500; /* Apple-style light weight */
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.04em; }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); letter-spacing: -0.03em; }
+h3 { font-size: clamp(1.25rem, 3vw, 1.85rem); }
+h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+p {
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-default);
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+/* ── UTILIDADES CSS CUSTOM ───────────────────────────────── */
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  background: rgba(28, 22, 18, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Glassmorphism sobre fondos crema */
+.glass-warm {
+  background: rgba(250, 247, 242, 0.82);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(224, 213, 197, 0.6);
+}
+
+/* Gradientes de texto */
+.text-gradient-accent {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #D97230, #C4972A);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-dark {
+  background: linear-gradient(135deg, #1c1612, #6b5e4a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradiente animado */
+.gradient-animated {
+  background: linear-gradient(270deg, var(--color-accent), #06b6d4, var(--color-accent-light));
+  background-size: 300% 300%;
+  animation: gradientX 4s ease infinite;
+}
+
+@keyframes gradientX {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Contenedor centrado con max-width */
+.container-apple {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
+}
+
+/* Secciones con padding responsivo */
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.section-padding-sm {
+  padding-top: var(--section-padding-sm);
+  padding-bottom: var(--section-padding-sm);
+}
+
+/* Separador sutil */
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d2d2d7, transparent);
+  width: 100%;
+}
+
+/* ── CARD BASE ───────────────────────────────────────────── */
+.card-base {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px rgba(93, 64, 30, 0.07);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  border: 1px solid var(--color-border-light);
+}
+
+.card-base:hover {
+  box-shadow: 0 8px 32px rgba(93, 64, 30, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── BOTONES BASE ────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: #D97230;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: all var(--transition-default);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #B85C20;
+  box-shadow: 0 4px 16px rgba(217, 114, 48, 0.30);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: white;
+  color: var(--color-text-primary);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-border);
+  letter-spacing: 0.01em;
+  transition: all var(--transition-default);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--color-accent);
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1.5px solid var(--color-accent);
+  transition: all var(--transition-default);
+}
+
+.btn-ghost:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* ── BADGE ───────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-accent {
+  background: var(--color-accent-bg, rgba(217,114,48,0.08));
+  color: var(--color-accent);
+}
+
+.badge-discount {
+  background: var(--color-accent);
+  color: white;
+}
+
+.badge-new {
+  background: #1C1612;
+  color: white;
+}
+
+.badge-bestseller {
+  background: linear-gradient(135deg, #C4972A, #D97230);
+  color: white;
+}
+
+/* ── SHIMMER SKELETON ────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.5rem;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── NAVBAR OFFSET ───────────────────────────────────────── */
+.navbar-offset {
+  padding-top: var(--navbar-height);
+}
+
+/* ── SCROLLBAR OVERLAY PARA DRAWER ──────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+}
+
+/* ── OUTLET DISCOUNT BADGE ───────────────────────────────── */
+.discount-banner {
+  background: linear-gradient(135deg, #dc2626, #ea580c);
+  color: white;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* ── WHATSAPP BUTTON ─────────────────────────────────────── */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #25d366;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--transition-default);
+}
+
+.whatsapp-fab:hover {
+  background: #1ebe5d;
+  box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+  transform: scale(1.08);
+}
+
+/* ── PRINT ───────────────────────────────────────────────── */
+@media print {
+  .no-print { display: none !important; }
+}
+
+/* ── REDUCED MOTION ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
