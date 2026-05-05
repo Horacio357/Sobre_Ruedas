@@ -11,27 +11,27 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const STEPS = [
   { step: 1, label: 'Elegí tu nivel', icon: '⭐' },
-  { step: 2, label: 'Seleccioná la bota', icon: <img src="https://i.ibb.co/qYPZYx5y/6-1.png" alt="Bota" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
-  { step: 3, label: 'Elegí la plancha', icon: <img src="https://i.ibb.co/hx3GqB85/2-4.png" alt="Plancha" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
-  { step: 4, label: 'Configurá las ruedas', icon: <img src="https://i.ibb.co/mVmvF5tZ/patin.png" alt="Ruedas" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
+  { step: 2, label: 'Seleccioná la bota', icon: <img src="https://i.ibb.co/qYPZYx5y/6-1.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 3, label: 'Elegí la plancha', icon: <img src="https://i.ibb.co/hx3GqB85/2-4.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 4, label: 'Configurá las ruedas', icon: <img src="https://i.ibb.co/mVmvF5tZ/patin.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm" /> },
   { step: 5, label: 'Setup final y checkout', icon: '✅' },
 ];
 
 export default function ConfiguratorCTA() {
   return (
-    <section className="section-padding bg-[#1C1612] text-white overflow-hidden relative">
-      {/* Glow naranja */}
+    <section className="section-padding bg-[#E6C9C9] text-[#1C1612] overflow-hidden relative">
+      {/* Glow naranja más sutil sobre fondo claro */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 80% 20%, rgba(217,114,48,0.18) 0%, transparent 60%)',
+          background: 'radial-gradient(circle at 80% 20%, rgba(217,114,48,0.1), transparent 60%)',
         }}
         aria-hidden="true"
       />
       <div
         className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at 20% 80%, rgba(196,151,42,0.10) 0%, transparent 60%)',
+          background: 'radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4), transparent 60%)',
         }}
         aria-hidden="true"
       />
@@ -41,33 +41,26 @@ export default function ConfiguratorCTA() {
 
           {/* Texto izquierda */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -40, scale: 0.95 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
           >
-            <span className="badge badge-accent mb-6 inline-flex">
+            <span className="badge badge-accent mb-6 inline-flex shadow-sm bg-white border-transparent">
               Configurador
             </span>
-            <h2 className="text-white text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-tight mb-6">
+            <h2 className="text-[#1C1612] text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-tight mb-6">
               Armá tu patín
               <br />
-              <span
-                style={{
-                  background: 'linear-gradient(135deg, #D97230, #C4972A)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
+              <span className="text-[#D97230]">
                 perfecto.
               </span>
             </h2>
-            <p className="text-white/60 text-sm leading-relaxed mb-8 max-w-md">
+            <p className="text-[#1C1612]/70 text-sm leading-relaxed mb-8 max-w-md font-medium">
               Nuestro configurador interactivo te guía paso a paso para crear el setup ideal según tu nivel y disciplina. Planchas filtradas por compatibilidad.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/arma-el-tuyo" className="btn-primary gap-2 text-sm">
+              <Link href="/arma-el-tuyo" className="btn-primary gap-2 text-sm shadow-xl hover:scale-105 transition-transform">
                 Empezar ahora
                 <ArrowRight size={16} />
               </Link>
@@ -75,7 +68,7 @@ export default function ConfiguratorCTA() {
                 href={`https://wa.me/5491112345678?text=${encodeURIComponent('Hola! Quiero asesoramiento para armar mi setup de patines.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost border-white/20 text-white hover:bg-white hover:text-[#1C1612] gap-2 text-sm"
+                className="btn-ghost border-[#1C1612]/10 text-[#1C1612] hover:bg-white hover:border-transparent hover:shadow-lg gap-2 text-sm"
               >
                 <MessageCircle size={16} />
                 Asesoramiento
@@ -85,31 +78,40 @@ export default function ConfiguratorCTA() {
 
           {/* Steps derecha */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="space-y-2.5"
+            transition={{ duration: 0.4 }}
+            className="space-y-3"
           >
             {STEPS.map((s, i) => (
               <motion.div
                 key={s.step}
-                initial={{ opacity: 0, x: 10 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: 40, rotateX: -15 }}
+                whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05, duration: 0.3 }}
-                className="flex items-center gap-4 p-3.5 rounded-lg bg-white/[0.04] border border-white/[0.07] hover:bg-white/[0.07] hover:border-[#D97230]/30 transition-all group"
+                transition={{ delay: i * 0.1, type: "spring", stiffness: 100, damping: 10 }}
+                className="flex items-center gap-5 p-4 rounded-xl bg-white/60 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md hover:bg-white transition-all group"
               >
-                <div className="w-9 h-9 rounded flex items-center justify-center text-xl bg-white/[0.06] shrink-0">
+                <motion.div 
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-2xl bg-white shadow-sm shrink-0"
+                >
                   {s.icon}
-                </div>
+                </motion.div>
                 <div className="flex-1">
-                  <p className="text-white/30 text-[10px] font-semibold uppercase tracking-wider mb-0.5">
+                  <p className="text-[#D97230] text-[10px] font-bold uppercase tracking-wider mb-1">
                     Paso {s.step}
                   </p>
-                  <p className="text-white text-sm font-semibold">{s.label}</p>
+                  <p className="text-[#1C1612] text-base font-semibold">{s.label}</p>
                 </div>
-                <ArrowRight size={14} className="text-white/20 group-hover:text-[#D97230] transition-colors" />
+                <motion.div
+                  initial={{ x: -5, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.1 + 0.3 }}
+                >
+                  <ArrowRight size={18} className="text-[#1C1612]/30 group-hover:text-[#D97230] group-hover:translate-x-1 transition-all" />
+                </motion.div>
               </motion.div>
             ))}
           </motion.div>
