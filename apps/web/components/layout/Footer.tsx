@@ -8,6 +8,7 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import Logo from '@/components/ui/Logo';
 
 const FOOTER_LINKS = {
   tienda: [
@@ -86,27 +87,23 @@ export default function Footer() {
       </div>
 
       {/* Links grid */}
-      <div className="container-apple py-14">
+      <div className="container-apple py-20 md:py-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 lg:gap-24"
         >
           {/* Brand column */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex flex-col items-center gap-0 w-fit group mb-4">
-              <img
-                src="/images/logo.png"
-                alt="Sobre Ruedas Logo"
-                className="w-20 h-20 object-contain brightness-0 invert"
-              />
+            <Link href="/" className="flex flex-col items-start gap-0 w-fit group mb-8">
+              <Logo className="h-16 w-auto" variant="light" />
             </Link>
-            <p className="text-sm text-[#9A8A72] leading-relaxed mb-5">
+            <p className="text-sm text-[#9A8A72] leading-relaxed mb-14">
               Tu tienda especializada en patines artísticos. Expertos en equipamiento de competición y disfrute.
             </p>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-8 text-sm">
               <li className="flex items-center gap-2 text-[#9A8A72]">
                 <MapPin size={14} className="text-[#D97230] shrink-0" />
                 <span>Buenos Aires, Argentina</span>
@@ -124,30 +121,72 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="flex items-center gap-3 mt-5">
-              <a
+            <div className="flex items-center gap-4 mt-16">
+              <motion.a
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
                 href="https://instagram.com/sobreruedas"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram de Sobre Ruedas"
-                className="w-9 h-9 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-white hover:bg-white/[0.10] transition-all"
+                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                   <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
                   <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
-              </a>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
+                href="https://facebook.com/sobreruedas"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Sobre Ruedas"
+                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                whileTap={{ scale: 0.9 }}
+                href="https://tiktok.com/@sobreruedas"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok de Sobre Ruedas"
+                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-3v5.71A4 4 0 0 1 9 12Z"/>
+                </svg>
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1, rotate: -5 }}
+                whileTap={{ scale: 0.9 }}
+                href="https://youtube.com/@sobreruedas"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube de Sobre Ruedas"
+                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
+                  <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                  <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                </svg>
+              </motion.a>
             </div>
           </motion.div>
 
           {/* Link columns */}
           {(['tienda', 'ayuda', 'empresa'] as const).map((section) => (
             <motion.div key={section} variants={itemVariants}>
-              <h4 className="text-white font-semibold text-sm mb-4 tracking-tight capitalize">
+              <h4 className="text-white font-semibold text-sm mb-16 tracking-tight capitalize">
                 {section === 'empresa' ? 'Empresa' : section === 'ayuda' ? 'Ayuda' : 'Tienda'}
               </h4>
-              <ul className="space-y-3">
+              <ul className="space-y-8">
                 {FOOTER_LINKS[section].map((link) => (
                   <li key={link.href}>
                     <Link href={link.href} className="text-sm text-[#9A8A72] hover:text-white transition-colors">
@@ -163,7 +202,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/[0.06] mt-12">
-        <div className="container-apple py-10 flex flex-col sm:flex-row items-center justify-between gap-8">
+        <div className="container-apple py-14 flex flex-col sm:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center sm:items-start gap-2">
             <p className="text-xs text-[#6B5E4A]">
               © {year} Sobre Ruedas. Todos los derechos reservados.

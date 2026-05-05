@@ -82,7 +82,7 @@ export default function HeroSection() {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="text-[clamp(3rem,10vw,6rem)] font-extralight leading-[1.05] tracking-tighter text-[#1C1612] mb-16"
+            className="text-[clamp(2.5rem,8vw,6rem)] font-extralight leading-[1.05] tracking-tighter text-[#1C1612] mb-12 md:mb-16"
           >
             La perfección
             <br />
@@ -113,7 +113,7 @@ export default function HeroSection() {
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.6, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mt-20 flex justify-center"
+            className="mt-10 md:mt-20 flex justify-center"
           >
              <div className="relative group">
                 {/* Glow behind product */}

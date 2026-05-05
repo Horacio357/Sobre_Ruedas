@@ -78,7 +78,7 @@ export default function StickyFeatures() {
         </div>
 
         {/* Lado Derecho: Textos que scrollean */}
-        <div className="space-y-[50vh] py-[25vh] px-8 md:px-20 lg:px-32">
+        <div className="space-y-[20vh] lg:space-y-[50vh] py-[15vh] lg:py-[25vh] px-6 md:px-20 lg:px-32">
           {FEATURES.map((feature, index) => (
             <motion.div
               key={index}
@@ -94,7 +94,7 @@ export default function StickyFeatures() {
               >
                 Innovación 0{index + 1}
               </span>
-              <h2 className="text-3xl md:text-5xl font-black text-[#1C1612] tracking-tighter leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1612] tracking-tighter leading-tight mb-6">
                 {feature.title}
               </h2>
               <p className="text-lg text-[#B08B8B] leading-relaxed font-light">

@@ -47,10 +47,10 @@ export default function FilterSidebar({
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 md:p-0 space-y-24">
+        <div className="flex-1 overflow-y-auto p-6 md:p-0 flex flex-col gap-32">
           {/* Category Filter */}
           <FilterSection title="Categoría">
-            <div className="space-y-6">
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
               <FilterButton
                 label="Todos"
                 isActive={selectedCategory === 'all'}
@@ -69,7 +69,7 @@ export default function FilterSidebar({
 
           {/* Level Filter */}
           <FilterSection title="Nivel">
-            <div className="space-y-6">
+            <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
               <FilterButton
                 label="Cualquier nivel"
                 isActive={selectedLevel === 'all'}
@@ -123,7 +123,7 @@ export default function FilterSidebar({
 function FilterSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="space-y-10">
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-16">
         <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-[#1C1612]">
           {title}
         </h3>
