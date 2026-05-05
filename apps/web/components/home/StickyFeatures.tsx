@@ -82,19 +82,19 @@ export default function StickyFeatures() {
           {FEATURES.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 100 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: '-20%' }}
-              transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className="max-w-md"
             >
               <span 
-                className="text-[10px] font-black uppercase tracking-[0.4em] mb-6 block"
+                className="text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block"
                 style={{ color: feature.color }}
               >
                 Innovación 0{index + 1}
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#1C1612] tracking-tighter leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1C1612] tracking-tighter leading-tight mb-6">
                 {feature.title}
               </h2>
               <p className="text-lg text-[#B08B8B] leading-relaxed font-light">

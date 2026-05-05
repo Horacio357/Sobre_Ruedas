@@ -11,11 +11,11 @@ import Link from 'next/link';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 const textVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] as const },
+    transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
   }),
 };
 
@@ -70,7 +70,7 @@ export default function HeroSection() {
         >
           {/* Eyebrow */}
           <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible">
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#F9EAEA] text-[10px] font-black uppercase tracking-[0.2em] text-[#D97230] mb-10 shadow-sm">
+            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#F9EAEA] text-[10px] font-bold uppercase tracking-[0.2em] text-[#D97230] mb-10 shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D97230] animate-pulse" />
               Nueva Colección 2024
             </span>
@@ -103,16 +103,16 @@ export default function HeroSection() {
               Configurar mis patines
               <ArrowRight size={20} />
             </Link>
-            <Link href="/patines" className="text-sm font-black uppercase tracking-[0.3em] text-[#1C1612]/60 hover:text-[#1C1612] transition-colors">
+            <Link href="/patines" className="text-sm font-bold uppercase tracking-[0.3em] text-[#1C1612]/60 hover:text-[#1C1612] transition-colors">
               Explorar Catálogo
             </Link>
           </motion.div>
 
           {/* Main Hero Product (Floating Effect) */}
           <motion.div
-            initial={{ y: 100, opacity: 0 }}
+            initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
             className="mt-10 md:mt-20 flex justify-center"
           >
              <div className="relative group">
@@ -132,7 +132,7 @@ export default function HeroSection() {
           style={{ opacity }}
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#B08B8B]"
         >
-          <span className="text-[9px] font-black uppercase tracking-[0.4em]">Descubre más</span>
+          <span className="text-[9px] font-bold uppercase tracking-[0.4em]">Descubre más</span>
           <motion.div 
             animate={{ y: [0, 8, 0] }} 
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

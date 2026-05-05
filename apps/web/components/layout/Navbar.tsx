@@ -16,13 +16,10 @@ import { cn } from '@/lib/utils';
 import Logo from '@/components/ui/Logo';
 
 const NAV_LINKS = [
-  { label: 'Inicio', href: '/' },
   { label: 'Patines', href: '/patines' },
   { label: 'Armá el tuyo', href: '/arma-el-tuyo', accent: true },
-  { label: 'Componentes', href: '/componentes' },
-  { label: 'Guía', href: '/guia' },
-  { label: 'Outlet', href: '/outlet', accent: true },
-  { label: 'Contacto', href: '/contacto' },
+  { label: 'Cursos', href: '/cursos' },
+  { label: 'Ayuda', href: '/guia' },
 ];
 
 export default function Navbar() {

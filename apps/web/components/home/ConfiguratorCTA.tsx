@@ -11,9 +11,9 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const STEPS = [
   { step: 1, label: 'Elegí tu nivel', icon: '⭐' },
-  { step: 2, label: 'Seleccioná la bota', icon: '👟' },
-  { step: 3, label: 'Elegí la plancha', icon: '🔩' },
-  { step: 4, label: 'Configurá las ruedas', icon: '🛼' },
+  { step: 2, label: 'Seleccioná la bota', icon: <img src="https://i.ibb.co/qYPZYx5y/6-1.png" alt="Bota" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
+  { step: 3, label: 'Elegí la plancha', icon: <img src="https://i.ibb.co/hx3GqB85/2-4.png" alt="Plancha" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
+  { step: 4, label: 'Configurá las ruedas', icon: <img src="https://i.ibb.co/mVmvF5tZ/patin.png" alt="Ruedas" className="w-6 h-6 object-contain mix-blend-screen opacity-80" /> },
   { step: 5, label: 'Setup final y checkout', icon: '✅' },
 ];
 
@@ -41,15 +41,15 @@ export default function ConfiguratorCTA() {
 
           {/* Texto izquierda */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <span className="badge badge-accent mb-6 inline-flex">
               Configurador
             </span>
-            <h2 className="text-white text-[clamp(1.75rem,4vw,2.75rem)] font-black tracking-tight leading-tight mb-6">
+            <h2 className="text-white text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-tight mb-6">
               Armá tu patín
               <br />
               <span
@@ -85,19 +85,19 @@ export default function ConfiguratorCTA() {
 
           {/* Steps derecha */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="space-y-2.5"
           >
             {STEPS.map((s, i) => (
               <motion.div
                 key={s.step}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 + 0.2, duration: 0.5 }}
+                transition={{ delay: i * 0.05, duration: 0.3 }}
                 className="flex items-center gap-4 p-3.5 rounded-lg bg-white/[0.04] border border-white/[0.07] hover:bg-white/[0.07] hover:border-[#D97230]/30 transition-all group"
               >
                 <div className="w-9 h-9 rounded flex items-center justify-center text-xl bg-white/[0.06] shrink-0">

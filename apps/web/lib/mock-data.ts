@@ -149,15 +149,31 @@ export const PRODUCTS: Product[] = [
       { label: 'Durabilidad', value: 80 },
       { label: 'Rebote', value: 88 },
     ],
+  },
+  {
+    id: 'p7',
+    name: 'Masterclass: Saltos Dobles',
+    slug: 'masterclass-saltos-dobles',
+    brand: 'Sobre Ruedas Academy',
+    category: 'curso',
+    level: 'intermedio',
+    price: 45000,
+    description: 'Curso online completo con 10 módulos en video para perfeccionar la técnica de tus saltos dobles. Incluye análisis biomecánico y rutinas fuera de pista.',
+    shortDesc: 'Curso online: Técnica y biomecánica de saltos dobles.',
+    images: ['https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=2070&auto=format&fit=crop'],
+    badge: 'Digital',
+    badgeType: 'new',
+    discipline: ['libre', 'saltos'],
   }
 ];
 
-export const BRANDS = ['Edea', 'Risport', 'Roll-Line', 'Komplex', 'Jackson', 'Sobre Ruedas'];
+export const BRANDS = ['Edea', 'Risport', 'Roll-Line', 'Komplex', 'Jackson', 'Sobre Ruedas', 'Sobre Ruedas Academy'];
 export const CATEGORIES = [
   { id: 'bota', label: 'Botas' },
   { id: 'plancha', label: 'Planchas' },
   { id: 'rueda', label: 'Ruedas' },
   { id: 'combo', label: 'Combos' },
+  { id: 'curso', label: 'Cursos' },
 ];
 export const LEVELS = [
   { id: 'iniciacion', label: 'Iniciación' },
