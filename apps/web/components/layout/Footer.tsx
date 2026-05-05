@@ -121,7 +121,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="flex items-center gap-4 mt-16">
+            <div className="flex flex-wrap items-center gap-6 mt-20">
               <motion.a
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}

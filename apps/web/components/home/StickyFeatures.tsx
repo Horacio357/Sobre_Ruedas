@@ -78,7 +78,7 @@ export default function StickyFeatures() {
         </div>
 
         {/* Lado Derecho: Textos que scrollean */}
-        <div className="space-y-[20vh] lg:space-y-[50vh] py-[15vh] lg:py-[25vh] px-6 md:px-20 lg:px-32">
+        <div className="space-y-[45vh] lg:space-y-[50vh] py-[25vh] lg:py-[25vh] px-6 md:px-20 lg:px-32">
           {FEATURES.map((feature, index) => (
             <motion.div
               key={index}
@@ -101,7 +101,7 @@ export default function StickyFeatures() {
                 {feature.desc}
               </p>
               
-              <div className="mt-12 lg:hidden rounded-[40px] overflow-hidden shadow-2xl border border-[#F9EAEA] bg-[#FFF9F9] p-8">
+              <div className="mt-20 lg:hidden rounded-[40px] overflow-hidden shadow-2xl border border-[#F9EAEA] bg-[#FFF9F9] p-8">
                 <img src={feature.img} alt={feature.title} className="w-full h-auto mix-blend-multiply" />
               </div>
             </motion.div>
