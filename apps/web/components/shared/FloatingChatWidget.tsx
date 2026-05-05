@@ -68,10 +68,14 @@ export default function FloatingChatWidget({
                   }
                   setIsOpen(false);
                 }}
-                className="w-12 h-12 bg-[#D97230] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform border border-white/20"
+                className="w-12 h-12 bg-[#D97230] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform border border-white/20 overflow-hidden"
                 title="Hablar con Alma"
               >
-                <Bot size={24} color="white" />
+                <img 
+                  src="https://i.ibb.co/Ndnh5nz5/Gemini-Generated-Image-33uahn33uahn33ua-1.png" 
+                  alt="Alma AI" 
+                  className="w-full h-full object-cover"
+                />
               </button>
             </motion.div>
 
