@@ -5,9 +5,10 @@
 
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import WhatsAppButton from '@/components/shared/WhatsAppButton';
+import FloatingChatWidget from '@/components/shared/FloatingChatWidget';
 import CartDrawer from '@/components/cart/CartDrawer';
 import TotalsSync from '@/components/shared/TotalsSync';
+import Script from 'next/script';
 
 export default function MarketingLayout({
   children,
@@ -16,6 +17,9 @@ export default function MarketingLayout({
 }) {
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: `
+        #srp-chat-btn { display: none !important; }
+      `}} />
       <Navbar />
       <CartDrawer />
       <TotalsSync />
@@ -23,7 +27,11 @@ export default function MarketingLayout({
         {children}
       </main>
       <Footer />
-      <WhatsAppButton />
+      <FloatingChatWidget />
+      <Script 
+        src="https://base44.app/api/apps/69cb9fa76ed1f034d87f23b0/files/mp/public/69cb9fa76ed1f034d87f23b0/c95be4e45_widget-chat-sobreruedas.js"
+        strategy="lazyOnload"
+      />
     </>
   );
 }
