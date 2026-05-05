@@ -43,36 +43,23 @@ export default function ConfiguratorFooter() {
           {/* Info central (solo desktop) */}
           <div className="hidden lg:flex items-center gap-8">
             <div className="flex flex-col items-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#9A8A72]">Total Estimado</span>
-              <span className="text-xl font-black text-[#1C1612] tracking-tighter">{formatPrice(totalArs)}</span>
-            </div>
-            <div className="h-8 w-px bg-[#F5F0EA]" />
-            <div className="flex items-center gap-2">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <div 
-                  key={s} 
-                  className={cn(
-                    "w-2 h-2 rounded-full transition-all duration-300",
-                    s === currentStep ? "bg-[#D97230] scale-125 shadow-[0_0_10px_rgba(217,114,48,0.3)]" : 
-                    s < currentStep ? "bg-[#1C1612]" : "bg-[#EAE3D9]"
-                  )}
-                />
-              ))}
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9A8A72]">Total Estimado</span>
+              <span className="text-xl font-bold text-[#1C1612] tracking-tighter">{formatPrice(totalArs)}</span>
             </div>
           </div>
 
           {/* Botón Siguiente */}
           <button
             onClick={nextStep}
-            disabled={!isComplete || currentStep === 5}
+            disabled={!isComplete || currentStep === 6}
             className={cn(
-              "flex items-center gap-2 px-10 py-3 rounded-full font-black text-sm uppercase tracking-widest transition-all shadow-lg",
-              !isComplete || currentStep === 5
+              "flex items-center gap-2 px-10 py-3 rounded-full font-bold text-sm uppercase tracking-widest transition-all shadow-md",
+              !isComplete || currentStep === 6
                 ? "bg-[#EAE3D9] text-[#9A8A72] cursor-not-allowed shadow-none"
                 : "bg-[#D97230] text-white hover:bg-[#B85C20] hover:scale-105 active:scale-95"
             )}
           >
-            {currentStep === 4 ? 'Ver Resumen' : 'Siguiente'}
+            {currentStep === 5 ? 'Ver Resumen' : 'Continuar'}
             {isComplete ? <ChevronRight size={18} /> : <div className="w-4 h-4 rounded-full border-2 border-[#9A8A72]/30 border-t-[#9A8A72] animate-spin ml-2" />}
           </button>
         </div>

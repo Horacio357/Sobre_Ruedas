@@ -20,6 +20,7 @@ export interface Product {
   badge?: string;
   badgeType?: 'new' | 'discount' | 'bestseller' | 'accent';
   discipline?: ('libre' | 'danza' | 'figuras' | 'saltos')[];
+  floorType?: 'liso' | 'rugoso' | 'mixto';
   specs?: {
     label: string;
     value: number;
@@ -142,6 +143,7 @@ export const PRODUCTS: Product[] = [
     badge: 'Nuevo',
     badgeType: 'new',
     discipline: ['libre', 'danza'],
+    floorType: 'liso',
     specs: [
       { label: 'Agarre', value: 85 },
       { label: 'Velocidad', value: 90 },
@@ -149,6 +151,32 @@ export const PRODUCTS: Product[] = [
       { label: 'Durabilidad', value: 80 },
       { label: 'Rebote', value: 88 },
     ],
+  },
+  {
+    id: 'p6_2',
+    name: 'Ruedas Roll-Line Magnum',
+    slug: 'roll-line-magnum',
+    brand: 'Roll-Line',
+    category: 'rueda',
+    level: 'intermedio',
+    price: 40000,
+    description: 'Perfectas para superficies rugosas y asfalto.',
+    shortDesc: 'Set de 8 ruedas para piso rugoso.',
+    images: ['https://i.ibb.co/PvQvS3TF/95-1.jpg'],
+    floorType: 'rugoso',
+  },
+  {
+    id: 'p6_3',
+    name: 'Ruedas Edea Fox',
+    slug: 'edea-fox',
+    brand: 'Edea',
+    category: 'rueda',
+    level: 'avanzado',
+    price: 42000,
+    description: 'Equilibrio perfecto para quienes cambian de pista frecuentemente.',
+    shortDesc: 'Set de 8 ruedas mixtas.',
+    images: ['https://i.ibb.co/PvQvS3TF/95-1.jpg'],
+    floorType: 'mixto',
   },
   {
     id: 'p7',

@@ -1,127 +1,97 @@
 'use client';
 
-// ============================================================
-// SOBRE RUEDAS — Step 3: Plancha
-// ============================================================
-
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useConfiguratorStore } from '@/store/configuratorStore';
 import { PRODUCTS } from '@/lib/mock-data';
 import { formatPrice } from '@/lib/utils';
-import { Check, ArrowRight, ChevronDown } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import RadarChart from '@/components/ui/RadarChart';
 
 export default function StepPlate() {
   const { plate: selectedPlate, setPlate, nextStep } = useConfiguratorStore();
-  const [showAlternatives, setShowAlternatives] = useState(false);
 
-  const availablePlates = PRODUCTS.filter(p => p.category === 'plancha');
+  const availablePlates = PRODUCTS.filter(p => p.category === 'plancha').slice(0, 2);
 
-  const recommended = availablePlates[0];
-  const alternatives = availablePlates.slice(1);
-
-  const handleSelect = (product: any) => {
-    setPlate(product);
-  };
-
-  const handleSelectAndNext = (product: any) => {
-    setPlate(product);
-    setTimeout(nextStep, 150);
-  };
-
-  if (!recommended) return null;
+  // Fallback
+  const displayPlates = availablePlates.length > 0 ? availablePlates : PRODUCTS.filter(p => p.category === 'plancha').slice(0, 2);
 
   return (
-    <div className="space-y-12">
-      <div className="text-center mb-16">
-        <h2 className="text-[#1C1612] text-4xl font-light tracking-tight mb-4">Recomendación Ideal</h2>
-        <p className="text-[#B08B8B] text-base max-w-2xl mx-auto font-light opacity-80 leading-relaxed">
-          El chasis de tu patín. Una plancha estable y responsiva es fundamental para transmitir tu fuerza.
+    <div className="max-w-4xl mx-auto w-full">
+      <div className="text-center mb-8 md:mb-12">
+        <h2 className="text-[#1C1612] text-2xl md:text-4xl font-bold tracking-tight mb-2 md:mb-3">Elegí tu plancha</h2>
+        <p className="text-[#9A8A72] text-sm md:text-base font-medium">
+          Compatibles con tu bota seleccionada.
         </p>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="max-w-4xl mx-auto bg-white rounded-[40px] shadow-2xl overflow-hidden border border-[#F9EAEA] flex flex-col md:flex-row"
-      >
-        <div className="md:w-1/2 p-12 flex flex-col justify-center relative bg-[#FAF7F2]">
-           {recommended.specs ? (
-             <RadarChart data={recommended.specs} size={240} className="mx-auto" />
-           ) : (
-             <div className="text-9xl opacity-[0.03] text-center">🔩</div>
-           )}
-        </div>
-        <div className="md:w-1/2 p-12 md:p-16 flex flex-col">
-          <span className="badge badge-accent mb-6 inline-flex self-start">Elección Experta</span>
-          <h3 className="text-[#1C1612] text-3xl font-bold tracking-tight mb-4">{recommended.name}</h3>
-          <p className="text-[#B08B8B] text-sm leading-relaxed mb-8">
-            {recommended.description}
-          </p>
-          <div className="mt-auto">
-            <span className="text-3xl font-light text-[#1C1612] tracking-tighter block mb-6">
-              {formatPrice(recommended.price)}
-            </span>
-            <button 
-              onClick={() => handleSelectAndNext(recommended)}
-              className="w-full btn-primary py-4 text-base gap-2 group"
-            >
-              Elegir y Continuar
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </div>
-      </motion.div>
+      <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+        {displayPlates.map((product, i) => {
+          const isSelected = selectedPlate?.id === product.id;
+          const badgeText = i === 0 ? "Más Estabilidad" : "Más Respuesta";
 
-      {alternatives.length > 0 && (
-        <div className="pt-12 text-center">
-          <button 
-            onClick={() => setShowAlternatives(!showAlternatives)}
-            className="text-sm font-bold uppercase tracking-[0.2em] text-[#9A8A72] hover:text-[#D97230] transition-colors inline-flex items-center gap-2"
-          >
-            Ver otras opciones
-            <ChevronDown size={16} className={cn("transition-transform", showAlternatives && "rotate-180")} />
-          </button>
-          
-          <AnimatePresence>
-            {showAlternatives && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                exit={{ opacity: 0, height: 0 }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 overflow-hidden"
-              >
-                {alternatives.map((product, i) => (
-                  <div
-                    key={product.id}
-                    onClick={() => handleSelect(product)}
-                    className={cn(
-                      "cursor-pointer rounded-3xl p-8 border transition-all text-left flex flex-col",
-                      selectedPlate?.id === product.id
-                        ? "border-[#D97230] bg-[#FFF9F9] shadow-md"
-                        : "border-[#EAE3D9] bg-white hover:border-[#D97230]/30"
-                    )}
-                  >
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#D97230]/60 mb-2">{product.brand}</span>
-                    <h4 className="text-xl font-bold text-[#1C1612] mb-4">{product.name}</h4>
-                    <p className="text-sm text-[#B08B8B] mb-8 flex-1">{product.shortDesc}</p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <span className="text-lg font-light text-[#1C1612]">{formatPrice(product.price)}</span>
-                      {selectedPlate?.id === product.id ? (
-                        <Check size={20} className="text-[#D97230]" />
-                      ) : (
-                        <span className="text-xs font-bold text-[#D97230]">Elegir</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      )}
+          return (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
+              onClick={() => {
+                setPlate(product);
+                setTimeout(nextStep, 400);
+              }}
+              className={cn(
+                "group relative flex flex-col bg-white rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden",
+                isSelected
+                  ? "border-[#D97230] shadow-[0_10px_40px_-10px_rgba(217,114,48,0.2)]"
+                  : "border-[#EAE3D9] hover:border-[#9A8A72] hover:shadow-lg"
+              )}
+            >
+              <div className="absolute top-4 left-4 z-10 bg-[#FAF7F2] border border-[#EAE3D9] text-[#1C1612] text-[9px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full">
+                {badgeText}
+              </div>
+              
+              {/* Selección Check */}
+              <div className={cn(
+                "absolute top-4 right-4 z-10 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all",
+                isSelected ? "border-[#D97230] bg-[#D97230] text-white" : "border-[#EAE3D9] bg-white/50 text-transparent"
+              )}>
+                <Check size={14} strokeWidth={3} />
+              </div>
+
+              {/* Imagen y Radar */}
+              <div className="relative h-40 md:h-48 bg-[#FAF7F2] p-4 md:p-8 flex items-center justify-center group-hover:bg-[#F5F0EA] transition-colors">
+                 <img 
+                   src="https://i.ibb.co/hx3GqB85/2-4.png" 
+                   alt={product.name} 
+                   className="max-w-full max-h-full object-contain drop-shadow-md z-10 group-hover:scale-105 transition-transform duration-500"
+                 />
+                 {product.specs && (
+                   <div className="absolute inset-0 flex items-center justify-center opacity-[0.08] pointer-events-none scale-150">
+                     <RadarChart data={product.specs} size={200} />
+                   </div>
+                 )}
+              </div>
+
+              <div className="p-4 md:p-6 flex flex-col flex-1 text-center">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-[#9A8A72] mb-1">
+                  {product.brand}
+                </span>
+                <h3 className="text-[#1C1612] text-xl font-bold mb-2 leading-tight">{product.name}</h3>
+                <p className="text-[#9A8A72] text-xs leading-relaxed mb-6 flex-1">
+                  {product.shortDesc}
+                </p>
+                <div className="mt-auto pt-4 border-t border-[#F5F0EA]">
+                  <span className="text-[#1C1612] text-xl font-bold tracking-tighter block">
+                    {formatPrice(product.price)}
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -1,43 +1,32 @@
 'use client';
 
-// ============================================================
-// SOBRE RUEDAS — Step 1: Nivel
-// ============================================================
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useConfiguratorStore } from '@/store/configuratorStore';
-import { Star, Zap, Trophy, Medal } from 'lucide-react';
+import { Leaf, Flame, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const LEVELS = [
   {
-    id: 'iniciacion',
-    title: 'Iniciación',
-    desc: 'Ideal para quienes dan sus primeros pasos en el patinaje artístico.',
-    icon: Medal,
-    color: 'bg-blue-50 text-blue-600',
+    id: 'principiante',
+    title: 'Principiante',
+    desc: 'Estoy comenzando a patinar',
+    icon: Leaf,
+    color: 'text-green-500',
   },
   {
     id: 'intermedio',
     title: 'Intermedio',
-    desc: 'Para patinadores que ya dominan lo básico y empiezan con saltos simples.',
-    icon: Star,
-    color: 'bg-green-50 text-green-600',
+    desc: 'Ya tengo experiencia y quiero mejorar',
+    icon: Flame,
+    color: 'text-yellow-500',
   },
   {
     id: 'avanzado',
     title: 'Avanzado',
-    desc: 'Equipamiento técnico para perfeccionar saltos dobles y trompos.',
+    desc: 'Entreno seguido o compito',
     icon: Zap,
-    color: 'bg-orange-50 text-orange-600',
-  },
-  {
-    id: 'alto_rendimiento',
-    title: 'Alto Rendimiento',
-    desc: 'Máxima tecnología para competición de elite y saltos triples.',
-    icon: Trophy,
-    color: 'bg-purple-50 text-purple-600',
+    color: 'text-red-500',
   },
 ];
 
@@ -45,59 +34,55 @@ export default function StepLevel() {
   const { level: selectedLevel, setLevel, nextStep } = useConfiguratorStore();
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-10">
-        <h2 className="text-[#1C1612] text-xl font-black mb-2">¿Cuál es tu nivel actual?</h2>
-        <p className="text-[#6B5E4A] text-[13px] font-medium">
-          Esto nos ayudará a filtrarte los componentes más adecuados para tu patinaje.
+    <div className="max-w-4xl mx-auto w-full">
+      <div className="text-center mb-8 md:mb-12">
+        <h2 className="text-[#1C1612] text-2xl md:text-4xl font-bold tracking-tight mb-2 md:mb-3">¿Cuál es tu nivel?</h2>
+        <p className="text-[#9A8A72] text-sm md:text-base font-medium">
+          Esto nos ayuda a recomendarte el patín ideal para vos.
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {LEVELS.map((level, i) => (
           <motion.button
             key={level.id}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
             onClick={() => {
               setLevel(level.id as any);
-              setTimeout(nextStep, 400); // Pequeño delay para feedback visual
+              setTimeout(nextStep, 400);
             }}
             className={cn(
-              "group relative p-8 rounded-2xl border-2 text-left transition-all duration-300",
+              "group relative flex flex-col items-center text-center p-6 md:p-10 rounded-2xl border bg-white transition-all duration-300",
               selectedLevel === level.id
-                ? "border-[#D97230] bg-white shadow-xl scale-[1.02]"
-                : "border-white bg-white/60 hover:border-[#EAE3D9] hover:bg-white"
+                ? "border-[#D97230] shadow-[0_10px_40px_-10px_rgba(217,114,48,0.2)]"
+                : "border-[#EAE3D9] hover:border-[#9A8A72] hover:shadow-md"
             )}
           >
-            <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform group-hover:scale-110", level.color)}>
-              <level.icon size={24} />
-            </div>
+            <motion.div 
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              className={cn("mb-6 transition-colors", level.color)}
+            >
+              <level.icon size={48} strokeWidth={1.5} />
+            </motion.div>
             
-            <h3 className="text-[#1C1612] text-lg font-black mb-1">{level.title}</h3>
-            <p className="text-[#6B5E4A] text-[12px] leading-relaxed mb-6 font-medium">
+            <h3 className="text-[#1C1612] text-xl font-bold mb-2">{level.title}</h3>
+            <p className="text-[#9A8A72] text-sm leading-relaxed font-medium">
               {level.desc}
             </p>
             
+            {/* Indicador de selección */}
             <div className={cn(
-              "w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all",
+              "absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all",
               selectedLevel === level.id 
                 ? "border-[#D97230] bg-[#D97230]" 
                 : "border-[#EAE3D9]"
             )}>
               {selectedLevel === level.id && (
-                <div className="w-2 h-2 rounded-full bg-white" />
+                <div className="w-1.5 h-1.5 rounded-full bg-white" />
               )}
             </div>
-
-            {/* Acento lateral */}
-            {selectedLevel === level.id && (
-              <motion.div 
-                layoutId="level-accent"
-                className="absolute inset-y-0 left-0 w-1.5 bg-[#D97230] rounded-l-2xl" 
-              />
-            )}
           </motion.button>
         ))}
       </div>
