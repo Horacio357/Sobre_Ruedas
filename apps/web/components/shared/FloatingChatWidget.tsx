@@ -109,13 +109,23 @@ export default function FloatingChatWidget({
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
         initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.5, type: 'spring', stiffness: 400, damping: 20 }}
-        whileHover={{ scale: 1.05 }}
+        animate={{ 
+          scale: isOpen ? 1 : [1, 1.06, 1],
+          opacity: 1 
+        }}
+        transition={{ 
+          scale: isOpen 
+            ? { type: 'spring', stiffness: 400, damping: 20 } 
+            : { repeat: Infinity, duration: 3, ease: "easeInOut" },
+          delay: isOpen ? 0 : 0.5
+        }}
+        whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         className={cn(
-          "w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-colors duration-300 z-50",
-          isOpen ? "bg-sr-gray-800 text-white" : "bg-white text-sr-gray-900 border border-sr-gray-100"
+          "w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 z-50 border",
+          isOpen 
+            ? "bg-sr-gray-800 text-white border-sr-gray-800" 
+            : "bg-[#FFF5F0] text-[#D97230] border-[#FFDAB9]"
         )}
         aria-label={isOpen ? "Cerrar opciones" : "Abrir chat"}
       >
@@ -141,7 +151,7 @@ export default function FloatingChatWidget({
             >
               <MessageCircle size={28} />
               {/* Badge de notificación sutil */}
-              <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#D97230] rounded-full border-2 border-white animate-pulse" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-[#D97230] rounded-full border-2 border-white" />
             </motion.div>
           )}
         </AnimatePresence>
