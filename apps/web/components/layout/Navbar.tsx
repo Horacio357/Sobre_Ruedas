@@ -152,38 +152,57 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            initial={{ x: '100%', opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: '100%', opacity: 0 }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] bg-white flex flex-col p-12 md:hidden"
+            className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl flex flex-col p-12 md:hidden"
           >
             <div className="flex justify-end mb-20">
               <button onClick={() => setIsMobileOpen(false)} className="p-4 text-[#1C1612]">
-                <X size={32} />
+                <X size={32} strokeWidth={1.5} />
               </button>
             </div>
-            <ul className="space-y-12">
+            <motion.ul 
+              initial="hidden"
+              animate="visible"
+              variants={{
+                visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } }
+              }}
+              className="space-y-16 flex-1 flex flex-col justify-center pb-32"
+            >
               {NAV_LINKS.map((link) => (
-                <li key={link.href}>
+                <motion.li 
+                  key={link.href}
+                  variants={{
+                    hidden: { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+                  }}
+                >
                   <Link
                     href={link.href}
-                    className="text-3xl font-black text-[#1C1612] tracking-tighter hover:text-[#D97230] transition-colors"
+                    className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
                   >
                     {link.label}
                   </Link>
-                </li>
+                </motion.li>
               ))}
-              <li className="pt-8 border-t border-[#F5F0EA]">
+              <motion.li 
+                variants={{
+                  hidden: { opacity: 0, y: 20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+                }}
+                className="pt-12 border-t border-[#F5F0EA] mt-12"
+              >
                 <Link
                   href={isAuthenticated ? "/cuenta" : "/login"}
-                  className="text-3xl font-black text-[#D97230] tracking-tighter flex items-center justify-between"
+                  className="text-4xl font-medium text-[#D97230] tracking-tight flex items-center justify-between"
                 >
                   {isAuthenticated ? 'Mi Cuenta' : 'Ingresar'}
-                  <UserIcon size={28} />
+                  <UserIcon size={32} strokeWidth={1.5} />
                 </Link>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>
