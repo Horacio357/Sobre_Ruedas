@@ -78,30 +78,30 @@ export default function StickyFeatures() {
         </div>
 
         {/* Lado Derecho: Textos que scrollean */}
-        <div className="space-y-[45vh] lg:space-y-[50vh] py-[25vh] lg:py-[25vh] px-6 md:px-20 lg:px-32">
+        <div className="flex flex-col gap-[50vh] lg:block lg:space-y-[50vh] py-[25vh] lg:py-[25vh] px-6 md:px-20 lg:px-32">
           {FEATURES.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ margin: '-20%' }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="max-w-md"
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="max-w-md w-full mx-auto lg:mx-0"
             >
               <span 
-                className="text-[10px] font-bold uppercase tracking-[0.4em] mb-6 block"
+                className="text-[11px] font-bold uppercase tracking-[0.4em] mb-8 block"
                 style={{ color: feature.color }}
               >
                 Innovación 0{index + 1}
               </span>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1C1612] tracking-tighter leading-tight mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#1C1612] tracking-tighter leading-tight mb-8">
                 {feature.title}
               </h2>
-              <p className="text-lg text-[#B08B8B] leading-relaxed font-light">
+              <p className="text-xl text-[#B08B8B] leading-relaxed font-light mb-16">
                 {feature.desc}
               </p>
               
-              <div className="mt-20 lg:hidden rounded-[40px] overflow-hidden shadow-2xl border border-[#F9EAEA] bg-[#FFF9F9] p-8">
+              <div className="lg:hidden rounded-[40px] overflow-hidden shadow-2xl border border-[#F9EAEA] bg-[#FFF9F9] p-8">
                 <img src={feature.img} alt={feature.title} className="w-full h-auto mix-blend-multiply" />
               </div>
             </motion.div>
