@@ -39,38 +39,26 @@ export default function ConfiguratorPage() {
   const { currentStep, direction } = useConfiguratorStore();
 
   return (
-    <main className="min-h-screen bg-[#FAF7F2] flex flex-col pt-[80px]">
-      {/* Header estilo Wireframe */}
-      <div className="bg-[#FAF7F2] py-2 md:py-4 sticky top-0 z-40 shadow-sm md:shadow-none">
+    <main className="min-h-screen bg-sr-cream flex flex-col">
+      {/* Stepper Progress Bar */}
+      <div className="bg-sr-cream py-4 md:py-6 sticky top-[100px] md:top-[120px] z-40 border-b border-sr-gray-100">
         <div className="container-apple">
-          
-          <div className="flex items-center justify-between mb-4 md:mb-8">
-            <button className="p-2 text-[#1C1612] hover:bg-white rounded-full transition-colors">
-              <Search size={18} className="md:w-5 md:h-5" />
-            </button>
-            <Link href="/" className="shrink-0">
-              <Logo className="h-8 md:h-10 w-auto text-[#D97230]" />
-            </Link>
-            <div className="flex items-center gap-3 md:gap-4 text-[#1C1612]">
-              <UserIcon size={18} className="md:w-5 md:h-5" />
-              <ShoppingBag size={18} className="md:w-5 md:h-5" />
-            </div>
-          </div>
-
-          {/* Stepper Visual Wireframe Style */}
           <div className="flex items-center justify-center max-w-lg mx-auto px-2 md:px-0">
             {STEPS.map((step, idx) => (
               <React.Fragment key={step.id}>
                 <div className="flex flex-col items-center relative group">
                   <div className={cn(
                     "w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold transition-all duration-300 z-10",
-                    step.id === currentStep ? "bg-[#D97230] text-white scale-110 shadow-md" :
-                    step.id < currentStep ? "bg-[#1C1612] text-white" :
-                    "bg-[#EAE3D9] text-[#9A8A72]"
+                    step.id === currentStep ? "bg-sr-accent text-white scale-110 shadow-md" :
+                    step.id < currentStep ? "bg-sr-gray-900 text-white" :
+                    "bg-sr-gray-100 text-sr-gray-400"
                   )}>
                     {step.id < currentStep ? <Check size={12} strokeWidth={3} /> : step.id}
                   </div>
-                  <span className="absolute -bottom-6 text-[9px] uppercase tracking-widest font-semibold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-[#1C1612]">
+                  <span className={cn(
+                    "absolute -bottom-5 text-[8px] uppercase tracking-widest font-black whitespace-nowrap transition-all",
+                    step.id === currentStep ? "opacity-100 text-sr-accent" : "opacity-0 group-hover:opacity-40 text-sr-gray-900"
+                  )}>
                     {step.title}
                   </span>
                 </div>
@@ -83,13 +71,12 @@ export default function ConfiguratorPage() {
               </React.Fragment>
             ))}
           </div>
-
         </div>
       </div>
 
       {/* Contenido Dinámico con Transiciones */}
       <div className="flex-1 overflow-x-hidden relative">
-        <div className="container-apple py-8 md:py-16 pb-24 md:pb-20">
+        <div className="container-apple pt-32 pb-64 md:pt-40 md:pb-96">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentStep}

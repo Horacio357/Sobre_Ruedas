@@ -31,7 +31,7 @@ export default function FloatingChatWidget({
       scale: 1,
       transition: {
         delay: i * 0.1,
-        type: 'spring',
+        type: 'spring' as const,
         stiffness: 300,
         damping: 20
       }
@@ -119,7 +119,7 @@ export default function FloatingChatWidget({
         }}
         transition={{ 
           scale: isOpen 
-            ? { type: 'spring', stiffness: 400, damping: 20 } 
+            ? { type: 'spring' as const, stiffness: 400, damping: 20 } 
             : { repeat: Infinity, duration: 3, ease: "easeInOut" },
           delay: isOpen ? 0 : 0.5
         }}

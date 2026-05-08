@@ -111,10 +111,10 @@ export const useConfiguratorStore = create<ConfiguratorState>((set, get) => ({
   updateTotal: () => {
     const { boot, bootVariant, plate, wheels, wheelsVariant, bearing } = get();
     let total = 0;
-    if (boot) total += (boot as any).price + (bootVariant?.price_modifier ?? 0);
-    if (plate) total += (plate as any).price;
-    if (wheels) total += (wheels as any).price + (wheelsVariant?.price_modifier ?? 0);
-    if (bearing) total += (bearing as any).price;
+    if (boot) total += boot.price_ars + (bootVariant?.price_modifier ?? 0);
+    if (plate) total += plate.price_ars;
+    if (wheels) total += wheels.price_ars + (wheelsVariant?.price_modifier ?? 0);
+    if (bearing) total += bearing.price_ars;
     set({ totalArs: total });
   },
 

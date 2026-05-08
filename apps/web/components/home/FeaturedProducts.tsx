@@ -15,36 +15,69 @@ const FEATURED_PRODUCTS = [
   {
     id: '1',
     name: 'Edea Concerto',
-    shortDesc: 'Bota de competición en fibra de carbono. Máximo soporte para saltos triples y cuádruples.',
-    price: 380000,
+    brand_name: 'Edea',
+    component_type: 'bota' as const,
+    skate_level: ['alto_rendimiento'] as any,
+    price_ars: 380000,
+    short_desc: 'Bota de competición en fibra de carbono. Máximo soporte para saltos triples y cuádruples.',
+    description: 'Bota de competición en fibra de carbono.',
+    slug: 'edea-concerto',
+    images: [{ id: 'img1', product_id: '1', url: 'https://i.ibb.co/N27h4kN3/96-7.jpg', sort_order: 0, is_primary: true }],
+    is_active: true,
+    is_featured: true,
+    is_outlet: false,
+    stock_quantity: 5,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Elite',
     badgeType: 'accent',
-    level: 'Alto Rendimiento',
-    slug: 'edea-concerto',
-    image: 'https://i.ibb.co/N27h4kN3/96-7.jpg', // Imagen de la bota negra (Concerto)
   },
   {
     id: '2',
     name: 'Edea Chorus',
-    shortDesc: 'Equilibrio perfecto entre ligereza y soporte avanzado para saltos dobles.',
-    price: 245000,
+    brand_name: 'Edea',
+    component_type: 'bota' as const,
+    skate_level: ['avanzado'] as any,
+    price_ars: 245000,
+    short_desc: 'Equilibrio perfecto entre ligereza y soporte avanzado para saltos dobles.',
+    description: 'Equilibrio perfecto entre ligereza y soporte avanzado.',
+    slug: 'edea-chorus',
+    images: [{ id: 'img2', product_id: '2', url: 'https://i.ibb.co/tpCCVKXb/95-7.jpg', sort_order: 0, is_primary: true }],
+    is_active: true,
+    is_featured: true,
+    is_outlet: false,
+    stock_quantity: 8,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Popular',
     badgeType: 'bestseller',
-    level: 'Avanzado',
-    slug: 'edea-chorus',
-    image: 'https://i.ibb.co/tpCCVKXb/95-7.jpg', // Imagen de la bota blanca (Chorus)
   },
   {
     id: '3',
     name: 'Combo Profesional',
-    shortDesc: 'Set completo con plancha Roll-Line y ruedas Komplex para competición.',
-    price: 420000,
-    comparePrice: 480000,
+    brand_name: 'Sobre Ruedas',
+    component_type: 'combo' as const,
+    skate_level: ['alto_rendimiento'] as any,
+    price_ars: 420000,
+    compare_price: 480000,
+    short_desc: 'Set completo con plancha Roll-Line y ruedas Komplex para competición.',
+    description: 'Set completo con plancha Roll-Line y ruedas Komplex.',
+    slug: 'combo-profesional',
+    images: [{ id: 'img3', product_id: '3', url: 'https://i.ibb.co/xtjGfZQX/93-7.jpg', sort_order: 0, is_primary: true }],
+    is_active: true,
+    is_featured: true,
+    is_outlet: false,
+    stock_quantity: 3,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Recomendado',
     badgeType: 'new',
-    level: 'Competición',
-    slug: 'combo-profesional',
-    image: 'https://i.ibb.co/xtjGfZQX/93-7.jpg', // Risport / Combo alternativo
   },
 ];
 
@@ -73,7 +106,7 @@ export default function FeaturedProducts() {
         </motion.div>
 
         {/* Grilla */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24">
           {FEATURED_PRODUCTS.map((product) => (
             <motion.article
               key={product.id}
@@ -100,9 +133,9 @@ export default function FeaturedProducts() {
 
                 {/* Imagen del producto */}
                 <img
-                  src={product.image}
+                  src={product.images?.[0]?.url ?? '/images/placeholder.png'}
                   alt={product.name}
-                  className="w-full h-full object-contain p-20 transition-transform duration-[2s] ease-out group-hover:scale-105 mix-blend-multiply"
+                  className="w-full h-full object-contain p-12 transition-transform duration-[2s] ease-out group-hover:scale-105 mix-blend-multiply"
                   onError={(e) => {
                     // Fallback a un emoji si la imagen no existe
                     e.currentTarget.style.display = 'none';
@@ -124,7 +157,7 @@ export default function FeaturedProducts() {
               {/* Info */}
               <div className="p-16 text-center">
                 <span className="text-[8px] font-black uppercase tracking-[0.5em] text-[#D97230]/60 mb-8 block">
-                  {product.level}
+                  {product.skate_level?.[0]?.replace('_', ' ') ?? 'Intermedio'}
                 </span>
                 
                 <h3 className="font-light text-[#1C1612] text-3xl mb-6 tracking-tight">
@@ -132,12 +165,12 @@ export default function FeaturedProducts() {
                 </h3>
                 
                 <p className="text-[15px] text-[#B08B8B] mb-12 font-light leading-relaxed opacity-80 max-w-[300px] mx-auto">
-                  {product.shortDesc}
+                  {product.short_desc}
                 </p>
 
                 <div className="flex flex-col items-center gap-12">
                   <span className="text-3xl font-extralight text-[#1C1612] tracking-tighter">
-                    {formatPrice(product.price)}
+                    {formatPrice(product.price_ars)}
                   </span>
                   
                   <motion.button
@@ -146,10 +179,10 @@ export default function FeaturedProducts() {
                     onClick={() => cart.addItem({ 
                       id: product.id, 
                       name: product.name, 
-                      price: product.price,
-                      brand: { name: 'Edea' }, 
+                      price_ars: product.price_ars,
+                      brand_name: product.brand_name, 
                       slug: product.slug,
-                      images: [{ url: product.image }]
+                      images: product.images
                     } as any)}
                     className="text-[10px] font-black uppercase tracking-[0.4em] text-[#D97230] border-b border-[#D97230]/30 pb-1"
                   >

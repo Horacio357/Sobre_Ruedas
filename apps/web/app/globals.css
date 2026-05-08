@@ -218,11 +218,13 @@ button {
   padding-bottom: var(--section-padding-sm);
 }
 
-/* Separador sutil */
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #d2d2d7, transparent);
-  width: 100%;
+/* Ocultar scrollbar pero mantener funcionalidad */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 /* ── CARD BASE ───────────────────────────────────────────── */

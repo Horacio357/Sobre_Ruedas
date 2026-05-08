@@ -15,7 +15,7 @@ const textVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" as const },
   }),
 };
 
@@ -112,7 +112,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+            transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" as const }}
             className="mt-10 md:mt-20 flex justify-center"
           >
              <div className="relative group">

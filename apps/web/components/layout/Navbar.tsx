@@ -55,7 +55,7 @@ export default function Navbar() {
         className={cn(
           'sticky top-0 z-50 transition-all duration-500',
           isScrolled
-            ? 'bg-white/90 backdrop-blur-2xl border-b border-[#EAE3D9] py-4'
+            ? 'bg-white border-b border-[#EAE3D9] py-4'
             : 'bg-[#FAF7F2] py-8 md:py-12'
         )}
       >
@@ -155,7 +155,7 @@ export default function Navbar() {
             initial={{ x: '100%', opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '100%', opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            transition={{ type: 'spring' as const, damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl flex flex-col p-12 md:hidden"
           >
             <div className="flex justify-end mb-20">
@@ -176,7 +176,7 @@ export default function Navbar() {
                   key={link.href}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } }
                   }}
                 >
                   <Link

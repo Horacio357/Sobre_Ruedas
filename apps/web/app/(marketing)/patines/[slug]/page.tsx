@@ -63,7 +63,7 @@ export default function ProductDetailPage() {
             <div className="aspect-square bg-[#FFF9F9] rounded-[40px] overflow-hidden flex items-center justify-center p-20 border border-[#F9EAEA] shadow-sm">
               <motion.img 
                 layoutId={`img-${product.id}`}
-                src={product.images[0]} 
+                src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
                 alt={product.name}
                 className="w-full h-full object-contain mix-blend-multiply"
                 onError={(e) => {
@@ -89,7 +89,7 @@ export default function ProductDetailPage() {
           >
             <div className="mb-8">
               <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#D97230] mb-3 block">
-                {product.brand} — {product.level.replace('_', ' ')}
+                {product.brand_name} — {product.skate_level?.[0]?.replace('_', ' ') ?? 'Intermedio'}
               </span>
               <h1 className="text-5xl md:text-6xl font-extralight text-[#1C1612] tracking-tighter mb-4 leading-none">
                 {product.name}
@@ -109,11 +109,11 @@ export default function ProductDetailPage() {
             <div className="mb-12">
               <div className="flex items-baseline gap-4 mb-2">
                 <span className="text-5xl font-extralight text-[#1C1612] tracking-tighter">
-                  {formatPrice(product.price)}
+                  {formatPrice(product.price_ars)}
                 </span>
-                {product.comparePrice && (
+                {product.compare_price && (
                   <span className="text-xl text-[#B08B8B] line-through font-light">
-                    {formatPrice(product.comparePrice)}
+                    {formatPrice(product.compare_price)}
                   </span>
                 )}
               </div>

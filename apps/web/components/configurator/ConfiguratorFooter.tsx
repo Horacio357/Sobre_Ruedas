@@ -7,9 +7,17 @@
 
 import React from 'react';
 import { useConfiguratorStore } from '@/store/configuratorStore';
-import { ChevronLeft, ChevronRight, Check } from 'lucide-react';
-import { formatPrice } from '@/lib/utils';
-import { cn } from '@/lib/utils';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { cn, formatPrice } from '@/lib/utils';
+
+const STEPS = [
+  { id: 1, title: 'Nivel' },
+  { id: 2, title: 'Disciplina' },
+  { id: 3, title: 'Bota' },
+  { id: 4, title: 'Plancha' },
+  { id: 5, title: 'Ruedas' },
+  { id: 6, title: 'Resumen' },
+];
 
 export default function ConfiguratorFooter() {
   const { 
@@ -21,47 +29,67 @@ export default function ConfiguratorFooter() {
   } = useConfiguratorStore();
 
   const isComplete = isStepComplete(currentStep);
+  const nextStepLabel = STEPS[currentStep]?.title;
+
+  if (currentStep === 6) return null;
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#F5F0EA] py-4 md:py-6 shadow-[0_-10px_25px_-5px_rgba(0,0,0,0.05)]">
+    <footer className="relative w-full mt-8 md:mt-16 pb-16">
       <div className="container-apple">
-        <div className="flex items-center justify-between gap-4">
+        {/* Subtle Divider */}
+        <div className="flex items-center gap-6 mb-10 opacity-15">
+          <div className="h-[1px] flex-1 bg-[#1C1612]" />
+          <span className="text-[9px] font-black uppercase tracking-[0.6em] text-[#1C1612] translate-x-[0.3em]">Navegación</span>
+          <div className="h-[1px] flex-1 bg-[#1C1612]" />
+        </div>
+
+        <div className="flex items-center justify-between gap-6 max-w-5xl mx-auto">
           {/* Botón Volver */}
-          <button
-            onClick={prevStep}
-            className={cn(
-              "flex items-center gap-2 px-6 py-3 rounded-full font-bold text-sm transition-all",
-              currentStep === 1 
-                ? "opacity-0 pointer-events-none" 
-                : "text-[#9A8A72] hover:bg-[#FAF7F2] hover:text-[#1C1612]"
+          <div className="flex flex-col items-start gap-1.5">
+            {currentStep > 1 && (
+              <span className="text-[8px] font-black uppercase tracking-[0.3em] text-sr-gray-400 opacity-60 ml-3">Anterior</span>
             )}
-          >
-            <ChevronLeft size={18} />
-            Atrás
-          </button>
+            <button
+              onClick={prevStep}
+              className={cn(
+                "flex items-center gap-2 px-6 py-2.5 rounded-full font-black text-[9px] uppercase tracking-[0.3em] transition-all",
+                currentStep === 1 
+                  ? "opacity-0 pointer-events-none" 
+                  : "text-sr-gray-400 hover:bg-white hover:text-sr-gray-900 border border-sr-gray-100 hover:border-sr-gray-200 bg-sr-cream"
+              )}
+            >
+              <ChevronLeft size={12} />
+              Atrás
+            </button>
+          </div>
 
           {/* Info central (solo desktop) */}
-          <div className="hidden lg:flex items-center gap-8">
-            <div className="flex flex-col items-center">
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#9A8A72]">Total Estimado</span>
-              <span className="text-xl font-bold text-[#1C1612] tracking-tighter">{formatPrice(totalArs)}</span>
-            </div>
+          <div className="hidden lg:flex flex-col items-center">
+            <span className="text-[8px] font-black uppercase tracking-[0.4em] text-sr-gray-400 mb-1 opacity-50">Configuración Actual</span>
+            <span className="text-xl font-black text-sr-gray-900 tracking-tightest">{formatPrice(totalArs)}</span>
           </div>
 
           {/* Botón Siguiente */}
-          <button
-            onClick={nextStep}
-            disabled={!isComplete || currentStep === 6}
-            className={cn(
-              "flex items-center gap-2 px-10 py-3 rounded-full font-bold text-sm uppercase tracking-widest transition-all shadow-md",
-              !isComplete || currentStep === 6
-                ? "bg-[#EAE3D9] text-[#9A8A72] cursor-not-allowed shadow-none"
-                : "bg-[#D97230] text-white hover:bg-[#B85C20] hover:scale-105 active:scale-95"
+          <div className="flex flex-col items-end gap-1.5">
+            {isComplete && currentStep < 6 && (
+              <span className="text-[8px] font-black uppercase tracking-[0.3em] text-sr-accent mr-3 animate-pulse">
+                Próximo: {nextStepLabel}
+              </span>
             )}
-          >
-            {currentStep === 5 ? 'Ver Resumen' : 'Continuar'}
-            {isComplete ? <ChevronRight size={18} /> : <div className="w-4 h-4 rounded-full border-2 border-[#9A8A72]/30 border-t-[#9A8A72] animate-spin ml-2" />}
-          </button>
+            <button
+              onClick={nextStep}
+              disabled={!isComplete || (currentStep as number) === 6}
+              className={cn(
+                "flex items-center gap-2 px-8 py-2.5 rounded-full font-black text-[9px] uppercase tracking-[0.3em] transition-all",
+                !isComplete || (currentStep as number) === 6
+                  ? "opacity-0 pointer-events-none"
+                  : "bg-sr-gray-900 text-white hover:bg-sr-accent shadow-md hover:shadow-sr-accent/20 hover:scale-105 active:scale-95"
+              )}
+            >
+              {currentStep === 5 ? 'Resumen Final' : 'Siguiente'}
+              <ChevronRight size={12} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

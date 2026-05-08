@@ -92,6 +92,10 @@ export interface Product {
   is_outlet: boolean;
   created_at: string;
   updated_at: string;
+  specs?: {
+    label: string;
+    value: number;
+  }[];
 
   // Relaciones (JOIN)
   brand?: Brand;

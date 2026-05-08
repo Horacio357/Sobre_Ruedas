@@ -44,7 +44,7 @@ export default function ConfiguratorCTA() {
             initial={{ opacity: 0, x: -40, scale: 0.95 }}
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+            transition={{ duration: 0.6, type: "spring" as const, bounce: 0.4 }}
           >
             <span className="badge badge-accent mb-6 inline-flex shadow-sm bg-white border-transparent">
               Configurador
@@ -90,7 +90,7 @@ export default function ConfiguratorCTA() {
                 initial={{ opacity: 0, x: 40, rotateX: -15 }}
                 whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, type: "spring", stiffness: 100, damping: 10 }}
+                transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 100, damping: 10 }}
                 className="flex items-center gap-5 p-4 rounded-xl bg-white/60 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md hover:bg-white transition-all group"
               >
                 <motion.div 

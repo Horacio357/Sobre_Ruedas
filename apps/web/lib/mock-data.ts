@@ -1,48 +1,43 @@
-// ============================================================
-// SOBRE RUEDAS — Mock Data
-// Datos para el catálogo (Fase 3)
-// ============================================================
+import { Product, SkateLevel, SkateDiscipline, ComponentType } from '@/types';
 
-export interface Product {
-  id: string;
-  name: string;
-  slug: string;
-  brand: string;
-  category: 'bota' | 'plancha' | 'rueda' | 'combo';
-  level: 'iniciacion' | 'intermedio' | 'avanzado' | 'alto_rendimiento';
-  price: number;
-  comparePrice?: number;
-  description: string;
-  shortDesc: string;
-  images: string[];
-  isFeatured?: boolean;
-  isOutlet?: boolean;
-  badge?: string;
-  badgeType?: 'new' | 'discount' | 'bestseller' | 'accent';
-  discipline?: ('libre' | 'danza' | 'figuras' | 'saltos')[];
-  floorType?: 'liso' | 'rugoso' | 'mixto';
+// Extend for mock purposes if needed, but we'll try to use the global one
+export interface MockProduct extends Product {
+  // Additional fields used only in configurator demo if any
   specs?: {
     label: string;
     value: number;
   }[];
+  floorType?: 'liso' | 'rugoso' | 'mixto';
+  badge?: string;
+  badgeType?: 'new' | 'discount' | 'bestseller' | 'accent';
 }
 
-export const PRODUCTS: Product[] = [
+export const PRODUCTS: MockProduct[] = [
   {
     id: 'p1',
     name: 'Edea Concerto',
     slug: 'edea-concerto',
-    brand: 'Edea',
-    category: 'bota',
-    level: 'alto_rendimiento',
-    price: 380000,
+    brand_name: 'Edea',
+    component_type: 'bota',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 380000,
     description: 'La bota Concerto ha sido diseñada para el patinaje de alto nivel. Su estructura rígida proporciona el soporte necesario para saltos triples y cuádruples, manteniendo una ligereza excepcional gracias a sus materiales de vanguardia.',
-    shortDesc: 'Soporte supremo para alta competición y saltos complejos.',
-    images: ['https://i.ibb.co/N27h4kN3/96-7.jpg', 'https://i.ibb.co/3yGbSNHB/96-6.jpg'],
-    isFeatured: true,
+    short_desc: 'Soporte supremo para alta competición y saltos complejos.',
+    images: [
+      { id: 'img1_1', product_id: 'p1', url: 'https://i.ibb.co/N27h4kN3/96-7.jpg', sort_order: 0, is_primary: true },
+      { id: 'img1_2', product_id: 'p1', url: 'https://i.ibb.co/3yGbSNHB/96-6.jpg', sort_order: 1, is_primary: false }
+    ],
+    is_featured: true,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Elite',
     badgeType: 'accent',
-    discipline: ['libre', 'saltos'],
+    skate_discipline: ['libre', 'saltos'],
     specs: [
       { label: 'Rigidez', value: 95 },
       { label: 'Peso', value: 80 },
@@ -55,16 +50,27 @@ export const PRODUCTS: Product[] = [
     id: 'p2',
     name: 'Edea Chorus',
     slug: 'edea-chorus',
-    brand: 'Edea',
-    category: 'bota',
-    level: 'avanzado',
-    price: 245000,
+    brand_name: 'Edea',
+    component_type: 'bota',
+    skate_level: ['avanzado'],
+    price_ars: 245000,
     description: 'La bota Chorus es el paso ideal para patinadores que están perfeccionando sus saltos dobles. Combina elegancia con una rigidez intermedia que permite una gran libertad de movimiento sin sacrificar el soporte del tobillo.',
-    shortDesc: 'Equilibrio perfecto entre flexibilidad y soporte avanzado.',
-    images: ['https://i.ibb.co/tpCCVKXb/95-7.jpg', 'https://i.ibb.co/rRWY511b/95-6.jpg'],
+    short_desc: 'Equilibrio perfecto entre flexibilidad y soporte avanzado.',
+    images: [
+      { id: 'img2_1', product_id: 'p2', url: 'https://i.ibb.co/tpCCVKXb/95-7.jpg', sort_order: 0, is_primary: true },
+      { id: 'img2_2', product_id: 'p2', url: 'https://i.ibb.co/rRWY511b/95-6.jpg', sort_order: 1, is_primary: false }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 15,
+    low_stock_threshold: 3,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Más vendido',
     badgeType: 'bestseller',
-    discipline: ['libre', 'danza'],
+    skate_discipline: ['libre', 'danza'],
     specs: [
       { label: 'Rigidez', value: 70 },
       { label: 'Peso', value: 90 },
@@ -77,14 +83,24 @@ export const PRODUCTS: Product[] = [
     id: 'p3',
     name: 'Risport RF3 Pro',
     slug: 'risport-rf3-pro',
-    brand: 'Risport',
-    category: 'bota',
-    level: 'intermedio',
-    price: 195000,
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ['intermedio'],
+    price_ars: 195000,
     description: 'Diseñada para patinadores que buscan un rendimiento profesional en un paquete cómodo. La RF3 Pro es una leyenda en la pista, conocida por su durabilidad y su ajuste anatómico superior.',
-    shortDesc: 'Tradición y tecnología para el patinador en ascenso.',
-    images: ['https://i.ibb.co/xtjGfZQX/93-7.jpg'],
-    discipline: ['libre', 'figuras'],
+    short_desc: 'Tradición y tecnología para el patinador en ascenso.',
+    images: [
+      { id: 'img3_1', product_id: 'p3', url: 'https://i.ibb.co/xtjGfZQX/93-7.jpg', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 8,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['libre', 'figuras'],
     specs: [
       { label: 'Rigidez', value: 60 },
       { label: 'Peso', value: 75 },
@@ -94,33 +110,143 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    id: 'p3_2',
+    name: 'Edea Ice Fly',
+    slug: 'edea-ice-fly',
+    brand_name: 'Edea',
+    component_type: 'bota',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 420000,
+    description: 'La bota más ligera del mundo para el patinaje artístico. Diseñada para aquellos que buscan la máxima agilidad y rapidez en sus movimientos.',
+    short_desc: 'Ligereza extrema y tecnología aeroespacial.',
+    images: [
+      { id: 'img32_1', product_id: 'p3_2', url: 'https://i.ibb.co/qYPZYx5y/6-1.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 5,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['libre', 'saltos'],
+    specs: [
+      { label: 'Rigidez', value: 90 },
+      { label: 'Peso', value: 100 },
+      { label: 'Acolchado', value: 65 },
+      { label: 'Control', value: 95 },
+      { label: 'Salto', value: 98 },
+    ],
+  },
+  {
+    id: 'p3_3',
+    name: 'Edea Piano',
+    slug: 'edea-piano',
+    brand_name: 'Edea',
+    component_type: 'bota',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 480000,
+    description: 'La culminación de la ingeniería de Edea. La bota Piano absorbe los impactos como ninguna otra, protegiendo las articulaciones del patinador en los aterrizajes más exigentes.',
+    short_desc: 'Absorción de impacto superior y máximo soporte.',
+    images: [
+      { id: 'img33_1', product_id: 'p3_3', url: 'https://i.ibb.co/tpCCVKXb/95-7.jpg', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 3,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['libre', 'saltos'],
+    specs: [
+      { label: 'Rigidez', value: 98 },
+      { label: 'Peso', value: 85 },
+      { label: 'Acolchado', value: 90 },
+      { label: 'Control', value: 99 },
+      { label: 'Amortiguación', value: 100 },
+    ],
+  },
+  {
+    id: 'p3_4',
+    name: 'Risport Royal Pro',
+    slug: 'risport-royal-pro',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ['avanzado'],
+    price_ars: 285000,
+    description: 'Para patinadores de nivel avanzado que prefieren el tacto y la respuesta de las botas de cuero tradicionales combinadas con materiales modernos.',
+    short_desc: 'El estándar de excelencia en botas de cuero profesionales.',
+    images: [
+      { id: 'img34_1', product_id: 'p3_4', url: 'https://i.ibb.co/N27h4kN3/96-7.jpg', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 7,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['libre', 'danza'],
+    specs: [
+      { label: 'Rigidez', value: 75 },
+      { label: 'Peso', value: 70 },
+      { label: 'Acolchado', value: 98 },
+      { label: 'Control', value: 92 },
+      { label: 'Tradición', value: 100 },
+    ],
+  },
+  {
     id: 'p4',
     name: 'Combo Iniciación Profesional',
     slug: 'combo-iniciacion',
-    brand: 'Sobre Ruedas',
-    category: 'combo',
-    level: 'iniciacion',
-    price: 135000,
-    comparePrice: 165000,
+    brand_name: 'Sobre Ruedas',
+    component_type: 'combo',
+    skate_level: ['iniciacion'],
+    price_ars: 135000,
+    compare_price: 165000,
     description: 'Todo lo que necesitas para empezar con el pie derecho. Incluye bota de cuero reforzado, plancha de aluminio liviano y ruedas de dureza media aptas para todo tipo de superficies.',
-    shortDesc: 'Set completo: Bota + Plancha + Ruedas + Rodamientos.',
-    images: ['https://i.ibb.co/rRLNkNQd/96-1.jpg'],
+    short_desc: 'Set completo: Bota + Plancha + Ruedas + Rodamientos.',
+    images: [
+      { id: 'img4_1', product_id: 'p4', url: 'https://i.ibb.co/rRLNkNQd/96-1.jpg', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: '20% OFF',
     badgeType: 'discount',
-    discipline: ['libre'],
+    skate_discipline: ['libre'],
   },
   {
     id: 'p5',
     name: 'Roll-Line Giotto',
     slug: 'roll-line-giotto',
-    brand: 'Roll-Line',
-    category: 'plancha',
-    level: 'alto_rendimiento',
-    price: 155000,
+    brand_name: 'Roll-Line',
+    component_type: 'plancha',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 155000,
     description: 'La plancha Giotto es la elección de los campeones mundiales de figuras. Su precisión milimétrica y su construcción en aleación de aluminio de grado aeronáutico la hacen insuperable.',
-    shortDesc: 'Precisión absoluta para la disciplina de figuras.',
-    images: ['https://i.ibb.co/wNWB1hsW/93-1.jpg'],
-    discipline: ['figuras'],
+    short_desc: 'Precisión absoluta para la disciplina de figuras.',
+    images: [
+      { id: 'img5_1', product_id: 'p5', url: '/images/products/plate-giotto.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 4,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['figuras'],
     specs: [
       { label: 'Estabilidad', value: 98 },
       { label: 'Agilidad', value: 70 },
@@ -130,19 +256,59 @@ export const PRODUCTS: Product[] = [
     ],
   },
   {
+    id: 'p5_2',
+    name: 'Roll-Line Energy',
+    slug: 'roll-line-energy',
+    brand_name: 'Roll-Line',
+    component_type: 'plancha',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 185000,
+    description: 'La plancha de competición por excelencia. Agilidad extrema y respuesta instantánea.',
+    short_desc: 'La elección de los profesionales para saltos y piruetas.',
+    images: [
+      { id: 'img52_1', product_id: 'p5_2', url: '/images/products/plate-energy.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 6,
+    low_stock_threshold: 1,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    skate_discipline: ['libre', 'saltos'],
+    specs: [
+      { label: 'Estabilidad', value: 85 },
+      { label: 'Agilidad', value: 100 },
+      { label: 'Peso', value: 95 },
+      { label: 'Respuesta', value: 100 },
+      { label: 'Precisión', value: 95 },
+    ],
+  },
+  {
     id: 'p6',
     name: 'Ruedas Komplex Angel',
     slug: 'komplex-angel',
-    brand: 'Komplex',
-    category: 'rueda',
-    level: 'avanzado',
-    price: 45000,
+    brand_name: 'Komplex',
+    component_type: 'rueda',
+    skate_level: ['avanzado'],
+    price_ars: 45000,
     description: 'Ruedas profesionales con núcleo de elastómero que proporcionan un agarre excepcional en superficies resbaladizas sin comprometer la velocidad.',
-    shortDesc: 'Set de 8 ruedas profesionales de alta densidad.',
-    images: ['https://i.ibb.co/PvQvS3TF/95-1.jpg'],
+    short_desc: 'Set de 8 ruedas profesionales de alta densidad.',
+    images: [
+      { id: 'img6_1', product_id: 'p6', url: '/images/products/wheels-angel.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 20,
+    low_stock_threshold: 4,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Nuevo',
     badgeType: 'new',
-    discipline: ['libre', 'danza'],
+    skate_discipline: ['libre', 'danza'],
     floorType: 'liso',
     specs: [
       { label: 'Agarre', value: 85 },
@@ -156,43 +322,89 @@ export const PRODUCTS: Product[] = [
     id: 'p6_2',
     name: 'Ruedas Roll-Line Magnum',
     slug: 'roll-line-magnum',
-    brand: 'Roll-Line',
-    category: 'rueda',
-    level: 'intermedio',
-    price: 40000,
+    brand_name: 'Roll-Line',
+    component_type: 'rueda',
+    skate_level: ['intermedio'],
+    price_ars: 40000,
     description: 'Perfectas para superficies rugosas y asfalto.',
-    shortDesc: 'Set de 8 ruedas para piso rugoso.',
-    images: ['https://i.ibb.co/PvQvS3TF/95-1.jpg'],
+    short_desc: 'Set de 8 ruedas para piso rugoso.',
+    images: [
+      { id: 'img62_1', product_id: 'p6_2', url: '/images/products/wheels-angel.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 12,
+    low_stock_threshold: 4,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     floorType: 'rugoso',
+    skate_discipline: ['libre'],
+    specs: [
+      { label: 'Agarre', value: 95 },
+      { label: 'Velocidad', value: 70 },
+      { label: 'Deslize', value: 60 },
+      { label: 'Durabilidad', value: 100 },
+      { label: 'Amortiguación', value: 90 },
+    ],
   },
   {
     id: 'p6_3',
     name: 'Ruedas Edea Fox',
     slug: 'edea-fox',
-    brand: 'Edea',
-    category: 'rueda',
-    level: 'avanzado',
-    price: 42000,
+    brand_name: 'Edea',
+    component_type: 'rueda',
+    skate_level: ['avanzado'],
+    price_ars: 42000,
     description: 'Equilibrio perfecto para quienes cambian de pista frecuentemente.',
-    shortDesc: 'Set de 8 ruedas mixtas.',
-    images: ['https://i.ibb.co/PvQvS3TF/95-1.jpg'],
+    short_desc: 'Set de 8 ruedas mixtas.',
+    images: [
+      { id: 'img63_1', product_id: 'p6_3', url: '/images/products/wheels-angel.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 15,
+    low_stock_threshold: 4,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     floorType: 'mixto',
+    skate_discipline: ['libre', 'danza'],
+    specs: [
+      { label: 'Agarre', value: 80 },
+      { label: 'Velocidad', value: 85 },
+      { label: 'Deslize', value: 80 },
+      { label: 'Durabilidad', value: 85 },
+      { label: 'Versatilidad', value: 100 },
+    ],
   },
   {
     id: 'p7',
     name: 'Masterclass: Saltos Dobles',
     slug: 'masterclass-saltos-dobles',
-    brand: 'Sobre Ruedas Academy',
-    category: 'curso',
-    level: 'intermedio',
-    price: 45000,
+    brand_name: 'Sobre Ruedas Academy',
+    component_type: 'combo',
+    skate_level: ['intermedio'],
+    price_ars: 45000,
     description: 'Curso online completo con 10 módulos en video para perfeccionar la técnica de tus saltos dobles. Incluye análisis biomecánico y rutinas fuera de pista.',
-    shortDesc: 'Curso online: Técnica y biomecánica de saltos dobles.',
-    images: ['https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=2070&auto=format&fit=crop'],
+    short_desc: 'Curso online: Técnica y biomecánica de saltos dobles.',
+    images: [
+      { id: 'img7_1', product_id: 'p7', url: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?q=80&w=2070&auto=format&fit=crop', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 100,
+    low_stock_threshold: 10,
+    track_inventory: false,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
     badge: 'Digital',
     badgeType: 'new',
-    discipline: ['libre', 'saltos'],
-  }
+    skate_discipline: ['libre', 'saltos'],
+  },
 ];
 
 export const BRANDS = ['Edea', 'Risport', 'Roll-Line', 'Komplex', 'Jackson', 'Sobre Ruedas', 'Sobre Ruedas Academy'];
@@ -209,3 +421,4 @@ export const LEVELS = [
   { id: 'avanzado', label: 'Avanzado' },
   { id: 'alto_rendimiento', label: 'Alto Rendimiento' },
 ];
+

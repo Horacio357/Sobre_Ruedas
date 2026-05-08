@@ -23,11 +23,11 @@ export default function PatinesPage() {
 
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter((product) => {
-      const matchCategory = selectedCategory === 'all' || product.category === selectedCategory;
-      const matchBrand = selectedBrand === 'all' || product.brand === selectedBrand;
-      const matchLevel = selectedLevel === 'all' || product.level === selectedLevel;
+      const matchCategory = selectedCategory === 'all' || product.component_type === selectedCategory;
+      const matchBrand = selectedBrand === 'all' || product.brand_name === selectedBrand;
+      const matchLevel = selectedLevel === 'all' || product.skate_level?.includes(selectedLevel as any);
       const matchSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.brand.toLowerCase().includes(searchQuery.toLowerCase());
+                          (product.brand_name?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
       
       return matchCategory && matchBrand && matchLevel && matchSearch;
     });
@@ -95,7 +95,7 @@ export default function PatinesPage() {
       {/* Main Content Area */}
       <section className="pb-48 pt-20">
         <div className="container-apple">
-          <div className="flex flex-col gap-32">
+          <div className="flex flex-col md:flex-row gap-12 md:gap-24 items-start">
             {/* Sidebar */}
             <FilterSidebar
               selectedCategory={selectedCategory}
@@ -114,7 +114,7 @@ export default function PatinesPage() {
                 {filteredProducts.length > 0 ? (
                   <motion.div
                     layout
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-32"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16"
                   >
                     {filteredProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />

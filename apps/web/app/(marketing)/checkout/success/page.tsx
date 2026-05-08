@@ -28,7 +28,7 @@ export default function SuccessPage() {
         <motion.div
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: 'spring', damping: 15, stiffness: 200 }}
+          transition={{ type: 'spring' as const, damping: 15, stiffness: 200 }}
           className="w-24 h-24 bg-[#D97230] rounded-full flex items-center justify-center mx-auto mb-12 shadow-2xl shadow-[#D97230]/20"
         >
           <Check size={48} className="text-white" strokeWidth={3} />

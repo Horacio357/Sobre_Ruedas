@@ -133,7 +133,7 @@ export default function RadarChart({
               y={p.y}
               textAnchor="middle"
               dominantBaseline="middle"
-              className="text-[9px] font-black uppercase tracking-widest fill-[#9A8A72]"
+              className="text-[8px] md:text-[9px] font-black uppercase tracking-widest fill-sr-gray-400"
             >
               {d.label}
             </text>

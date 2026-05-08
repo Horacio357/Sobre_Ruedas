@@ -50,7 +50,7 @@ export const useCartStore = create<CartState>()(
       // ── Acciones ──────────────────────────────────────────
       addItem: (product, variant, quantity = 1) => {
         const state = get();
-        const unitPrice = (product as any).price + (variant?.price_modifier ?? 0);
+        const unitPrice = product.price_ars + (variant?.price_modifier ?? 0);
         const itemId = variant ? `${product.id}_${variant.id}` : product.id;
 
         const existingIndex = state.items.findIndex((i) => i.id === itemId);

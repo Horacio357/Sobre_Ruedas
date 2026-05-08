@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useConfiguratorStore } from '@/store/configuratorStore';
 import { Leaf, Flame, Zap } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const LEVELS = [
   {
-    id: 'principiante',
+    id: 'iniciacion',
     title: 'Principiante',
     desc: 'Estoy comenzando a patinar',
     icon: Leaf,
@@ -30,59 +30,72 @@ const LEVELS = [
   },
 ];
 
+import { Check, ChevronRight } from 'lucide-react';
+
 export default function StepLevel() {
   const { level: selectedLevel, setLevel, nextStep } = useConfiguratorStore();
 
+  const handleSelect = (id: any) => {
+    setLevel(id);
+    // Automatic advancement with a smooth delay
+    setTimeout(nextStep, 600);
+  };
+
   return (
-    <div className="max-w-4xl mx-auto w-full">
-      <div className="text-center mb-8 md:mb-12">
-        <h2 className="text-[#1C1612] text-2xl md:text-4xl font-bold tracking-tight mb-2 md:mb-3">¿Cuál es tu nivel?</h2>
-        <p className="text-[#9A8A72] text-sm md:text-base font-medium">
-          Esto nos ayuda a recomendarte el patín ideal para vos.
+    <div className="max-w-6xl mx-auto w-full py-16 md:py-24">
+      <div className="text-center mb-16 md:mb-24">
+        <motion.span 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-[#D97230] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block"
+        >
+          Paso 1 de 6: Tu Experiencia
+        </motion.span>
+        <h2 className="text-[#1C1612] text-hero-sm font-black tracking-tightest mb-4 leading-none">¿Cuál es tu nivel?</h2>
+        <p className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4">
+          Para recomendarte el equipo exacto, necesitamos conocer tu punto de partida.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-6">
         {LEVELS.map((level, i) => (
           <motion.button
             key={level.id}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
-            onClick={() => {
-              setLevel(level.id as any);
-              setTimeout(nextStep, 400);
-            }}
+            transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            onClick={() => handleSelect(level.id)}
             className={cn(
-              "group relative flex flex-col items-center text-center p-6 md:p-10 rounded-2xl border bg-white transition-all duration-300",
+              "group relative flex flex-col items-center text-center p-6 md:p-12 rounded-[2.5rem] border-2 bg-white transition-all duration-500",
               selectedLevel === level.id
-                ? "border-[#D97230] shadow-[0_10px_40px_-10px_rgba(217,114,48,0.2)]"
-                : "border-[#EAE3D9] hover:border-[#9A8A72] hover:shadow-md"
+                ? "border-[#D97230] shadow-[0_20px_50px_-12px_rgba(217,114,48,0.15)] scale-[1.03]"
+                : "border-[#F5F0EA] hover:border-[#EAE3D9] opacity-60 hover:opacity-100"
             )}
           >
             <motion.div 
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              className={cn("mb-6 transition-colors", level.color)}
+              whileHover={{ scale: 1.08 }}
+              className={cn("mb-6 p-5 rounded-full bg-[#FAF7F2] transition-colors shadow-sm", level.color)}
             >
-              <level.icon size={48} strokeWidth={1.5} />
+              <level.icon size={36} strokeWidth={1.5} />
             </motion.div>
             
-            <h3 className="text-[#1C1612] text-xl font-bold mb-2">{level.title}</h3>
-            <p className="text-[#9A8A72] text-sm leading-relaxed font-medium">
+            <h3 className="text-sr-gray-900 text-lg md:text-xl font-black mb-2 tracking-tight">{level.title}</h3>
+            <p className="text-sr-gray-400 text-xs md:text-sm leading-relaxed font-medium">
               {level.desc}
             </p>
             
-            {/* Indicador de selección */}
-            <div className={cn(
-              "absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all",
-              selectedLevel === level.id 
-                ? "border-[#D97230] bg-[#D97230]" 
-                : "border-[#EAE3D9]"
-            )}>
+            <AnimatePresence>
               {selectedLevel === level.id && (
-                <div className="w-1.5 h-1.5 rounded-full bg-white" />
+                <motion.div 
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0, opacity: 0 }}
+                  className="absolute top-5 right-5 bg-[#D97230] text-white rounded-full p-1.5 shadow-lg"
+                >
+                  <Check size={20} strokeWidth={4} />
+                </motion.div>
               )}
-            </div>
+            </AnimatePresence>
           </motion.button>
         ))}
       </div>
