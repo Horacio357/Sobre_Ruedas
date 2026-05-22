@@ -41,7 +41,7 @@ export default function ConfiguratorPage() {
   return (
     <main className="min-h-screen bg-sr-cream flex flex-col">
       {/* Stepper Progress Bar */}
-      <div className="bg-sr-cream py-4 md:py-6 sticky top-[100px] md:top-[120px] z-40 border-b border-sr-gray-100">
+      <div className="bg-sr-cream/95 backdrop-blur-md py-4 md:py-5 sticky top-[72px] md:top-[124px] z-40 border-b border-sr-gray-100 transition-all duration-300">
         <div className="container-apple">
           <div className="flex items-center justify-center max-w-lg mx-auto px-2 md:px-0">
             {STEPS.map((step, idx) => (

@@ -78,22 +78,22 @@ export default function SizeCalculator() {
   }, [selectedBrand, measurement, inputType]);
 
   return (
-    <div className="max-w-6xl mx-auto p-20 bg-white/40 backdrop-blur-3xl rounded-[60px] border border-white/50 shadow-2xl overflow-hidden">
+    <div className="max-w-5xl mx-auto p-8 md:p-12 lg:p-16 bg-white/40 backdrop-blur-3xl rounded-[60px] border border-white/50 shadow-2xl overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         
         {/* Left: Inputs */}
-        <div className="space-y-12">
-          <div>
-            <h2 className="text-2xl font-light tracking-tight text-[#1C1612] mb-3">Calculadora de Talle</h2>
+        <div className="flex flex-col justify-center space-y-12">
+          <div className="text-center flex flex-col items-center">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1C1612] mb-3">Calculadora de Talle</h2>
             <p className="text-[13px] text-[#B08B8B] font-light leading-relaxed max-w-sm">
               Ingresa tus medidas para obtener el talle ideal de bota y plancha recomendado por expertos.
             </p>
           </div>
 
           {/* Brand Selector */}
-          <div className="space-y-4">
+          <div className="space-y-5 flex flex-col items-center w-full">
             <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D97230]">1. Selecciona tu marca</label>
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-3 gap-3 w-full max-w-sm">
               {BRANDS.map((brand) => (
                 <button
                   key={brand.id}
@@ -111,8 +111,8 @@ export default function SizeCalculator() {
           </div>
 
           {/* Input Type Selector */}
-          <div className="space-y-4">
-            <div className="flex items-center justify-between">
+          <div className="space-y-6 flex flex-col items-center w-full">
+            <div className="flex items-center justify-between w-full max-w-sm">
               <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D97230]">2. Tu medida</label>
               <div className="flex bg-[#FFF0F0] p-1 rounded-full text-[10px] font-black uppercase tracking-wider">
                 <button 
@@ -130,7 +130,7 @@ export default function SizeCalculator() {
               </div>
             </div>
 
-            <div className="relative group">
+            <div className="relative group w-full max-w-sm">
               <input
                 type="range"
                 min={inputType === 'mm' ? 180 : 26}
@@ -156,7 +156,7 @@ export default function SizeCalculator() {
 
         {/* Right: Results */}
         <div className="relative">
-          <div className="h-full bg-white rounded-[32px] p-16 shadow-2xl border border-[#F5F0EA] flex flex-col justify-center text-center">
+          <div className="h-full bg-white rounded-[40px] p-10 md:p-14 lg:p-16 shadow-2xl border border-[#F5F0EA] flex flex-col justify-center text-center">
             <AnimatePresence mode="wait">
               {result ? (
                 <motion.div
@@ -169,7 +169,7 @@ export default function SizeCalculator() {
                   <div className="space-y-4">
                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#B08B8B]">Bota Recomendada</span>
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-8xl font-light text-[#1C1612] tracking-tighter tabular-nums">
+                      <span className="text-6xl md:text-7xl font-light text-[#1C1612] tracking-tighter tabular-nums">
                         {inputType === 'mm' ? measurement : (selectedBrand === 'risport' || selectedBrand === 'belati' ? measurement : '—')}
                       </span>
                       <span className="text-xs font-black tracking-[0.3em] text-[#D97230]">
@@ -183,7 +183,7 @@ export default function SizeCalculator() {
                   <div className="space-y-4">
                     <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#B08B8B]">Plancha Roll-Line</span>
                     <div className="flex flex-col items-center gap-1">
-                      <span className="text-8xl font-light text-[#D97230] tracking-tighter tabular-nums">
+                      <span className="text-6xl md:text-7xl font-light text-[#D97230] tracking-tighter tabular-nums">
                         {result.plate}
                       </span>
                       <span className="text-xs font-black tracking-[0.3em] text-[#1C1612]">

@@ -6,6 +6,7 @@ import { useConfiguratorStore } from '@/store/configuratorStore';
 import { formatPrice } from '@/lib/utils';
 import { ShoppingBag, MessageCircle, RefreshCw, CheckCircle2 } from 'lucide-react';
 import RadarChart from '@/components/ui/RadarChart';
+import Image from 'next/image';
 
 export default function StepSummary() {
   const { 
@@ -97,17 +98,17 @@ export default function StepSummary() {
                <RadarChart data={combinedSpecs} size={typeof window !== 'undefined' && window.innerWidth < 768 ? 280 : 400} />
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-              <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#F5E1E1]/30">
-                <span className="text-[9px] font-black uppercase tracking-widest text-[#D97230] block mb-2 opacity-60">Disciplina</span>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full mt-8">
+              <div className="bg-[#FAF7F2] p-6 rounded-3xl border border-[#F5E1E1]/50 flex flex-col items-center justify-center text-center shadow-sm hover:shadow transition-shadow duration-300">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D97230] mb-2">Disciplina</span>
                 <span className="text-[#1C1612] text-sm md:text-base font-black uppercase tracking-tight">{discipline}</span>
               </div>
-              <div className="bg-[#1C1612] p-6 rounded-2xl text-white">
-                <span className="text-[9px] font-black uppercase tracking-widest text-white/40 block mb-2">Potencial</span>
+              <div className="bg-[#1C1612] p-6 rounded-3xl flex flex-col items-center justify-center text-center shadow-md hover:shadow-lg transition-shadow duration-300">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-2">Potencial</span>
                 <span className="text-white text-sm md:text-base font-black uppercase tracking-tight">Pro-Elite</span>
               </div>
-              <div className="bg-[#FAF7F2] p-6 rounded-2xl border border-[#F5E1E1]/30 col-span-2 md:col-span-1">
-                <span className="text-[9px] font-black uppercase tracking-widest text-[#D97230] block mb-2 opacity-60">Nivel</span>
+              <div className="bg-[#FAF7F2] p-6 rounded-3xl border border-[#F5E1E1]/50 flex flex-col items-center justify-center text-center shadow-sm hover:shadow transition-shadow duration-300">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#D97230] mb-2">Nivel</span>
                 <span className="text-[#1C1612] text-sm md:text-base font-black uppercase tracking-tight">{level}</span>
               </div>
             </div>
@@ -116,25 +117,29 @@ export default function StepSummary() {
           {/* Product Cards Section */}
           <div className="space-y-12">
             <h3 className="text-center text-[10px] font-black uppercase tracking-[0.5em] text-[#1C1612] opacity-30 mb-12">Componentes Seleccionados</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-20 justify-items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 justify-items-stretch w-full max-w-4xl mx-auto">
               {selections.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, scale: 0.9, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ delay: 0.3 + i * 0.1, type: "spring" as const, stiffness: 80 }}
-                  className="group bg-white p-8 rounded-[2.5rem] border border-[#F5E1E1]/50 shadow-md hover:shadow-2xl transition-all duration-700"
+                  className="group bg-white p-6 md:p-8 rounded-[2.5rem] border border-[#F5E1E1]/50 shadow-md hover:shadow-2xl transition-all duration-700 flex flex-col justify-between h-full w-full"
                 >
-                  <div className="aspect-square flex items-center justify-center mb-8 overflow-hidden">
-                    <img 
+                  <div className="relative w-full aspect-square flex items-center justify-center mb-6 bg-[#FAF7F2] rounded-[1.75rem] p-6 overflow-hidden">
+                    <Image 
                       src={item.product?.images?.[0]?.url ?? '/images/placeholder.png'} 
-                      alt={item.product?.name} 
+                      alt={item.product?.name || item.label} 
+                      width={200}
+                      height={200}
                       className="max-h-full max-w-full object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-700"
                     />
                   </div>
-                  <div className="text-center">
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#D97230] block mb-3">{item.label}</span>
-                    <h4 className="text-[#1C1612] text-base font-black leading-tight uppercase tracking-tight">{item.product?.name}</h4>
+                  <div className="text-center flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#D97230] block mb-2">{item.label}</span>
+                      <h4 className="text-[#1C1612] text-sm md:text-base font-black leading-snug uppercase tracking-tight px-1">{item.product?.name}</h4>
+                    </div>
                   </div>
                 </motion.div>
               ))}

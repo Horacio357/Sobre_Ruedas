@@ -36,23 +36,23 @@ export default function PatinesPage() {
   return (
     <main className="min-h-screen bg-[#FFF9F9]">
       {/* Hero Header — Replicating Hero Aesthetics */}
-      <section className="pt-48 pb-32">
-        <div className="container-apple">
+      <section className="pt-56 pb-40 w-full flex flex-col items-center">
+        <div className="container-apple w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-center space-y-10"
+            className="flex flex-col items-center justify-center text-center gap-6 md:gap-8 w-full"
           >
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#D97230] mb-4 block">
+            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-[#D97230] block text-center">
               Colección Profesional
             </span>
-            <h1 className="text-[#1C1612] text-[clamp(3.5rem,12vw,7rem)] font-extralight leading-[1.05] tracking-tighter">
+            <h1 className="text-[#1C1612] text-5xl md:text-6xl font-extralight leading-[1.05] tracking-tighter text-center">
               Catálogo de
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D97230] to-[#C4972A]">Excelencia.</span>
             </h1>
-            <p className="text-[#B08B8B] text-xl md:text-2xl font-light leading-relaxed max-w-3xl mx-auto opacity-80">
+            <p className="text-[#B08B8B] text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto opacity-80 text-center">
               Equipamiento técnico para patinadores que buscan superar sus límites. Desde la iniciación hasta el alto rendimiento.
             </p>
           </motion.div>
@@ -114,7 +114,7 @@ export default function PatinesPage() {
                 {filteredProducts.length > 0 ? (
                   <motion.div
                     layout
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24"
                   >
                     {filteredProducts.map((product) => (
                       <ProductCard key={product.id} product={product} />

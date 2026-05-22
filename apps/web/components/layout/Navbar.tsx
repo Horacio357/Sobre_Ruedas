@@ -18,7 +18,7 @@ import Logo from '@/components/ui/Logo';
 const NAV_LINKS = [
   { label: 'Patines', href: '/patines' },
   { label: 'Armá el tuyo', href: '/arma-el-tuyo', accent: true },
-  { label: 'Cursos', href: '/cursos' },
+  { label: 'Aplicaciones', href: '/aplicaciones' },
   { label: 'Ayuda', href: '/guia' },
 ];
 
@@ -55,13 +55,16 @@ export default function Navbar() {
         className={cn(
           'sticky top-0 z-50 transition-all duration-500',
           isScrolled
-            ? 'bg-white border-b border-[#EAE3D9] py-4'
+            ? 'bg-white/95 backdrop-blur-md border-b border-[#EAE3D9] py-3 md:py-4 shadow-sm'
             : 'bg-[#FAF7F2] py-8 md:py-12'
         )}
       >
         <div className="container-apple">
           {/* Logo y Acciones Primarias */}
-          <div className="flex items-center justify-between gap-12 mb-8 md:mb-10">
+          <div className={cn(
+            "flex items-center justify-between gap-12 transition-all duration-300",
+            isScrolled ? "mb-2 md:mb-3" : "mb-8 md:mb-10"
+          )}>
             
             {/* Buscador (Izq) */}
             <div className="hidden md:flex flex-1 items-center gap-4 text-[#9A8A72] group">

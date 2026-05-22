@@ -40,26 +40,32 @@ export default function StepDiscipline() {
 
   const handleSelect = (id: string) => {
     setDiscipline(id);
-    setTimeout(nextStep, 600);
+    if (selectedDiscipline === id) {
+      nextStep();
+    }
   };
 
   return (
     <div className="max-w-6xl mx-auto w-full py-16 md:py-24">
-      <div className="text-center mb-16 md:mb-24">
+      <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24 w-full">
         <motion.span 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-[#D97230] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block"
+          className="text-[#D97230] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block text-center"
         >
           Paso 2 de 6: Tu Estilo
         </motion.span>
-        <h2 className="text-[#1C1612] text-hero-sm font-black tracking-tightest mb-4 leading-none">¿Qué disciplina practicás?</h2>
-        <p className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4">
+        <h2 className="text-[#1C1612] text-3xl md:text-4xl font-black tracking-tightest mb-4 leading-none text-center">¿Qué disciplina practicás?</h2>
+        <p className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4 text-center">
           Cada especialidad requiere una ingeniería de precisión diferente.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 mb-16 px-6">
+      <div 
+        role="radiogroup" 
+        aria-label="Selecciona tu disciplina de patinaje"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-10 mb-16 px-6"
+      >
         {DISCIPLINES.map((disc, i) => (
           <motion.button
             key={disc.id}
@@ -67,6 +73,9 @@ export default function StepDiscipline() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => handleSelect(disc.id)}
+            role="radio"
+            aria-checked={selectedDiscipline === disc.id}
+            tabIndex={0}
             className={cn(
               "group relative flex flex-col items-center justify-center text-center p-6 md:p-10 rounded-[2.5rem] border-2 bg-white transition-all duration-500",
               selectedDiscipline === disc.id
@@ -92,6 +101,9 @@ export default function StepDiscipline() {
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0, opacity: 0 }}
+                  onAnimationComplete={() => {
+                    nextStep();
+                  }}
                   className="absolute top-4 right-4 bg-[#D97230] text-white rounded-full p-1.5 shadow-lg"
                 >
                   <Check size={20} strokeWidth={4} />

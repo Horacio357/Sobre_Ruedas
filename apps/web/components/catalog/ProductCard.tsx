@@ -37,7 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <img 
             src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
             alt={product.name}
-            className="w-full h-full object-contain mix-blend-multiply"
+            className="w-full h-full object-contain"
             onError={(e) => {
               e.currentTarget.style.display = 'none';
               const parent = e.currentTarget.parentElement;
@@ -49,23 +49,23 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
       </Link>
 
-      <div className="p-16 flex flex-col flex-1 text-center">
-        <div className="mb-12">
-          <span className="text-[8px] font-black uppercase tracking-[0.5em] text-[#D97230]/60 mb-6 block">
+      <div className="pt-8 pb-6 px-6 md:p-8 flex flex-col flex-1 text-center">
+        <div className="mb-6">
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D97230]/80 mb-3 block">
             {product.brand_name}
           </span>
           
-          <h3 className="text-[#1C1612] text-2xl font-light tracking-tight mb-4">
+          <h3 className="text-[#1C1612] text-[clamp(1.1rem,2.2vw,1.3rem)] font-medium tracking-tight mb-3 leading-snug break-words">
             {product.name}
           </h3>
           
-          <p className="text-[#B08B8B] text-[14px] leading-relaxed max-w-[280px] mx-auto font-light opacity-80">
+          <p className="text-[#B08B8B] text-[13px] leading-relaxed max-w-[240px] mx-auto font-light opacity-80 break-words">
             {product.short_desc}
           </p>
         </div>
 
-        <div className="mt-auto flex flex-col items-center gap-10">
-          <span className="text-2xl font-extralight text-[#1C1612] tracking-tighter">
+        <div className="mt-auto flex flex-col items-center gap-6">
+          <span className="text-xl font-light text-[#1C1612] tracking-tighter">
             {formatPrice(product.price_ars)}
           </span>
           
@@ -74,7 +74,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               e.preventDefault();
               cart.addItem(product as any);
             }}
-            className="text-[9px] font-black uppercase tracking-[0.4em] text-[#D97230] hover:text-[#1C1612] transition-colors border-b border-[#D97230]/20 pb-1"
+            className="text-[10px] font-black uppercase tracking-[0.3em] text-[#D97230] hover:text-[#1C1612] transition-colors border-b-2 border-[#D97230]/20 pb-1"
           >
             Añadir al Carrito
           </button>

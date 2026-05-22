@@ -66,11 +66,11 @@ export default function HeroSection() {
         {/* Content Layer */}
         <motion.div
           style={{ scale, rotate, opacity, y }}
-          className="relative z-10 text-center px-6 max-w-5xl mx-auto"
+          className="relative z-10 flex flex-col items-center justify-center text-center px-6 max-w-5xl mx-auto w-full"
         >
           {/* Eyebrow */}
-          <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible">
-            <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-[#F9EAEA] text-[10px] font-bold uppercase tracking-[0.2em] text-[#D97230] mb-10 shadow-sm">
+          <motion.div custom={0} variants={textVariants} initial="hidden" animate="visible" className="flex justify-center w-full">
+            <span className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-white border border-[#F9EAEA] text-[10px] font-bold uppercase tracking-[0.2em] text-[#D97230] mb-10 shadow-sm text-center">
               <span className="w-1.5 h-1.5 rounded-full bg-[#D97230] animate-pulse" />
               Nueva Colección 2024
             </span>
@@ -82,7 +82,7 @@ export default function HeroSection() {
             variants={textVariants}
             initial="hidden"
             animate="visible"
-            className="text-[clamp(2.5rem,8vw,6rem)] font-extralight leading-[1.05] tracking-tighter text-[#1C1612] mb-12 md:mb-16"
+            className="text-5xl md:text-7xl font-extralight leading-[1.05] tracking-tighter text-[#1C1612] mb-16 md:mb-20 text-center"
           >
             La perfección
             <br />
@@ -113,15 +113,27 @@ export default function HeroSection() {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" as const }}
-            className="mt-10 md:mt-20 flex justify-center"
+            className="mt-8 md:mt-12 flex justify-center"
           >
              <div className="relative group">
                 {/* Glow behind product */}
                 <div className="absolute inset-0 bg-[#D97230]/20 blur-[100px] rounded-full scale-75 group-hover:scale-110 transition-transform duration-1000" />
-                <img 
-                  src="https://i.ibb.co/3yGbSNHB/96-6.jpg"
+                <motion.img 
+                  src="/images/hero-skate.png"
                   alt="Patín Artístico Premium"
-                  className="relative h-[400px] w-auto object-contain drop-shadow-[0_32px_64px_rgba(0,0,0,0.15)] hover:-translate-y-4 transition-transform duration-700"
+                  className="relative h-[280px] md:h-[420px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(217,114,48,0.15)] cursor-pointer"
+                  animate={{
+                    y: [0, -16, 0]
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    scale: 1.04,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
                 />
              </div>
           </motion.div>
@@ -130,7 +142,7 @@ export default function HeroSection() {
         {/* Scroll indicator */}
         <motion.div
           style={{ opacity }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#B08B8B]"
+          className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#B08B8B]"
         >
           <span className="text-[9px] font-bold uppercase tracking-[0.4em]">Descubre más</span>
           <motion.div 

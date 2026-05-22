@@ -52,7 +52,7 @@ export default function ProductDetailPage() {
           Volver al catálogo
         </Link>
 
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
           
           {/* Galería de Imágenes */}
           <motion.div 
@@ -65,7 +65,7 @@ export default function ProductDetailPage() {
                 layoutId={`img-${product.id}`}
                 src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
                 alt={product.name}
-                className="w-full h-full object-contain mix-blend-multiply"
+                className="w-full h-full object-contain"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const p = e.currentTarget.parentElement;
@@ -91,7 +91,7 @@ export default function ProductDetailPage() {
               <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#D97230] mb-3 block">
                 {product.brand_name} — {product.skate_level?.[0]?.replace('_', ' ') ?? 'Intermedio'}
               </span>
-              <h1 className="text-5xl md:text-6xl font-extralight text-[#1C1612] tracking-tighter mb-4 leading-none">
+              <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-extralight text-[#1C1612] tracking-tighter mb-4 leading-none">
                 {product.name}
               </h1>
               <div className="flex items-center gap-4">
@@ -102,11 +102,11 @@ export default function ProductDetailPage() {
               </div>
             </div>
 
-            <p className="text-xl font-light text-[#B08B8B] leading-relaxed mb-10 opacity-90 max-w-2xl">
+            <p className="text-xl font-light text-[#B08B8B] leading-relaxed mb-14 opacity-90 max-w-2xl">
               {product.description}
             </p>
 
-            <div className="mb-12">
+            <div className="mb-16">
               <div className="flex items-baseline gap-4 mb-2">
                 <span className="text-5xl font-extralight text-[#1C1612] tracking-tighter">
                   {formatPrice(product.price_ars)}

@@ -11,9 +11,9 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const STEPS = [
   { step: 1, label: 'Elegí tu nivel', icon: '⭐' },
-  { step: 2, label: 'Seleccioná la bota', icon: <img src="https://i.ibb.co/qYPZYx5y/6-1.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm" /> },
-  { step: 3, label: 'Elegí la plancha', icon: <img src="https://i.ibb.co/hx3GqB85/2-4.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm" /> },
-  { step: 4, label: 'Configurá las ruedas', icon: <img src="https://i.ibb.co/mVmvF5tZ/patin.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 2, label: 'Seleccioná la bota', icon: <img src="/images/products/risport-royal-pro.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 3, label: 'Elegí la plancha', icon: <img src="/images/products/plancha-magic1.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 4, label: 'Configurá las ruedas', icon: <img src="/images/products/wheels-angel.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm" /> },
   { step: 5, label: 'Setup final y checkout', icon: '✅' },
 ];
 
@@ -45,11 +45,12 @@ export default function ConfiguratorCTA() {
             whileInView={{ opacity: 1, x: 0, scale: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, type: "spring" as const, bounce: 0.4 }}
+            className="flex flex-col items-center text-center md:items-start md:text-left w-full"
           >
-            <span className="badge badge-accent mb-6 inline-flex shadow-sm bg-white border-transparent">
+            <span className="badge badge-accent mb-6 inline-flex justify-center shadow-sm bg-white border-transparent text-center">
               Configurador
             </span>
-            <h2 className="text-[#1C1612] text-[clamp(1.75rem,4vw,2.75rem)] font-bold tracking-tight leading-tight mb-6">
+            <h2 className="text-[#1C1612] text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
               Armá tu patín
               <br />
               <span className="text-[#D97230]">
@@ -87,10 +88,10 @@ export default function ConfiguratorCTA() {
             {STEPS.map((s, i) => (
               <motion.div
                 key={s.step}
-                initial={{ opacity: 0, x: 40, rotateX: -15 }}
-                whileInView={{ opacity: 1, x: 0, rotateX: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, type: "spring" as const, stiffness: 100, damping: 10 }}
+                transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
                 className="flex items-center gap-5 p-4 rounded-xl bg-white/60 backdrop-blur-md border border-white/80 shadow-sm hover:shadow-md hover:bg-white transition-all group"
               >
                 <motion.div 

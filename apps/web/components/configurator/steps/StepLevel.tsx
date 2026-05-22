@@ -37,27 +37,32 @@ export default function StepLevel() {
 
   const handleSelect = (id: any) => {
     setLevel(id);
-    // Automatic advancement with a smooth delay
-    setTimeout(nextStep, 600);
+    if (selectedLevel === id) {
+      nextStep();
+    }
   };
 
   return (
     <div className="max-w-6xl mx-auto w-full py-16 md:py-24">
-      <div className="text-center mb-16 md:mb-24">
+      <div className="flex flex-col items-center justify-center text-center mb-16 md:mb-24 w-full">
         <motion.span 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-[#D97230] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block"
+          className="text-[#D97230] text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block text-center"
         >
           Paso 1 de 6: Tu Experiencia
         </motion.span>
-        <h2 className="text-[#1C1612] text-hero-sm font-black tracking-tightest mb-4 leading-none">¿Cuál es tu nivel?</h2>
-        <p className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4">
+        <h2 className="text-[#1C1612] text-3xl md:text-4xl font-black tracking-tightest mb-4 leading-none text-center">¿Cuál es tu nivel?</h2>
+        <p className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4 text-center">
           Para recomendarte el equipo exacto, necesitamos conocer tu punto de partida.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-6">
+      <div 
+        role="radiogroup" 
+        aria-label="Selecciona tu nivel de experiencia"
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 px-6"
+      >
         {LEVELS.map((level, i) => (
           <motion.button
             key={level.id}
@@ -65,6 +70,9 @@ export default function StepLevel() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             onClick={() => handleSelect(level.id)}
+            role="radio"
+            aria-checked={selectedLevel === level.id}
+            tabIndex={0}
             className={cn(
               "group relative flex flex-col items-center text-center p-6 md:p-12 rounded-[2.5rem] border-2 bg-white transition-all duration-500",
               selectedLevel === level.id
@@ -90,6 +98,9 @@ export default function StepLevel() {
                   initial={{ scale: 0, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0, opacity: 0 }}
+                  onAnimationComplete={() => {
+                    nextStep();
+                  }}
                   className="absolute top-5 right-5 bg-[#D97230] text-white rounded-full p-1.5 shadow-lg"
                 >
                   <Check size={20} strokeWidth={4} />

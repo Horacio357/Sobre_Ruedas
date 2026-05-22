@@ -8,6 +8,7 @@ import { formatPrice } from '@/lib/utils';
 import { Check, ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import RadarChart from '@/components/ui/RadarChart';
+import Image from 'next/image';
 
 export default function StepWheels() {
   const { wheels: selectedWheels, setWheels, nextStep } = useConfiguratorStore();
@@ -50,11 +51,11 @@ export default function StepWheels() {
       </div>
 
       {/* Step Header */}
-      <div className="relative z-10 w-full text-center mb-12 md:mb-16">
+      <div className="relative z-10 w-full flex flex-col items-center justify-center text-center mb-12 md:mb-16">
         <motion.span 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-sr-accent text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block"
+          className="text-sr-accent text-[10px] md:text-xs font-black uppercase tracking-[0.4em] mb-4 block text-center"
         >
           Paso 5 de 6: Ruedas
         </motion.span>
@@ -62,7 +63,7 @@ export default function StepWheels() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-sr-gray-900 text-hero-sm font-black tracking-tightest mb-4"
+          className="text-[#1C1612] text-3xl md:text-4xl font-black tracking-tightest mb-4 leading-none text-center"
         >
           Elegí tus ruedas
         </motion.h2>
@@ -70,7 +71,7 @@ export default function StepWheels() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-sr-gray-400 text-sm md:text-base font-medium max-w-lg mx-auto leading-relaxed px-4 opacity-80"
+          className="text-[#1C1612]/50 text-sm md:text-base font-medium max-w-lg mx-auto opacity-80 leading-relaxed px-4 text-center"
         >
           El punto de contacto con el mundo. El grip y el deslizamiento perfecto para tu disciplina.
         </motion.p>
@@ -98,6 +99,8 @@ export default function StepWheels() {
         
         <div 
           ref={scrollRef}
+          role="list"
+          aria-label="Modelos de ruedas disponibles"
           className="flex gap-5 md:gap-8 overflow-x-auto px-2 pb-6 no-scrollbar snap-x"
         >
           {availableWheels.map((wheel, i) => {
@@ -109,6 +112,9 @@ export default function StepWheels() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.08, duration: 0.8 }}
                 onClick={() => setWheels(wheel)}
+                role="listitem"
+                aria-selected={isSelected}
+                aria-label={`Seleccionar ruedas ${wheel.brand_name} ${wheel.name}`}
                 className={cn(
                   "group relative flex-shrink-0 w-36 md:w-48 snap-center rounded-[2rem] border-2 p-4 md:p-6 transition-all duration-700",
                   isSelected 
@@ -116,10 +122,12 @@ export default function StepWheels() {
                    : "border-[#F5F0EA] bg-white/40 backdrop-blur-sm hover:border-[#EAE3D9] opacity-50 hover:opacity-100"
                 )}
               >
-                <div className="h-24 md:h-36 mb-4 flex items-center justify-center p-4">
-                  <img 
+                <div className="h-24 md:h-36 mb-4 flex items-center justify-center p-4 relative">
+                  <Image 
                     src={wheel.images?.[0]?.url ?? '/images/placeholder.png'} 
                     alt={wheel.name}
+                    width={150}
+                    height={150}
                     className={cn(
                       "max-h-full max-w-full object-contain transition-transform duration-1000",
                       isSelected ? "scale-110 rotate-12" : "group-hover:scale-105"
@@ -178,15 +186,22 @@ export default function StepWheels() {
               transition={{ duration: 1, type: "spring" as const, stiffness: 60 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-[#D97230]/5 blur-[150px] rounded-full scale-150 opacity-40 group-hover:opacity-60 transition-opacity duration-1000" />
+              <div className="absolute inset-0 bg-[#D97230]/10 blur-[100px] rounded-full scale-150 opacity-60 group-hover:opacity-100 transition-opacity duration-1000" />
               
-              <div className="relative z-10 bg-white p-6 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.06)] border border-[#F5E1E1]/30 overflow-hidden">
-                <img 
+              <motion.div 
+                animate={{ y: [0, -16, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="relative z-10 w-full flex justify-center items-center p-6 md:p-12"
+              >
+                <Image 
                   src={currentWheels.images?.[0]?.url ?? '/images/placeholder.png'} 
                   alt={currentWheels.name} 
-                  className="relative z-10 max-h-[220px] md:max-h-[400px] w-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.08)] hover:scale-110 transition-transform duration-1000 ease-out"
+                  width={400}
+                  height={400}
+                  priority
+                  className="relative z-10 max-h-[220px] md:max-h-[400px] w-full object-contain drop-shadow-[0_30px_50px_rgba(217,114,48,0.25)] hover:scale-110 transition-transform duration-1000 ease-out cursor-pointer"
                 />
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -222,9 +237,14 @@ export default function StepWheels() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              animate={isConfirmed ? { scale: [1, 1.03, 1] } : {}}
+              onAnimationComplete={() => {
+                if (isConfirmed) {
+                  nextStep();
+                }
+              }}
               onClick={() => {
                 setIsConfirmed(true);
-                setTimeout(nextStep, 800);
               }}
               className={cn(
                 "group flex items-center gap-6 px-10 py-5 rounded-full font-black text-base shadow-xl transition-all duration-700",
