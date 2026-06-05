@@ -23,11 +23,11 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const PAYMENT_METHODS = [
-  { id: 'mercadopago', name: 'Mercado Pago', logo: '💳', desc: 'Cuotas con tarjeta y dinero en cuenta' },
-  { id: 'modo', name: 'MODO', logo: '📱', desc: 'Pagá con tu banco directamente' },
-  { id: 'gocuotas', name: 'GO Cuotas', logo: '💳', desc: 'Cuotas sin tarjeta de crédito' },
-  { id: 'nave', name: 'Nave', logo: '⛵', desc: 'La nueva forma de pagar de Galicia' },
-  { id: 'paypal', name: 'PayPal', logo: '🌎', desc: 'Pagos internacionales en USD' },
+  { id: 'mercadopago', name: 'Mercado Pago', logo: <img src="https://i.ibb.co/yc1Mqs0j/descarga.png" alt="Mercado Pago" className="h-8 object-contain"  referrerPolicy="no-referrer" />, desc: 'Cuotas con tarjeta y dinero en cuenta' },
+  { id: 'modo', name: 'MODO', logo: <img src="https://i.ibb.co/wF0sxd1N/logo-modo.png" alt="MODO" className="h-8 object-contain"  referrerPolicy="no-referrer" />, desc: 'Pagá con tu banco directamente' },
+  { id: 'gocuotas', name: 'GO Cuotas', logo: <img src="https://i.ibb.co/S77v4W9n/descarga-1.png" alt="GO Cuotas" className="h-8 object-contain"  referrerPolicy="no-referrer" />, desc: 'Cuotas sin tarjeta de crédito' },
+  { id: 'nave', name: 'Nave', logo: <img src="https://i.ibb.co/bMHdxSs0/images.png" alt="Nave" className="h-8 object-contain"  referrerPolicy="no-referrer" />, desc: 'La nueva forma de pagar de Galicia' },
+  { id: 'payway', name: 'Payway', logo: <img src="https://i.ibb.co/TDZjFfdZ/descarga-2.png" alt="Payway" className="h-8 object-contain"  referrerPolicy="no-referrer" />, desc: 'Todas las tarjetas en un solo lugar' },
 ];
 
 export default function CheckoutPage() {
@@ -49,11 +49,56 @@ export default function CheckoutPage() {
 
   const handlePayment = async () => {
     setIsProcessing(true);
-    // Simulamos el proceso de pago
-    setTimeout(() => {
+    
+    try {
+      const orderId = `ORD-${Date.now()}`;
+      const order = {
+        id: orderId,
+        order_number: orderId,
+        buyer_name: `${formData.firstName} ${formData.lastName}`,
+        buyer_email: formData.email,
+        buyer_phone: formData.phone || '',
+        shipping_address: {
+          street: formData.address,
+          city: formData.city,
+          zip: formData.zip,
+          province: '',
+          country: 'AR'
+        },
+        subtotal_ars: total,
+        discount_amount: 0,
+        shipping_cost: 0,
+        total_ars: total,
+        payment_status: 'pending' as any,
+        status: 'pending' as any,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+        items: items.map(item => ({
+          id: `ITEM-${Date.now()}-${item.product.id}`,
+          order_id: orderId,
+          product_id: item.product.id,
+          product_name: item.product.name,
+          unit_price_ars: item.unitPrice,
+          quantity: item.quantity,
+          subtotal_ars: item.subtotal,
+          created_at: new Date().toISOString()
+        }))
+      };
+
+      const { PaymentController } = await import('@/lib/payments/paymentController');
+      const response = await PaymentController.initializePayment(order as any, selectedMethod as any);
+      
+      if (response.success && response.redirect_url) {
+        window.location.href = response.redirect_url;
+      } else {
+        alert('Error al iniciar el pago: ' + (response.error || 'Desconocido'));
+        setIsProcessing(false);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Ocurrió un error al procesar el pago.');
       setIsProcessing(false);
-      router.push('/checkout/success');
-    }, 2500);
+    }
   };
 
   if (items.length === 0) {
@@ -70,7 +115,7 @@ export default function CheckoutPage() {
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] pt-12 pb-40">
-      <div className="max-w-[1300px] mx-auto px-6 md:px-12">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-20 xl:px-32">
         
         {/* Header de navegación interna */}
         <div className="mb-16 flex items-center justify-between">
@@ -84,10 +129,10 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           
           {/* ── Sección de Formulario (Izquierda) ─────────────────── */}
-          <div className="lg:col-span-7 xl:col-span-8 space-y-10">
+          <div className="lg:col-span-6 lg:col-start-2 space-y-8">
             
             {/* Paso 1: Envío */}
             <section className={cn(
@@ -96,14 +141,14 @@ export default function CheckoutPage() {
             )}>
               <div className="p-10 md:p-16">
                 <div className="flex items-center justify-between mb-12">
-                  <div className="flex items-center gap-6">
+                  <div className="flex items-center gap-4 md:gap-6">
                     <div className={cn(
-                      "w-12 h-12 rounded-2xl flex items-center justify-center font-black text-lg transition-colors shadow-sm",
+                      "w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center font-black text-base md:text-lg transition-colors shadow-sm",
                       step > 1 ? "bg-green-500 text-white" : "bg-[#1C1612] text-white"
                     )}>
-                      {step > 1 ? <CheckCircle2 size={24} /> : "1"}
+                      {step > 1 ? <CheckCircle2 size={20} /> : "1"}
                     </div>
-                    <h2 className="text-3xl font-black tracking-tight text-[#1C1612]">Datos de Envío</h2>
+                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-[#1C1612]">Datos de Envío</h2>
                   </div>
                   {step > 1 && (
                     <button onClick={() => setStep(1)} className="text-[11px] font-black text-[#D97230] uppercase tracking-widest hover:underline bg-[#D97230]/5 px-4 py-2 rounded-full">Editar</button>
@@ -213,8 +258,8 @@ export default function CheckoutPage() {
           </div>
 
           {/* ── Resumen de Compra (Derecha) ───────────────────────── */}
-          <div className="lg:col-span-5 xl:col-span-4">
-            <div className="bg-[#1C1612] rounded-3xl p-10 xl:p-12 text-white shadow-2xl sticky top-32 border border-white/5 overflow-hidden">
+          <div className="lg:col-span-4">
+            <div className="bg-[#1C1612] rounded-3xl p-8 lg:p-10 text-white shadow-2xl sticky top-32 border border-white/5 overflow-hidden">
               {/* Sutil gradiente de fondo */}
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#D97230] rounded-full blur-[90px] opacity-10" />
               
@@ -225,13 +270,15 @@ export default function CheckoutPage() {
 
               <div className="space-y-8 mb-10 max-h-[350px] overflow-y-auto pr-4 custom-scrollbar-dark">
                 {items.map(item => (
-                  <div key={item.id} className="flex gap-6 items-center">
-                    <div className="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-3xl shadow-inner">🛼</div>
+                  <div key={item.id} className="flex gap-4 items-center">
+                    <div className="w-14 h-14 shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-inner overflow-hidden relative">
+                      <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-cover w-full h-full opacity-90 mix-blend-screen"  referrerPolicy="no-referrer" />
+                    </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-bold text-white/90 text-sm truncate">{item.product.name}</p>
-                      <div className="flex items-center gap-2 mt-1">
-                         <span className="text-[9px] text-[#D97230] font-black uppercase tracking-widest bg-[#D97230]/10 px-2 py-0.5 rounded">Cant: {item.quantity}</span>
-                         <p className="font-black text-white text-base">{formatPrice(item.unitPrice * item.quantity)}</p>
+                      <p className="font-bold text-white/90 text-xs leading-tight mb-1 line-clamp-2">{item.product.name}</p>
+                      <div className="flex items-center gap-2">
+                         <span className="text-[9px] text-[#D97230] font-black uppercase tracking-widest bg-[#D97230]/10 px-1.5 py-0.5 rounded">Cant: {item.quantity}</span>
+                         <p className="font-black text-white text-sm">{formatPrice(item.unitPrice * item.quantity)}</p>
                       </div>
                     </div>
                   </div>
@@ -245,22 +292,22 @@ export default function CheckoutPage() {
                 </div>
                 <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
                   <span>Envío</span>
-                  <span className="text-[#D97230] border border-[#D97230]/30 bg-[#D97230]/5 px-3 py-1 rounded-full text-[9px]">¡Gratis!</span>
+                  <span className="text-white/60">En proceso</span>
                 </div>
-                <div className="flex justify-between items-end pt-8 border-t border-white/10">
-                  <span className="text-lg font-bold text-white/20 uppercase tracking-widest mb-1">Total</span>
-                  <span className="text-4xl font-black text-white tracking-tighter leading-none">{formatPrice(total)}</span>
+                <div className="flex justify-between items-center pt-8 border-t border-white/10 mt-8">
+                  <span className="text-sm font-bold text-white/40 uppercase tracking-widest">Total</span>
+                  <span className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-none">{formatPrice(total)}</span>
                 </div>
               </div>
 
-              <div className="mt-12 space-y-4">
-                <div className="flex items-center gap-4 text-white/30 group hover:text-white/50 transition-colors">
-                  <Lock size={16} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest">Pago 100% Seguro</span>
+              <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/10 pt-8">
+                <div className="flex items-center gap-3 text-white/60 hover:text-white transition-colors">
+                  <Lock size={18} className="text-[#34D399]" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Pago Seguro</span>
                 </div>
-                <div className="flex items-center gap-4 text-white/30 group hover:text-white/50 transition-colors">
-                  <Truck size={16} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest">Envío Prioritario</span>
+                <div className="flex items-center gap-3 text-white/60 hover:text-white transition-colors">
+                  <Truck size={18} className="text-[#D97230]" />
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Envío Prioritario</span>
                 </div>
               </div>
             </div>
@@ -274,11 +321,11 @@ export default function CheckoutPage() {
 
 function Input({ label, ...props }: any) {
   return (
-    <div className="space-y-3">
-      <label className="text-[11px] font-black uppercase tracking-[0.3em] text-[#9A8A72] block ml-2">{label}</label>
+    <div className="space-y-2">
+      <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#9A8A72] block ml-2">{label}</label>
       <input 
         {...props}
-        className="w-full px-8 py-5 bg-[#FAF7F2] border-2 border-transparent rounded-2xl text-[#1C1612] font-black placeholder:text-[#D8CEBC]/40 focus:border-[#D97230]/30 focus:bg-white transition-all outline-none text-base shadow-inner"
+        className="w-full px-6 py-4 bg-[#FAF7F2] border-2 border-transparent rounded-xl text-[#1C1612] font-semibold placeholder:text-[#D8CEBC]/40 focus:border-[#D97230]/30 focus:bg-white transition-all outline-none text-sm shadow-inner"
       />
     </div>
   );

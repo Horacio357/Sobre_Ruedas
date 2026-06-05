@@ -37,6 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <img 
             src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
             alt={product.name}
+            referrerPolicy="no-referrer"
             className="w-full h-full object-contain"
             onError={(e) => {
               e.currentTarget.style.display = 'none';

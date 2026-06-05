@@ -37,7 +37,7 @@ export default function LoginPage() {
           className="text-center mb-10"
         >
           <Link href="/" className="inline-block mb-8">
-            <img src="/images/logo.png" alt="Sobre Ruedas" className="h-16 w-auto mx-auto brightness-0" />
+            <img src="/images/logo.png" alt="Sobre Ruedas" className="h-16 w-auto mx-auto brightness-0"  referrerPolicy="no-referrer" />
           </Link>
           <h1 className="text-4xl font-black text-[#1C1612] tracking-tighter mb-2">Bienvenido de nuevo</h1>
           <p className="text-[#9A8A72] font-medium">Ingresa tus credenciales para continuar</p>

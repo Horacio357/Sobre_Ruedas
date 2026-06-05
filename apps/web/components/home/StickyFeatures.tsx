@@ -139,7 +139,7 @@ export default function StickyFeatures() {
                     src={feature.img} 
                     alt={feature.title}
                     className="max-h-[75%] w-auto object-contain drop-shadow-[0_24px_48px_rgba(217,114,48,0.18)]"
-                  />
+                   referrerPolicy="no-referrer" />
                 </motion.div>
               );
             })}
@@ -179,7 +179,7 @@ export default function StickyFeatures() {
               </p>
               
               <div className="lg:hidden rounded-[32px] overflow-hidden shadow-lg border border-[#F9EAEA] bg-white/60 p-8 flex items-center justify-center aspect-square max-w-sm mx-auto mt-12 mb-20">
-                <img src={feature.img} alt={feature.title} className="max-h-[85%] w-auto object-contain" />
+                <img src={feature.img} alt={feature.title} className="max-h-[85%] w-auto object-contain"  referrerPolicy="no-referrer" />
               </div>
             </motion.div>
           ))}

@@ -79,15 +79,32 @@ export default function ConfiguratorFooter() {
             <button
               onClick={nextStep}
               disabled={!isComplete || (currentStep as number) === 6}
-              className={cn(
-                "flex items-center gap-2 px-8 py-2.5 rounded-full font-black text-[9px] uppercase tracking-[0.3em] transition-all",
-                !isComplete || (currentStep as number) === 6
-                  ? "opacity-0 pointer-events-none"
-                  : "bg-sr-gray-900 text-white hover:bg-sr-accent shadow-md hover:shadow-sr-accent/20 hover:scale-105 active:scale-95"
-              )}
+              style={{
+                backgroundColor: (!isComplete || currentStep === 6) ? '#EAE3D9' : '#D97230',
+                color: (!isComplete || currentStep === 6) ? '#9A8A72' : '#FFFFFF',
+                opacity: (!isComplete || currentStep === 6) ? 0.5 : 1,
+                cursor: (!isComplete || currentStep === 6) ? 'not-allowed' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                padding: '16px 40px',
+                borderRadius: '9999px',
+                fontWeight: 900,
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.4em',
+                border: 'none',
+                boxShadow: (!isComplete || currentStep === 6) ? 'none' : '0 10px 40px -10px rgba(217,114,48,0.8)',
+                transition: 'all 0.3s ease'
+              }}
             >
-              {currentStep === 5 ? 'Resumen Final' : 'Siguiente'}
-              <ChevronRight size={12} />
+              <span style={{ transform: 'translateY(1px)' }}>
+                {currentStep === 5 ? 'Resumen Final' : 'Siguiente Paso'}
+              </span>
+              <div style={{ display: 'flex', marginLeft: '8px' }}>
+                <ChevronRight size={18} strokeWidth={4} />
+                <ChevronRight size={18} strokeWidth={4} style={{ opacity: 0.5, marginLeft: '-8px' }} />
+              </div>
             </button>
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function AccountPage() {
                 src={user.avatar} 
                 alt={user.name} 
                 className="w-24 h-24 rounded-[2rem] object-cover shadow-2xl border-4 border-white"
-              />
+               referrerPolicy="no-referrer" />
               <div className="absolute -bottom-2 -right-2 bg-white p-2 rounded-xl shadow-lg border border-[#F5F0EA]">
                  <Settings size={16} className="text-[#9A8A72]" />
               </div>

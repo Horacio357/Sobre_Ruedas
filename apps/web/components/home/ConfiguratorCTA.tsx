@@ -11,9 +11,9 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const STEPS = [
   { step: 1, label: 'Elegí tu nivel', icon: '⭐' },
-  { step: 2, label: 'Seleccioná la bota', icon: <img src="/images/products/risport-royal-pro.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm" /> },
-  { step: 3, label: 'Elegí la plancha', icon: <img src="/images/products/plancha-magic1.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm" /> },
-  { step: 4, label: 'Configurá las ruedas', icon: <img src="/images/products/wheels-angel.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm" /> },
+  { step: 2, label: 'Seleccioná la bota', icon: <img src="/images/products/risport-royal-pro.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
+  { step: 3, label: 'Elegí la plancha', icon: <img src="/images/products/plancha-magic1.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
+  { step: 4, label: 'Configurá las ruedas', icon: <img src="/images/products/wheels-angel.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
   { step: 5, label: 'Setup final y checkout', icon: '✅' },
 ];
 

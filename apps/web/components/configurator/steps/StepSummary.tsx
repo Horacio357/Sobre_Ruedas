@@ -3,10 +3,12 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useConfiguratorStore } from '@/store/configuratorStore';
+import { useCartStore } from '@/store/cartStore';
 import { formatPrice } from '@/lib/utils';
 import { ShoppingBag, MessageCircle, RefreshCw, CheckCircle2 } from 'lucide-react';
 import RadarChart from '@/components/ui/RadarChart';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function StepSummary() {
   const { 
@@ -55,8 +57,18 @@ export default function StepSummary() {
 
   const combinedSpecs = getCombinedSpecs();
 
+  const router = useRouter();
+  const { addItem } = useCartStore();
+
+  const handleCheckout = () => {
+    if (boot) addItem(boot);
+    if (plate) addItem(plate);
+    if (wheels) addItem(wheels);
+    router.push('/checkout');
+  };
+
   return (
-    <div className="relative w-full pt-40 md:pt-64 pb-64 px-4 overflow-hidden">
+    <div className="relative w-full pt-40 md:pt-64 pb-64 md:pb-80 px-4 overflow-hidden">
       {/* Background Decor — Subtle and non-obstructive */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none opacity-[0.02] z-0">
         <span className="text-[120px] md:text-[240px] font-black uppercase tracking-tightest leading-none">
@@ -146,38 +158,44 @@ export default function StepSummary() {
             </div>
           </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="bg-[#1C1612] rounded-[3rem] md:rounded-[4rem] p-10 md:p-24 text-white flex flex-col items-center justify-center text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] mb-64"
-          >
-            <div className="mb-10">
-              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/30 block mb-6">Inversión Total</span>
-              <span className="text-4xl md:text-7xl font-black text-white tracking-tightest mb-4 leading-none block">
-                {formatPrice(totalArs)}
-              </span>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-6 w-full max-w-xl">
-              <button className="flex-1 bg-white text-[#1C1612] px-12 py-6 rounded-full font-black uppercase tracking-[0.2em] text-xs hover:bg-[#D97230] hover:text-white transition-all hover:scale-105 active:scale-95 shadow-xl flex items-center justify-center gap-4">
-                <ShoppingBag size={20} />
-                Finalizar Compra
-              </button>
-              <button className="flex-1 bg-white/10 text-white border border-white/20 px-12 py-6 rounded-full font-black uppercase tracking-[0.2em] text-xs hover:bg-white/20 transition-all flex items-center justify-center gap-4">
-                <MessageCircle size={20} />
+          <div className="flex flex-col w-full mb-32 md:mb-48 items-center">
+            <motion.button 
+              onClick={handleCheckout}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              style={{ backgroundColor: '#D97230', borderBottomColor: '#B85C20' }}
+              className="w-full max-w-4xl mx-auto relative group bg-sr-accent hover:bg-sr-accent-dark rounded-[3rem] p-8 md:p-12 text-white flex flex-col items-center justify-center text-center shadow-[0_30px_60px_-15px_rgba(217,114,48,0.5)] transition-all duration-500 mb-16 hover:scale-[1.02] active:scale-[0.98] border-b-[10px]"
+            >
+              <div className="mb-2 pointer-events-none">
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/80 group-hover:text-white block mb-4 transition-colors duration-500">Inversión Total</span>
+                <span className="text-3xl md:text-5xl font-black text-white tracking-tightest mb-2 leading-none block">
+                  {formatPrice(totalArs)}
+                </span>
+              </div>
+              
+              <div className="flex items-center justify-center gap-3 text-white group-hover:text-[#FAF7F2] transition-colors mt-4 pointer-events-none">
+                <ShoppingBag size={24} />
+                <span className="text-lg md:text-xl font-black uppercase tracking-[0.2em]">Pagar y Finalizar Compra</span>
+              </div>
+            </motion.button>
+
+            {/* Acciones Secundarias */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full max-w-2xl mx-auto">
+              <button className="flex-1 bg-white text-[#1C1612] border border-[#EAE3D9] px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] text-xs hover:border-[#1C1612] transition-all flex items-center justify-center gap-4 shadow-sm hover:shadow-md">
+                <MessageCircle size={18} />
                 Consultar Experto
               </button>
-            </div>
 
-            <button 
-              onClick={reset}
-              className="mt-16 flex items-center gap-3 text-white/40 hover:text-white font-black text-[10px] uppercase tracking-[0.5em] transition-all"
-            >
-              <RefreshCw size={14} />
-              Reiniciar Configuración
-            </button>
-          </motion.div>
+              <button 
+                onClick={reset}
+                className="flex-1 flex justify-center items-center gap-3 text-[#1C1612]/40 hover:text-[#1C1612] font-black text-[10px] uppercase tracking-[0.5em] transition-all py-5"
+              >
+                <RefreshCw size={14} />
+                Reiniciar Configuración
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

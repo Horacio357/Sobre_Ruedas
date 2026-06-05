@@ -96,6 +96,9 @@ export default function ConfiguratorPage() {
 
       {/* Footer de Navegación */}
       <ConfiguratorFooter />
+      
+      {/* Spacer para separar del footer negro global */}
+      <div style={{ height: '60px', width: '100%', pointerEvents: 'none' }} />
     </main>
   );
 }

@@ -95,9 +95,9 @@ export default function SuccessPage() {
 
         {/* Sutil decorativo en el fondo */}
         <div className="mt-24 flex justify-center gap-4 opacity-10 grayscale">
-            <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt="" />
-            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt="" />
-            <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt="" />
+            <img src="https://images.unsplash.com/photo-1590439471364-192aa70c0b53?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt=""  referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt=""  referrerPolicy="no-referrer" />
+            <img src="https://images.unsplash.com/photo-1515462277126-2dd0c162007a?auto=format&fit=crop&q=80&w=200" className="w-16 h-16 object-contain" alt=""  referrerPolicy="no-referrer" />
         </div>
       </div>
     </main>

@@ -32,11 +32,11 @@ const FOOTER_LINKS = {
 };
 
 const PAYMENT_METHODS = [
-  { id: 'mp', name: 'Mercado Pago' },
-  { id: 'modo', name: 'MODO' },
-  { id: 'pp', name: 'PayPal' },
-  { id: 'payway', name: 'Payway' },
-  { id: 'gocuotas', name: 'GO Cuotas' }
+  { id: 'mp', name: 'Mercado Pago', logo: 'https://i.ibb.co/yc1Mqs0j/descarga.png' },
+  { id: 'modo', name: 'MODO', logo: 'https://i.ibb.co/wF0sxd1N/logo-modo.png' },
+  { id: 'gocuotas', name: 'GO Cuotas', logo: 'https://i.ibb.co/S77v4W9n/descarga-1.png' },
+  { id: 'nave', name: 'Nave', logo: 'https://i.ibb.co/bMHdxSs0/images.png' },
+  { id: 'payway', name: 'Payway', logo: 'https://i.ibb.co/TDZjFfdZ/descarga-2.png' }
 ];
 
 const containerVariants = {
@@ -217,9 +217,9 @@ export default function Footer() {
               <div
                 key={method.id}
                 title={method.name}
-                className="h-9 px-4 bg-white/[0.03] border border-white/[0.06] rounded-lg flex items-center justify-center hover:bg-white/[0.06] transition-colors group"
+                className="h-10 px-3 bg-white/[0.03] border border-white/[0.06] rounded-lg flex items-center justify-center hover:bg-white/[0.06] transition-colors group"
               >
-                <span className="text-[10px] font-black text-[#9A8A72] tracking-[0.2em] uppercase group-hover:text-[#D97230] transition-colors">{method.name}</span>
+                <img src={method.logo} alt={method.name} className="h-6 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"  referrerPolicy="no-referrer" />
               </div>
             ))}
           </div>

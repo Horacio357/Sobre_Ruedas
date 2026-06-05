@@ -77,7 +77,7 @@ export default function CartDrawer() {
                       <div className="w-20 h-20 rounded-xl bg-white border border-[#EAE3D9] flex-shrink-0 overflow-hidden relative">
                          <div className="absolute inset-0 flex items-center justify-center text-3xl opacity-10">🛼</div>
                          {itemImage && (
-                           <img src={itemImage} alt={item.product.name} className="w-full h-full object-cover relative z-10" />
+                           <img src={itemImage} alt={item.product.name} className="w-full h-full object-cover relative z-10"  referrerPolicy="no-referrer" />
                          )}
                       </div>
                       

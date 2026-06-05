@@ -39,12 +39,55 @@ export class PaymentController {
   // ── IMPLEMENTACIONES (STUBS) ───────────────────────────────
   
   private static async initMercadoPago(order: Order): Promise<PaymentInitResponse> {
-    // Aquí iría la llamada a la API de MP (Preferences)
     console.log('Iniciando Mercado Pago para la orden', order.order_number);
-    return { 
-      success: true, 
-      redirect_url: `https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=MOCK_PREF_${order.id}` 
-    };
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+      
+      const payload = {
+        orderId: order.id,
+        items: order.items?.map(item => ({
+          productId: item.product_id || item.id,
+          name: item.product_name,
+          quantity: item.quantity,
+          unitPrice: item.unit_price_ars
+        })) || [],
+        buyer: {
+          name: order.buyer_name,
+          email: order.buyer_email,
+          phone: order.buyer_phone,
+          address: {
+            street: order.shipping_address?.street,
+            zip: order.shipping_address?.zip
+          }
+        },
+        discountAmount: order.discount_amount || 0,
+      };
+
+      const response = await fetch(`${apiUrl}/api/payments/mercadopago/preference`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al crear preferencia de Mercado Pago');
+      }
+
+      const data = await response.json();
+      
+      return { 
+        success: true, 
+        redirect_url: data.init_point 
+      };
+    } catch (error: any) {
+      console.error('[MP Init Error]', error);
+      return {
+        success: false,
+        error: error.message
+      }
+    }
   }
 
   private static async initPayPal(order: Order): Promise<PaymentInitResponse> {

@@ -134,7 +134,7 @@ export default function HeroSection() {
                     scale: 1.04,
                     transition: { duration: 0.3, ease: "easeOut" }
                   }}
-                />
+                 referrerPolicy="no-referrer" />
              </div>
           </motion.div>
         </motion.div>

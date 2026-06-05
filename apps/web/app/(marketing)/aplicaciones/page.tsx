@@ -128,7 +128,7 @@ export default function AplicacionesPage() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                       className="w-full h-full object-cover"
-                    />
+                     referrerPolicy="no-referrer" />
                   </AnimatePresence>
                 </div>
 

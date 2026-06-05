@@ -19,6 +19,6 @@ export default function Logo({ className, variant = 'dark' }: LogoProps) {
       src="/logo.png" 
       alt="SR Patín" 
       className={cn("object-contain drop-shadow-sm transition-transform duration-300", className)} 
-    />
+     referrerPolicy="no-referrer" />
   );
 }

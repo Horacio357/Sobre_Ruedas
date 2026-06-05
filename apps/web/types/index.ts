@@ -7,7 +7,7 @@
 export type SkateLevel = 'iniciacion' | 'intermedio' | 'avanzado' | 'alto_rendimiento';
 export type SkateDiscipline = 'libre' | 'danza' | 'figuras' | 'saltos';
 export type SkateType = 'ruedas' | 'inline' | 'hielo';
-export type ComponentType = 'bota' | 'plancha' | 'rueda' | 'rodamiento' | 'freno' | 'herramienta' | 'accesorio' | 'combo';
+export type ComponentType = 'bota' | 'plancha' | 'rueda' | 'rodamiento' | 'freno' | 'herramienta' | 'accesorio' | 'combo' | 'cuchilla';
 export type UserRole = 'customer' | 'admin' | 'staff';
 export type OrderStatus = 'pending' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled' | 'refunded';
 export type PaymentMethod = 'mercadopago' | 'paypal' | 'modo' | 'nave' | 'payway' | 'transfer';

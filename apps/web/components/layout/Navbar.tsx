@@ -15,8 +15,23 @@ import { useAuthStore } from '@/store/authStore';
 import { cn } from '@/lib/utils';
 import Logo from '@/components/ui/Logo';
 
+const PRODUCT_CATEGORIES = [
+  { id: 'botas', label: 'Botas', href: '/productos/botas', image: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png' },
+  { id: 'planchas', label: 'Planchas', href: '/productos/planchas', image: 'https://i.ibb.co/95XjMJG/Roll-Line-Variant-M.png' },
+  { id: 'ruedas', label: 'Ruedas', href: '/productos/ruedas', image: 'https://i.ibb.co/27x4zKRP/Roll-Line-ruedas-giotto.png' },
+  { id: 'rulemanes', label: 'Rulemanes', href: '/productos/rulemanes', image: 'https://i.ibb.co/vxr81s5f/Magic-Eraser-260526-155236.png' },
+  { id: 'bolsos', label: 'Bolsos y Accesorios', href: '/productos/bolsos', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
+];
+
+const HIELO_CATEGORIES = [
+  { id: 'botas_hielo', label: 'Botas', href: '/hielo/botas', image: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png' },
+  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: '' },
+  { id: 'accesorios_hielo', label: 'Accesorios', href: '/hielo/accesorios', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
+];
+
 const NAV_LINKS = [
-  { label: 'Patines', href: '/patines' },
+  { label: 'Ruedas', href: '/productos', dropdown: PRODUCT_CATEGORIES },
+  { label: 'Hielo', href: '/hielo', dropdown: HIELO_CATEGORIES },
   { label: 'Armá el tuyo', href: '/arma-el-tuyo', accent: true },
   { label: 'Aplicaciones', href: '/aplicaciones' },
   { label: 'Ayuda', href: '/guia' },
@@ -123,7 +138,7 @@ export default function Navbar() {
               {NAV_LINKS.map((link) => {
                 const isActive = pathname === link.href;
                 return (
-                  <li key={link.href}>
+                  <li key={link.href} className="group relative">
                     <Link
                       href={link.href}
                       className={cn(
@@ -143,6 +158,24 @@ export default function Navbar() {
                         />
                       )}
                     </Link>
+
+                    {/* Desktop Mega Menu */}
+                    {link.dropdown && (
+                      <div className="absolute top-full left-0 pt-6 opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 w-[750px] z-50">
+                        <div className="bg-white rounded-[2rem] shadow-[0_20px_40px_rgba(0,0,0,0.08)] p-8 grid grid-cols-5 gap-6 border border-[#EAE3D9]/50">
+                          {link.dropdown.map(cat => (
+                            <Link key={cat.id} href={cat.href} className="group/cat flex flex-col items-center gap-4 text-center">
+                              <div className="w-20 h-20 rounded-2xl bg-[#FAF7F2] flex items-center justify-center p-3 group-hover/cat:scale-110 group-hover/cat:bg-[#F5F0EA] transition-all duration-500 overflow-hidden relative">
+                                <img src={cat.image} alt={cat.label} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply" />
+                              </div>
+                              <span className="text-[9px] font-black uppercase tracking-widest text-[#1C1612] group-hover/cat:text-[#D97230] transition-colors leading-tight">
+                                {cat.label}
+                              </span>
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </li>
                 );
               })}
@@ -182,12 +215,30 @@ export default function Navbar() {
                     visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } }
                   }}
                 >
-                  <Link
-                    href={link.href}
-                    className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.dropdown ? (
+                    <div className="space-y-6">
+                      <Link
+                        href={link.href}
+                        className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
+                      >
+                        {link.label}
+                      </Link>
+                      <div className="pl-6 space-y-5 border-l-2 border-[#EAE3D9]/50 py-2">
+                        {link.dropdown.map(cat => (
+                          <Link key={cat.id} href={cat.href} className="text-2xl font-light text-[#1C1612]/60 hover:text-[#D97230] transition-colors block">
+                            {cat.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.li>
               ))}
               <motion.li 

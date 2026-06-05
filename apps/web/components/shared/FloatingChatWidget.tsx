@@ -75,7 +75,7 @@ export default function FloatingChatWidget({
                   src="https://i.ibb.co/Ndnh5nz5/Gemini-Generated-Image-33uahn33uahn33ua-1.png" 
                   alt="Alma AI" 
                   className="w-full h-full object-cover"
-                />
+                 referrerPolicy="no-referrer" />
               </button>
             </motion.div>
 

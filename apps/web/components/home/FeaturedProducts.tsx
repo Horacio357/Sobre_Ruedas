@@ -128,6 +128,7 @@ export default function FeaturedProducts() {
                 <img
                   src={product.images?.[0]?.url ?? '/images/placeholder.png'}
                   alt={product.name}
+                  referrerPolicy="no-referrer"
                   className="max-h-[75%] max-w-[75%] object-contain transition-transform duration-[1.5s] ease-out group-hover:scale-105"
                   onError={(e) => {
                     // Fallback a un emoji si la imagen no existe
