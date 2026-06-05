@@ -292,7 +292,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha Giotto es la elección de los campeones mundiales de figuras. Su precisión milimétrica y su construcción en aleación de aluminio de grado aeronáutico la hacen insuperable.',
     short_desc: 'Precisión absoluta para la disciplina de figuras.',
     images: [
-      { id: 'img5_1', product_id: 'p5', url: '', sort_order: 0, is_primary: true }
+      { id: 'img5_1', product_id: 'p5', url: 'https://i.ibb.co/k51S22Kx/Roll-Line-ruedas-giotto.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -322,7 +322,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha de competición por excelencia. Agilidad extrema y respuesta instantánea.',
     short_desc: 'La elección de los profesionales para saltos y piruetas.',
     images: [
-      { id: 'img52_1', product_id: 'p5_2', url: '', sort_order: 0, is_primary: true }
+      { id: 'img52_1', product_id: 'p5_2', url: '/images/products/plate-energy.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -352,7 +352,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha de más alto nivel para patinadores profesionales. Estructura rebajada y geometría diferenciada.',
     short_desc: 'Estructura ultraliviana rebajada de máxima precisión.',
     images: [
-      { id: 'img_pm1', product_id: 'pm1', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm1', product_id: 'pm1', url: 'https://i.ibb.co/JWZ7ZvF6/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -381,7 +381,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Una evolución tecnológica en el mundo de las planchas profesionales, con suspensiones de click micrométrico.',
     short_desc: 'Ajuste micrométrico y diseño de vanguardia.',
     images: [
-      { id: 'img_pm2', product_id: 'pm2', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm2', product_id: 'pm2', url: 'https://i.ibb.co/YTw3VGP8/Roll-Line-Evo.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -409,7 +409,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha Variant M está diseñada para patinadores en ascenso. Excelente rigidez estructural de aluminio.',
     short_desc: 'Durabilidad y respuesta ágil de nivel intermedio.',
     images: [
-      { id: 'img_pm3', product_id: 'pm3', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm3', product_id: 'pm3', url: 'https://i.ibb.co/nq9g9Td7/Roll-Line-Saturno.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -437,7 +437,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Plancha técnica de alta gama con tren de aluminio y suspensiones en elastómero de primera calidad.',
     short_desc: 'Chasis excelente para deportistas de alto nivel y saltos.',
     images: [
-      { id: 'img_pm4', product_id: 'pm4', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm4', product_id: 'pm4', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -465,7 +465,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Perfectamente calibrada para figuras obligatorias y saltos intermedios. Excelente relación calidad/precio.',
     short_desc: 'Estabilidad superior y diseño clásico comprobado.',
     images: [
-      { id: 'img_pm5', product_id: 'pm5', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm5', product_id: 'pm5', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -493,7 +493,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'El chasis de iniciación ideal para academias y escuelas. Ligero, duradero y de fácil mantenimiento.',
     short_desc: 'Ligereza y confort para tus primeros giros.',
     images: [
-      { id: 'img_pm6', product_id: 'pm6', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm6', product_id: 'pm6', url: 'https://i.ibb.co/vCcLCJzm/Roll-Line-Mistral-2.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -521,7 +521,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Plancha ultra-especializada de figuras obligatorias con ejes de titanio para una ligereza inalcanzable.',
     short_desc: 'Edición limitada en titanio para la máxima precisión técnica.',
     images: [
-      { id: 'img_pm7', product_id: 'pm7', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm7', product_id: 'pm7', url: 'https://i.ibb.co/LdKwnRPZ/Roll-Line-Mirage.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -549,7 +549,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha más vendida para saltos triples y cuádruples, equipada con ejes de acero reforzado.',
     short_desc: 'Máxima durabilidad para los saltos más extremos.',
     images: [
-      { id: 'img_pm8', product_id: 'pm8', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm8', product_id: 'pm8', url: '/images/products/plancha-magic8.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -577,7 +577,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La joya de la corona. Plancha Energy con ejes de titanio para saltar más alto y girar más rápido.',
     short_desc: 'La plancha definitiva de competición para saltos y piruetas.',
     images: [
-      { id: 'img_pm9', product_id: 'pm9', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm9', product_id: 'pm9', url: '/images/products/plancha-magic9.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -605,7 +605,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Geometría rebajada y trenes de ruedas optimizados para los movimientos fluidos y giros de solo danza.',
     short_desc: 'Diseñada específicamente para danza y precisión rítmica.',
     images: [
-      { id: 'img_pm10', product_id: 'pm10', url: '', sort_order: 0, is_primary: true }
+      { id: 'img_pm10', product_id: 'pm10', url: '/images/products/plancha-magic10.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -633,7 +633,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Ruedas profesionales con núcleo de elastómero que proporcionan un agarre excepcional en superficies resbaladizas sin comprometer la velocidad.',
     short_desc: 'Set de 8 ruedas profesionales de alta densidad.',
     images: [
-      { id: 'img6_1', product_id: 'p6', url: '', sort_order: 0, is_primary: true }
+      { id: 'img6_1', product_id: 'p6', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -666,7 +666,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Perfectas para superficies rugosas and asfalto.',
     short_desc: 'Set de 8 ruedas para piso rugoso.',
     images: [
-      { id: 'img62_1', product_id: 'p6_2', url: '', sort_order: 0, is_primary: true }
+      { id: 'img62_1', product_id: 'p6_2', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -729,7 +729,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Todo lo que necesitas para empezar con el pie derecho. Incluye bota de cuero reforzado, plancha de aluminio liviano y ruedas de dureza media aptas para todo tipo de superficies.',
     short_desc: 'Set completo: Bota + Plancha + Ruedas + Rodamientos.',
     images: [
-      { id: 'img4_1', product_id: 'p4', url: '', sort_order: 0, is_primary: true }
+      { id: 'img4_1', product_id: 'p4', url: '/images/products/risport-antares.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -745,536 +745,31 @@ export const PRODUCTS: MockProduct[] = [
   },
 
   {
-    id: 'new_prod_901',
-    name: 'Roll Line Variant M',
-    slug: 'roll-line-variant-m-901',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 244538,
-    description: 'Descripción para Roll Line Variant M. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_901_0', product_id: 'new_prod_901', url: 'https://i.ibb.co/20FQHH7J/Roll-Line-Variant-M-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_901_1', product_id: 'new_prod_901', url: 'https://i.ibb.co/k6kfzjSg/Roll-Line-Variant-M-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_901_2', product_id: 'new_prod_901', url: 'https://i.ibb.co/95XjMJG/Roll-Line-Variant-M.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_902',
-    name: 'Roll Line Variant f',
-    slug: 'roll-line-variant-f-902',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 138754,
-    description: 'Descripción para Roll Line Variant f. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_902_0', product_id: 'new_prod_902', url: 'https://i.ibb.co/5hTWwVt2/Roll-Line-Variant-f-1.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_902_1', product_id: 'new_prod_902', url: 'https://i.ibb.co/1t9dF7fT/Roll-Line-Variant-f.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_903',
-    name: 'Roll Line Variant C',
-    slug: 'roll-line-variant-c-903',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 169338,
-    description: 'Descripción para Roll Line Variant C. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_903_0', product_id: 'new_prod_903', url: 'https://i.ibb.co/7xHB2Spv/Roll-Line-Variant-C-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_903_1', product_id: 'new_prod_903', url: 'https://i.ibb.co/9mcwRw0x/Roll-Line-Variant-C-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_903_2', product_id: 'new_prod_903', url: 'https://i.ibb.co/mrg0h3s0/Roll-Line-Variant-C.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_904',
-    name: 'Roll Line Spin',
-    slug: 'roll-line-spin-904',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 179822,
-    description: 'Descripción para Roll Line Spin. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_904_0', product_id: 'new_prod_904', url: 'https://i.ibb.co/kVDNXT7Z/Roll-Line-Spin-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_904_1', product_id: 'new_prod_904', url: 'https://i.ibb.co/6RPrdvS5/Roll-Line-Spin-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_904_2', product_id: 'new_prod_904', url: 'https://i.ibb.co/Y7qbvG2v/Roll-Line-Spin.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_905',
-    name: 'Roll Line Saturno',
-    slug: 'roll-line-saturno-905',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 199775,
-    description: 'Descripción para Roll Line Saturno. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_905_0', product_id: 'new_prod_905', url: 'https://i.ibb.co/Y4NBJpvL/Roll-Line-Saturno.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_905_1', product_id: 'new_prod_905', url: 'https://i.ibb.co/nq9g9Td7/Roll-Line-Saturno.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_906',
-    name: 'Roll Line ruedas magnum',
-    slug: 'roll-line-ruedas-magnum-906',
-    brand_name: 'Roll Line',
-    component_type: 'rueda',
-    price_ars: 70309,
-    description: 'Descripción para Roll Line ruedas magnum. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_906_0', product_id: 'new_prod_906', url: 'https://i.ibb.co/HMs8SvT/Roll-Line-ruedas-magnum-4.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_906_1', product_id: 'new_prod_906', url: 'https://i.ibb.co/qL6cCZXX/Roll-Line-ruedas-magnum-3.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_906_2', product_id: 'new_prod_906', url: 'https://i.ibb.co/bjVtkfBr/Roll-Line-ruedas-magnum-2.png', sort_order: 2, is_primary: false },
-      { id: 'img_new_prod_906_3', product_id: 'new_prod_906', url: 'https://i.ibb.co/B5Jvgkrp/Roll-Line-ruedas-magnum-1.png', sort_order: 3, is_primary: false },
-      { id: 'img_new_prod_906_4', product_id: 'new_prod_906', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 4, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_907',
-    name: 'Roll Line ruedas helium',
-    slug: 'roll-line-ruedas-helium-907',
-    brand_name: 'Roll Line',
-    component_type: 'rueda',
-    price_ars: 211042,
-    description: 'Descripción para Roll Line ruedas helium. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_907_0', product_id: 'new_prod_907', url: 'https://i.ibb.co/1Jtv6ptc/Roll-Line-ruedas-helium-1.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_907_1', product_id: 'new_prod_907', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_908',
-    name: 'Roll Line ruedas giotto',
-    slug: 'roll-line-ruedas-giotto-908',
-    brand_name: 'Roll Line',
-    component_type: 'rueda',
-    price_ars: 74183,
-    description: 'Descripción para Roll Line ruedas giotto. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_908_0', product_id: 'new_prod_908', url: 'https://i.ibb.co/21cx1KRz/Roll-Line-ruedas-giotto-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_908_1', product_id: 'new_prod_908', url: 'https://i.ibb.co/MyV1qWJR/Roll-Line-ruedas-giotto-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_908_2', product_id: 'new_prod_908', url: 'https://i.ibb.co/27x4zKRP/Roll-Line-ruedas-giotto.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_909',
-    name: 'Roll Line ruedas boxer',
-    slug: 'roll-line-ruedas-boxer-909',
-    brand_name: 'Roll Line',
-    component_type: 'rueda',
-    price_ars: 60382,
-    description: 'Descripción para Roll Line ruedas boxer. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_909_0', product_id: 'new_prod_909', url: 'https://i.ibb.co/tPhmhZQy/Roll-Line-ruedas-boxer-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_909_1', product_id: 'new_prod_909', url: 'https://i.ibb.co/twkfFR0L/Roll-Line-ruedas-boxer-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_909_2', product_id: 'new_prod_909', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_910',
-    name: 'Roll Line Mistral',
-    slug: 'roll-line-mistral-910',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 142753,
-    description: 'Descripción para Roll Line Mistral. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_910_0', product_id: 'new_prod_910', url: 'https://i.ibb.co/vCcLCJzm/Roll-Line-Mistral-2.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_911',
-    name: 'Roll Line Mirage',
-    slug: 'roll-line-mirage-911',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 106384,
-    description: 'Descripción para Roll Line Mirage. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_911_0', product_id: 'new_prod_911', url: 'https://i.ibb.co/LdKwnRPZ/Roll-Line-Mirage.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_911_1', product_id: 'new_prod_911', url: 'https://i.ibb.co/YBjYgtjb/Roll-Line-Mirage.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_912',
-    name: 'Roll Line Matrix',
-    slug: 'roll-line-matrix-912',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 74985,
-    description: 'Descripción para Roll Line Matrix. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_912_0', product_id: 'new_prod_912', url: 'https://i.ibb.co/JWZ7ZvF6/Roll-Line-Matrix.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_912_1', product_id: 'new_prod_912', url: 'https://i.ibb.co/7JyhBPwM/Roll-Line-Matrix-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_912_2', product_id: 'new_prod_912', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_913',
-    name: 'Roll Line giotto',
-    slug: 'roll-line-giotto-913',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 111011,
-    description: 'Descripción para Roll Line giotto. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_913_0', product_id: 'new_prod_913', url: 'https://i.ibb.co/MkKdRKW4/Roll-Line-giotto-1.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_913_1', product_id: 'new_prod_913', url: 'https://i.ibb.co/wNm85s07/Roll-Line-giotto.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_914',
-    name: 'Roll Line frenos rosas',
-    slug: 'roll-line-frenos-rosas-914',
-    brand_name: 'Roll Line',
-    component_type: 'accesorio',
-    price_ars: 189987,
-    description: 'Descripción para Roll Line frenos rosas. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_914_0', product_id: 'new_prod_914', url: 'https://i.ibb.co/B515yXm1/Roll-Line-frenos-rosas.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_915',
-    name: 'Roll Line frenos grises',
-    slug: 'roll-line-frenos-grises-915',
-    brand_name: 'Roll Line',
-    component_type: 'accesorio',
-    price_ars: 179575,
-    description: 'Descripción para Roll Line frenos grises. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_915_0', product_id: 'new_prod_915', url: 'https://i.ibb.co/KjhD9tg0/Roll-Line-frenos-grises.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_916',
-    name: 'Roll Line Evo',
-    slug: 'roll-line-evo-916',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 230402,
-    description: 'Descripción para Roll Line Evo. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_916_0', product_id: 'new_prod_916', url: 'https://i.ibb.co/GQXrTqM5/Roll-Line-Evo-1.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_916_1', product_id: 'new_prod_916', url: 'https://i.ibb.co/YTw3VGP8/Roll-Line-Evo.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_916_2', product_id: 'new_prod_916', url: 'https://i.ibb.co/8g4WfdjR/Roll-Line-Evo.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_917',
-    name: 'Roll Line dance',
-    slug: 'roll-line-dance-917',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 245311,
-    description: 'Descripción para Roll Line dance. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_917_0', product_id: 'new_prod_917', url: 'https://i.ibb.co/k6JJfjmn/Roll-Line-dance-2.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_917_1', product_id: 'new_prod_917', url: 'https://i.ibb.co/32Xp12P/Roll-Line-dance-1.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_917_2', product_id: 'new_prod_917', url: 'https://i.ibb.co/KpQ2QW3f/Roll-Line-dance.png', sort_order: 2, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_918',
-    name: 'Roll Line blaster',
-    slug: 'roll-line-blaster-918',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 132754,
-    description: 'Descripción para Roll Line blaster. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_918_0', product_id: 'new_prod_918', url: 'https://i.ibb.co/PGVp2Q8C/Roll-Line-blaster-1.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_918_1', product_id: 'new_prod_918', url: 'https://i.ibb.co/pBDq0vdg/Roll-Line-blaster.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_919',
-    name: 'Roll Line Avile',
-    slug: 'roll-line-avile-919',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 79872,
-    description: 'Descripción para Roll Line Avile. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_919_0', product_id: 'new_prod_919', url: 'https://i.ibb.co/5xFRWWqw/Roll-Line-Avile.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_920',
-    name: 'Roll Line agile',
-    slug: 'roll-line-agile-920',
-    brand_name: 'Roll Line',
-    component_type: 'plancha',
-    price_ars: 119719,
-    description: 'Descripción para Roll Line agile. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_920_0', product_id: 'new_prod_920', url: 'https://i.ibb.co/Ld0FZxhC/Roll-Line-agile.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_920_1', product_id: 'new_prod_920', url: 'https://i.ibb.co/V07WxZt1/Roll-Line-agile.png', sort_order: 1, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_921',
-    name: 'Risport Royal pro',
-    slug: 'risport-royal-pro-921',
-    brand_name: 'Risport',
-    component_type: 'bota',
-    price_ars: 233631,
-    description: 'Descripción para Risport Royal pro. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_921_0', product_id: 'new_prod_921', url: 'https://i.ibb.co/Z4rXynv/Risport-Royal-pro.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_922',
-    name: 'Risport RF1 elite',
-    slug: 'risport-rf1-elite-922',
-    brand_name: 'Risport',
-    component_type: 'bota',
-    price_ars: 241367,
-    description: 'Descripción para Risport RF1 elite. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_922_0', product_id: 'new_prod_922', url: 'https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_923',
-    name: 'Risport gemma',
-    slug: 'risport-gemma-923',
-    brand_name: 'Risport',
-    component_type: 'bota',
-    price_ars: 192236,
-    description: 'Descripción para Risport gemma. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_923_0', product_id: 'new_prod_923', url: 'https://i.ibb.co/4wh55MjV/Risport-gemma.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_924',
-    name: 'Dance prime',
-    slug: 'dance-prime-924',
-    brand_name: 'Risport',
-    component_type: 'bota',
-    price_ars: 67232,
-    description: 'Descripción para Dance prime. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_924_0', product_id: 'new_prod_924', url: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_925',
-    name: 'Risport antares',
-    slug: 'risport-antares-925',
-    brand_name: 'Risport',
-    component_type: 'bota',
-    price_ars: 173634,
-    description: 'Descripción para Risport antares. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_925_0', product_id: 'new_prod_925', url: 'https://i.ibb.co/WvtzdycW/Risport-antares.png', sort_order: 0, is_primary: true }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
   {
-    id: 'new_prod_926',
-    name: 'Accesorio SR Patín',
-    slug: 'accesorio-sr-pat-n-926',
-    brand_name: 'Genérico',
-    component_type: 'accesorio',
-    price_ars: 79790,
-    description: 'Descripción para Accesorio SR Patín. Producto de excelente calidad.',
-    short_desc: 'Calidad superior y rendimiento óptimo.',
-    images: [
-      { id: 'img_new_prod_926_0', product_id: 'new_prod_926', url: 'https://i.ibb.co/v62XwXnT/Magic-Eraser-260526-160524.png', sort_order: 0, is_primary: true },
-      { id: 'img_new_prod_926_1', product_id: 'new_prod_926', url: 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png', sort_order: 1, is_primary: false },
-      { id: 'img_new_prod_926_2', product_id: 'new_prod_926', url: 'https://i.ibb.co/JRmtZBYd/Magic-Eraser-260526-155332.png', sort_order: 2, is_primary: false },
-      { id: 'img_new_prod_926_3', product_id: 'new_prod_926', url: 'https://i.ibb.co/39rnGdV7/Magic-Eraser-260526-155309.png', sort_order: 3, is_primary: false },
-      { id: 'img_new_prod_926_4', product_id: 'new_prod_926', url: 'https://i.ibb.co/JwjdLSJ7/Magic-Eraser-260526-155252.png', sort_order: 4, is_primary: false },
-      { id: 'img_new_prod_926_5', product_id: 'new_prod_926', url: 'https://i.ibb.co/vxr81s5f/Magic-Eraser-260526-155236.png', sort_order: 5, is_primary: false },
-      { id: 'img_new_prod_926_6', product_id: 'new_prod_926', url: 'https://i.ibb.co/C54Scqzr/Magic-Eraser-260526-155217.png', sort_order: 6, is_primary: false },
-      { id: 'img_new_prod_926_7', product_id: 'new_prod_926', url: 'https://i.ibb.co/XZM3gCBV/Magic-Eraser-260526-155150.png', sort_order: 7, is_primary: false },
-      { id: 'img_new_prod_926_8', product_id: 'new_prod_926', url: 'https://i.ibb.co/PsDnrQJn/Magic-Eraser-260526-151943.png', sort_order: 8, is_primary: false },
-      { id: 'img_new_prod_926_9', product_id: 'new_prod_926', url: 'https://i.ibb.co/wFHxdLNN/Magic-Eraser-260526-151710.png', sort_order: 9, is_primary: false },
-      { id: 'img_new_prod_926_10', product_id: 'new_prod_926', url: 'https://i.ibb.co/Hf0BJyQ5/Magic-Eraser-260526-151540.png', sort_order: 10, is_primary: false }
-    ],
-    is_featured: false,
-    is_active: true,
-    is_outlet: false,
-    stock_quantity: 10, low_stock_threshold: 2, track_inventory: true,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString()
-  },
 
 
   {

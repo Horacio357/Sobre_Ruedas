@@ -5,6 +5,8 @@
 // Warm palette, premium hover effects, actual images
 // ============================================================
 
+import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowRight, ShoppingBag, Star } from 'lucide-react';
@@ -125,17 +127,17 @@ export default function FeaturedProducts() {
                 </div>
 
                 {/* Imagen del producto */}
-                <img
-                  src={product.images?.[0]?.url || '/images/placeholder.png'}
-                  alt={product.name}
-                  referrerPolicy="no-referrer"
-                  className="max-h-[75%] max-w-[75%] object-contain transition-transform duration-[1.5s] ease-out group-hover:scale-105"
-                  onError={(e) => {
-                    // Fallback a un emoji si la imagen no existe
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML += `<div class="w-full h-full flex items-center justify-center text-7xl opacity-20">🛼</div>`;
-                  }}
-                />
+                <div className="absolute inset-0 p-8 flex items-center justify-center pointer-events-none">
+                  <div className="relative w-full h-[75%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
+                    <Image
+                      src={product.images?.[0]?.url || '/images/placeholder.png'}
+                      alt={product.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
 
                 {/* Overlay de interacción */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-[#1C1612]/[0.02] transition-colors duration-500" />

@@ -6,6 +6,7 @@
 // ============================================================
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ShoppingBag, ArrowUpRight, Star } from 'lucide-react';
@@ -33,19 +34,13 @@ export default function ProductCard({ product }: ProductCardProps) {
     >
       <Link href={`/patines/${product.slug}`} className="relative block aspect-square overflow-hidden bg-transparent">
         {/* Product Image */}
-        <div className="w-full h-full p-10 md:p-12 transition-transform duration-[1.5s] ease-out group-hover:scale-105 flex items-center justify-center">
-          <img 
+        <div className="w-full h-full p-10 md:p-12 transition-transform duration-[1.5s] ease-out group-hover:scale-105 flex items-center justify-center relative">
+          <Image 
             src={product.images?.[0]?.url || '/images/placeholder.png'} 
             alt={product.name}
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              const parent = e.currentTarget.parentElement;
-              if (parent) {
-                parent.innerHTML = `<div class="flex items-center justify-center w-full h-full text-7xl opacity-[0.03]">🛼</div>`;
-              }
-            }}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-contain p-8 md:p-10"
           />
         </div>
       </Link>
