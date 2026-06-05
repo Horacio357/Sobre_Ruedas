@@ -63,7 +63,7 @@ export default function ProductDetailPage() {
             <div className="aspect-square bg-[#FFF9F9] rounded-[40px] overflow-hidden flex items-center justify-center p-20 border border-[#F9EAEA] shadow-sm">
               <motion.img 
                 layoutId={`img-${product.id}`}
-                src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
+                src={product.images?.[0]?.url || '/images/placeholder.png'} 
                 alt={product.name}
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-contain"

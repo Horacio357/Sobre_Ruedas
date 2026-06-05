@@ -124,7 +124,7 @@ export default function StepWheels() {
               >
                 <div className="h-24 md:h-36 mb-4 flex items-center justify-center p-4 relative">
                   <Image 
-                    src={wheel.images?.[0]?.url ?? '/images/placeholder.png'} 
+                    src={wheel.images?.[0]?.url || '/images/placeholder.png'} 
                     alt={wheel.name}
                     width={150}
                     height={150}
@@ -194,7 +194,7 @@ export default function StepWheels() {
                 className="relative z-10 w-full flex justify-center items-center p-6 md:p-12"
               >
                 <Image 
-                  src={currentWheels.images?.[0]?.url ?? '/images/placeholder.png'} 
+                  src={currentWheels.images?.[0]?.url || '/images/placeholder.png'} 
                   alt={currentWheels.name} 
                   width={400}
                   height={400}

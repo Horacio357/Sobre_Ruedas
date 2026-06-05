@@ -140,7 +140,7 @@ export default function StepSummary() {
                 >
                   <div className="relative w-full aspect-square flex items-center justify-center mb-6 bg-[#FAF7F2] rounded-[1.75rem] p-6 overflow-hidden">
                     <Image 
-                      src={item.product?.images?.[0]?.url ?? '/images/placeholder.png'} 
+                      src={item.product?.images?.[0]?.url || '/images/placeholder.png'} 
                       alt={item.product?.name || item.label} 
                       width={200}
                       height={200}

@@ -35,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Product Image */}
         <div className="w-full h-full p-10 md:p-12 transition-transform duration-[1.5s] ease-out group-hover:scale-105 flex items-center justify-center">
           <img 
-            src={product.images?.[0]?.url ?? '/images/placeholder.png'} 
+            src={product.images?.[0]?.url || '/images/placeholder.png'} 
             alt={product.name}
             referrerPolicy="no-referrer"
             className="w-full h-full object-contain"

@@ -126,7 +126,7 @@ export default function StepBoot() {
               >
                   <div className="h-24 md:h-36 mb-4 flex items-center justify-center relative">
                     <Image 
-                      src={boot.images?.[0]?.url ?? '/images/placeholder.png'} 
+                      src={boot.images?.[0]?.url || '/images/placeholder.png'} 
                       alt={boot.name}
                       width={150}
                       height={150}
@@ -196,7 +196,7 @@ export default function StepBoot() {
                 className="relative z-10 w-full flex justify-center items-center p-6 md:p-12"
               >
                 <Image 
-                  src={currentBoot.images?.[0]?.url ?? '/images/placeholder.png'} 
+                  src={currentBoot.images?.[0]?.url || '/images/placeholder.png'} 
                   alt={currentBoot.name} 
                   width={400}
                   height={400}
