@@ -75,11 +75,15 @@ export default function ProductDetailPage() {
               />
             </div>
             {/* Thumbs (opcional) */}
-            <div className="grid grid-cols-4 gap-6">
-               {[1, 2, 3, 4].map((i) => (
-                 <div key={i} className="aspect-square bg-[#FFF9F9] rounded-2xl border border-[#F9EAEA] opacity-40 hover:opacity-100 transition-opacity cursor-pointer shadow-sm" />
-               ))}
-            </div>
+            {product.images && product.images.length > 1 && (
+              <div className="grid grid-cols-4 gap-6">
+                 {product.images.map((img, i) => (
+                   <div key={i} className="aspect-square bg-[#FFF9F9] rounded-2xl border border-[#F9EAEA] opacity-40 hover:opacity-100 transition-opacity cursor-pointer shadow-sm p-2 flex items-center justify-center">
+                     <img src={img.url} alt={`${product.name} ${i}`} className="w-full h-full object-contain" />
+                   </div>
+                 ))}
+              </div>
+            )}
           </motion.div>
 
           {/* Información del Producto */}
@@ -124,8 +128,8 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Selección de Talle */}
-            <div className="space-y-4 mb-10">
-               <div className="flex justify-between items-center">
+            <div className="mb-10">
+               <div className="flex justify-between items-center mb-4">
                  <span className="text-sm font-black uppercase tracking-widest text-[#1C1612]">Seleccioná tu talle</span>
                  <button className="text-xs font-bold text-[#D97230] hover:underline">Guía de talles</button>
                </div>
@@ -148,7 +152,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Acciones */}
-            <div className="space-y-4 pt-12 border-t border-[#F9EAEA]">
+            <div className="pt-12 border-t border-[#F9EAEA] flex flex-col gap-12">
               <button 
                 onClick={() => cart.addItem(product as any)}
                 className="btn-primary w-full py-6 text-sm font-black uppercase tracking-[0.3em] gap-4 shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all"
@@ -157,7 +161,7 @@ export default function ProductDetailPage() {
                 Agregar al carrito
               </button>
               
-              <div className="grid sm:grid-cols-3 gap-6 mt-8 pt-12 border-t border-[#F9EAEA]/50">
+              <div className="grid sm:grid-cols-3 gap-6 pt-10 border-t border-[#F9EAEA]/50">
                 <div className="flex flex-col items-center text-center p-6 bg-white rounded-[32px] border border-[#F9EAEA] shadow-sm">
                   <ShieldCheck size={24} strokeWidth={1.5} className="text-[#D97230] mb-4" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#1C1612]">Garantía Oficial</span>
