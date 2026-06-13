@@ -155,15 +155,17 @@ export default function FeaturedProducts() {
                 <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D97230]/80 mb-4 block">
                   {product.skate_level?.[0]?.replace('_', ' ') ?? 'Intermedio'}
                 </span>
+                <div className="min-h-[4rem] flex items-start justify-center mb-4">
+                  <h3 className="font-medium text-[#1C1612] text-2xl tracking-tight leading-tight line-clamp-2">
+                    {product.name}
+                  </h3>
+                </div>
                 
-                <h3 className="font-medium text-[#1C1612] text-2xl mb-4 tracking-tight leading-tight">
-                  {product.name}
-                </h3>
-                
-                <p className="text-[14px] text-[#B08B8B] mb-8 font-light leading-relaxed opacity-80 max-w-[280px] mx-auto">
-                  {product.short_desc}
-                </p>
-
+                <div className="min-h-[4.5rem] flex items-start justify-center mb-8">
+                  <p className="text-[14px] text-[#B08B8B] font-light leading-relaxed opacity-80 max-w-[280px] mx-auto line-clamp-3">
+                    {product.short_desc}
+                  </p>
+                </div>
                 <div className="flex flex-col items-center gap-6">
                   <span className="text-2xl font-light text-[#1C1612] tracking-tighter">
                     {formatPrice(product.price_ars)}
