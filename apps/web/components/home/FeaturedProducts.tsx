@@ -155,13 +155,13 @@ export default function FeaturedProducts() {
                 <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D97230]/80 mb-4 block">
                   {product.skate_level?.[0]?.replace('_', ' ') ?? 'Intermedio'}
                 </span>
-                <div className="min-h-[3.5rem] flex items-start justify-center mb-3">
+                <div className="h-[3.6rem] flex items-start justify-center mb-3 overflow-hidden">
                   <h3 className="font-medium text-[#1C1612] text-2xl tracking-tight leading-tight line-clamp-2">
                     {product.name}
                   </h3>
                 </div>
                 
-                <div className="min-h-[2.5rem] flex items-start justify-center mb-6">
+                <div className="h-[2.5rem] flex items-start justify-center mb-6 overflow-hidden">
                   <p className="text-[14px] text-[#B08B8B] font-light leading-relaxed opacity-80 max-w-[280px] mx-auto line-clamp-2">
                     {product.short_desc}
                   </p>

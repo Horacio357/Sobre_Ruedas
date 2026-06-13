@@ -51,13 +51,13 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.brand_name}
           </span>
           
-          <div className="min-h-[3rem] flex items-start justify-center mb-2">
+          <div className="h-[3.2rem] flex items-start justify-center mb-2 overflow-hidden">
             <h3 className="text-[#1C1612] text-[clamp(1.1rem,2.2vw,1.3rem)] font-medium tracking-tight leading-snug break-words line-clamp-2">
               {product.name}
             </h3>
           </div>
           
-          <div className="min-h-[2.5rem] flex items-start justify-center">
+          <div className="h-[2.5rem] flex items-start justify-center overflow-hidden">
             <p className="text-[#B08B8B] text-[13px] leading-relaxed max-w-[240px] mx-auto font-light opacity-80 break-words line-clamp-2">
               {product.short_desc}
             </p>
