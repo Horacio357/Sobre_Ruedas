@@ -259,60 +259,58 @@ export default function CheckoutPage() {
 
           {/* ── Resumen de Compra (Derecha) ───────────────────────── */}
           <div className="lg:col-span-4">
-            <div className="bg-[#F9EAEA] rounded-[40px] p-6 lg:p-10 text-[#1C1612] shadow-2xl sticky top-32 border border-[#1C1612]/5 overflow-hidden">
+            <div className="bg-[#F9EAEA] rounded-[40px] p-8 lg:p-12 text-[#1C1612] shadow-2xl sticky top-32 border border-[#1C1612]/5 overflow-hidden">
               {/* Sutil gradiente de fondo */}
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#D97230] rounded-full blur-[90px] opacity-10" />
               
-              <h3 className="text-2xl font-black mb-8 flex items-center gap-4 tracking-tight">
+              <h3 className="text-2xl font-black mb-10 flex items-center gap-4 tracking-tight">
                 <ShieldCheck className="text-[#D97230] shrink-0" size={28} />
                 Resumen
               </h3>
 
-              <div className="pl-11">
-                <div className="space-y-6 mb-8 max-h-[350px] overflow-y-auto pr-4 custom-scrollbar">
-                  {items.map(item => (
-                    <div key={item.id} className="flex gap-4 items-center">
-                      <div className="w-14 h-14 shrink-0 rounded-xl bg-white border border-[#1C1612]/5 flex items-center justify-center shadow-sm overflow-hidden relative p-1.5">
-                        <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-contain w-full h-full"  referrerPolicy="no-referrer" />
-                      </div>
-                      <div className="flex-1 min-w-0 pr-2">
-                        <p className="font-bold text-[#1C1612] text-xs leading-tight mb-1.5 line-clamp-2">{item.product.name}</p>
-                        <div className="flex items-center gap-2">
-                           <span className="text-[9px] text-[#D97230] font-black uppercase tracking-widest bg-[#D97230]/10 px-1.5 py-0.5 rounded">Cant: {item.quantity}</span>
-                           <p className="font-black text-[#1C1612] text-sm">{formatPrice(item.unitPrice * item.quantity)}</p>
-                        </div>
+              <div className="space-y-6 mb-10 max-h-[350px] overflow-y-auto pr-4 custom-scrollbar">
+                {items.map(item => (
+                  <div key={item.id} className="flex gap-4 items-center">
+                    <div className="w-12 h-12 shrink-0 rounded-xl bg-white border border-[#1C1612]/5 flex items-center justify-center shadow-sm overflow-hidden relative p-1.5">
+                      <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-contain w-full h-full"  referrerPolicy="no-referrer" />
+                    </div>
+                    <div className="flex-1 min-w-0 pr-2">
+                      <p className="font-bold text-[#1C1612] text-[11px] leading-tight mb-1 line-clamp-2">{item.product.name}</p>
+                      <div className="flex items-center gap-2">
+                         <span className="text-[9px] text-[#D97230] font-black uppercase tracking-widest bg-[#D97230]/10 px-1.5 py-0.5 rounded">Cant: {item.quantity}</span>
+                         <p className="font-black text-[#1C1612] text-xs">{formatPrice(item.unitPrice * item.quantity)}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
 
-                <div className="pt-6 border-t border-[#1C1612]/10 space-y-4">
-                  <div className="flex justify-between text-[10px] font-black uppercase tracking-[0.2em] text-[#B08B8B]">
-                    <span>Subtotal</span>
-                    <span className="text-[#1C1612] text-sm">{formatPrice(total)}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-[#B08B8B]">
-                    <span>Envío</span>
-                    <span className="text-[#B08B8B] text-xs">En proceso</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-6 border-t border-[#1C1612]/10 mt-6">
-                    <span className="text-sm font-bold text-[#B08B8B] uppercase tracking-widest">Total</span>
-                    <span className="text-2xl lg:text-3xl font-black text-[#1C1612] tracking-tighter leading-none">{formatPrice(total)}</span>
+              <div className="pt-6 border-t border-[#1C1612]/10 space-y-4">
+                <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest text-[#B08B8B]">
+                  <span>Subtotal</span>
+                  <span className="text-[#1C1612] text-xs">{formatPrice(total)}</span>
+                </div>
+                <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest text-[#B08B8B]">
+                  <span>Envío</span>
+                  <span className="text-[#B08B8B] text-[10px]">En proceso</span>
+                </div>
+                <div className="flex justify-between items-center pt-6 border-t border-[#1C1612]/10 mt-6">
+                  <span className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Total</span>
+                  <span className="text-xl lg:text-2xl font-black text-[#1C1612] tracking-tighter leading-none">{formatPrice(total)}</span>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-4 border-t border-[#1C1612]/10 pt-6">
+                <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Lock size={16} className="text-[#34D399]" />
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Pago Seguro</span>
                   </div>
                 </div>
-
-                <div className="mt-8 flex flex-col gap-4 border-t border-[#1C1612]/10 pt-6">
-                  <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <Lock size={18} className="text-[#34D399]" />
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Pago Seguro</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <Truck size={18} className="text-[#D97230]" />
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Envío Prioritario</span>
-                    </div>
+                <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Truck size={16} className="text-[#D97230]" />
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Envío Prioritario</span>
                   </div>
                 </div>
               </div>
