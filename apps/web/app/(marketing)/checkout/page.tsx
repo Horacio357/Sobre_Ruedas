@@ -300,21 +300,6 @@ export default function CheckoutPage() {
                     <span className="text-xl lg:text-2xl font-black text-[#1C1612] tracking-tighter leading-none">{formatPrice(total)}</span>
                   </div>
                 </div>
-
-                <div className="mt-8 flex flex-col gap-4 border-t border-[#1C1612]/10 pt-6">
-                  <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <Lock size={16} className="text-[#34D399]" />
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Pago Seguro</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
-                    <div className="flex items-center gap-3">
-                      <Truck size={16} className="text-[#D97230]" />
-                      <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Envío Prioritario</span>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
