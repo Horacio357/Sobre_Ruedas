@@ -25,7 +25,7 @@ const PRODUCT_CATEGORIES = [
 
 const HIELO_CATEGORIES = [
   { id: 'botas_hielo', label: 'Botas', href: '/hielo/botas', image: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png' },
-  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: '' },
+  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: '/images/placeholder.png' },
   { id: 'accesorios_hielo', label: 'Accesorios', href: '/hielo/accesorios', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
 ];
 
