@@ -37,13 +37,13 @@ const createMercadoPagoPreference = async (req, res) => {
         },
       },
       back_urls: {
-        success: backUrls?.success || `${process.env.NEXT_PUBLIC_APP_URL}/checkout/success`,
-        failure: backUrls?.failure || `${process.env.NEXT_PUBLIC_APP_URL}/checkout/failure`,
-        pending: backUrls?.pending || `${process.env.NEXT_PUBLIC_APP_URL}/checkout/pending`,
+        success: backUrls?.success || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/success`,
+        failure: backUrls?.failure || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/failure`,
+        pending: backUrls?.pending || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/pending`,
       },
       auto_return: 'approved',
       external_reference: orderId,
-      notification_url: `${process.env.NEXT_PUBLIC_APP_URL}/api/webhooks/mercadopago`,
+      notification_url: `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/api/webhooks/mercadopago`,
       statement_descriptor: 'SOBRE RUEDAS',
       // Cuotas hasta 12 sin interés (configurar en panel de MP)
       payment_methods: {
