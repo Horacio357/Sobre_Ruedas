@@ -53,9 +53,9 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1C1612] text-[#B8A98E]" role="contentinfo">
+    <footer className="bg-[#F9EAEA] text-[#1C1612]" role="contentinfo">
       {/* Newsletter */}
-      <div className="border-b border-white/[0.06]">
+      <div className="border-b border-[#1C1612]/10">
         <div className="container-apple py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -65,10 +65,10 @@ export default function Footer() {
             className="flex flex-col md:flex-row items-center justify-between gap-6"
           >
             <div>
-              <h3 className="text-white text-xl font-bold tracking-tight mb-1">
+              <h3 className="text-[#1C1612] text-xl font-bold tracking-tight mb-1">
                 Novedades y ofertas exclusivas
               </h3>
-              <p className="text-[#9A8A72] text-sm">Suscribite y recibí descuentos antes que nadie.</p>
+              <p className="text-[#B08B8B] text-sm">Suscribite y recibí descuentos antes que nadie.</p>
             </div>
             <form className="flex w-full md:w-auto gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
@@ -76,7 +76,7 @@ export default function Footer() {
                 type="email"
                 placeholder="tu@email.com"
                 required
-                className="flex-1 md:w-64 px-4 py-2.5 rounded bg-white/[0.07] border border-white/[0.10] text-white placeholder-[#6B5E4A] text-sm focus:outline-none focus:border-[#D97230] transition-colors"
+                className="flex-1 md:w-64 px-4 py-2.5 rounded bg-white/50 border border-[#1C1612]/20 text-[#1C1612] placeholder-[#6B5E4A] text-sm focus:outline-none focus:border-[#D97230] transition-colors"
               />
               <button type="submit" className="btn-primary text-sm px-5 py-2.5 shrink-0">
                 Suscribirme
@@ -98,24 +98,24 @@ export default function Footer() {
           {/* Brand column */}
           <motion.div variants={itemVariants} className="col-span-2 md:col-span-1">
             <Link href="/" className="flex flex-col items-start gap-0 w-fit group mb-8">
-              <Logo className="h-16 w-auto" variant="light" />
+              <Logo className="h-16 w-auto" variant="dark" />
             </Link>
-            <p className="text-sm text-[#9A8A72] leading-relaxed mb-14">
+            <p className="text-sm text-[#B08B8B] leading-relaxed mb-14">
               Tu tienda especializada en patines artísticos. Expertos en equipamiento de competición y disfrute.
             </p>
             <ul className="space-y-8 text-sm">
-              <li className="flex items-center gap-2 text-[#9A8A72]">
+              <li className="flex items-center gap-2 text-[#B08B8B]">
                 <MapPin size={14} className="text-[#D97230] shrink-0" />
                 <span>Buenos Aires, Argentina</span>
               </li>
               <li>
-                <a href="tel:+541112345678" className="flex items-center gap-2 text-[#9A8A72] hover:text-white transition-colors">
+                <a href="tel:+541112345678" className="flex items-center gap-2 text-[#B08B8B] hover:text-[#1C1612] transition-colors">
                   <Phone size={14} className="text-[#D97230] shrink-0" />
                   <span>+54 11 1234-5678</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:hola@sobreruedas.com.ar" className="flex items-center gap-2 text-[#9A8A72] hover:text-white transition-colors">
+                <a href="mailto:hola@sobreruedas.com.ar" className="flex items-center gap-2 text-[#B08B8B] hover:text-[#1C1612] transition-colors">
                   <Mail size={14} className="text-[#D97230] shrink-0" />
                   <span>hola@sobreruedas.com.ar</span>
                 </a>
@@ -129,7 +129,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram de Sobre Ruedas"
-                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+                className="w-10 h-10 rounded bg-white/50 border border-[#1C1612]/10 flex items-center justify-center text-[#B08B8B] hover:text-[#D97230] hover:bg-white hover:border-[#D97230]/30 transition-all"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -144,7 +144,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook de Sobre Ruedas"
-                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+                className="w-10 h-10 rounded bg-white/50 border border-[#1C1612]/10 flex items-center justify-center text-[#B08B8B] hover:text-[#D97230] hover:bg-white hover:border-[#D97230]/30 transition-all"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
@@ -157,7 +157,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok de Sobre Ruedas"
-                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+                className="w-10 h-10 rounded bg-white/50 border border-[#1C1612]/10 flex items-center justify-center text-[#B08B8B] hover:text-[#D97230] hover:bg-white hover:border-[#D97230]/30 transition-all"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5v3a8 8 0 0 1-5-3v5.71A4 4 0 0 1 9 12Z"/>
@@ -170,7 +170,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube de Sobre Ruedas"
-                className="w-10 h-10 rounded bg-white/[0.05] border border-white/[0.07] flex items-center justify-center text-[#9A8A72] hover:text-[#D97230] hover:bg-white/[0.10] hover:border-[#D97230]/30 transition-all"
+                className="w-10 h-10 rounded bg-white/50 border border-[#1C1612]/10 flex items-center justify-center text-[#B08B8B] hover:text-[#D97230] hover:bg-white hover:border-[#D97230]/30 transition-all"
               >
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4" aria-hidden="true">
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
@@ -183,13 +183,13 @@ export default function Footer() {
           {/* Link columns */}
           {(['tienda', 'ayuda', 'empresa'] as const).map((section) => (
             <motion.div key={section} variants={itemVariants}>
-              <h4 className="text-white font-semibold text-sm mb-16 tracking-tight capitalize">
+              <h4 className="text-[#1C1612] font-semibold text-sm mb-16 tracking-tight capitalize">
                 {section === 'empresa' ? 'Empresa' : section === 'ayuda' ? 'Ayuda' : 'Tienda'}
               </h4>
               <ul className="space-y-8">
                 {FOOTER_LINKS[section].map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-[#9A8A72] hover:text-white transition-colors">
+                    <Link href={link.href} className="text-sm text-[#B08B8B] hover:text-[#1C1612] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -201,13 +201,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/[0.06] mt-12">
+      <div className="border-t border-[#1C1612]/10 mt-12">
         <div className="container-apple py-14 flex flex-col sm:flex-row items-center justify-between gap-10">
           <div className="flex flex-col items-center sm:items-start gap-2">
-            <p className="text-xs text-[#6B5E4A]">
+            <p className="text-xs text-[#B08B8B]">
               © {year} Sobre Ruedas. Todos los derechos reservados.
             </p>
-            <p className="text-[10px] text-[#4A4235] uppercase tracking-widest font-black">
+            <p className="text-[10px] text-[#D97230] uppercase tracking-widest font-black">
               Diseñado con excelencia técnica
             </p>
           </div>
@@ -217,7 +217,7 @@ export default function Footer() {
               <div
                 key={method.id}
                 title={method.name}
-                className="h-10 px-3 bg-white/[0.03] border border-white/[0.06] rounded-lg flex items-center justify-center hover:bg-white/[0.06] transition-colors group"
+                className="h-10 px-3 bg-white/50 border border-[#1C1612]/10 rounded-lg flex items-center justify-center hover:bg-white/80 transition-colors group"
               >
                 <img src={method.logo} alt={method.name} className="h-6 w-auto object-contain grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"  referrerPolicy="no-referrer" />
               </div>
