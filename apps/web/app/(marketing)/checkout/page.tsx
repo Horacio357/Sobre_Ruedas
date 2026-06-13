@@ -259,7 +259,7 @@ export default function CheckoutPage() {
 
           {/* ── Resumen de Compra (Derecha) ───────────────────────── */}
           <div className="lg:col-span-4">
-            <div className="bg-[#1C1612] rounded-3xl p-8 lg:p-10 text-white shadow-2xl sticky top-32 border border-white/5 overflow-hidden">
+            <div className="bg-[#F9EAEA] rounded-3xl p-8 lg:p-12 text-[#1C1612] shadow-2xl sticky top-32 border border-[#1C1612]/5 overflow-hidden">
               {/* Sutil gradiente de fondo */}
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#D97230] rounded-full blur-[90px] opacity-10" />
               
@@ -268,46 +268,50 @@ export default function CheckoutPage() {
                 Resumen
               </h3>
 
-              <div className="space-y-8 mb-10 max-h-[350px] overflow-y-auto pr-4 custom-scrollbar-dark">
+              <div className="space-y-8 mb-10 max-h-[350px] overflow-y-auto pr-4 custom-scrollbar">
                 {items.map(item => (
                   <div key={item.id} className="flex gap-4 items-center">
-                    <div className="w-14 h-14 shrink-0 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-inner overflow-hidden relative">
-                      <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-cover w-full h-full opacity-90 mix-blend-screen"  referrerPolicy="no-referrer" />
+                    <div className="w-14 h-14 shrink-0 rounded-xl bg-white border border-[#1C1612]/5 flex items-center justify-center shadow-sm overflow-hidden relative p-1.5">
+                      <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-contain w-full h-full"  referrerPolicy="no-referrer" />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="font-bold text-white/90 text-xs leading-tight mb-1 line-clamp-2">{item.product.name}</p>
+                    <div className="flex-1 min-w-0 pr-2">
+                      <p className="font-bold text-[#1C1612] text-xs leading-tight mb-1.5 line-clamp-2">{item.product.name}</p>
                       <div className="flex items-center gap-2">
                          <span className="text-[9px] text-[#D97230] font-black uppercase tracking-widest bg-[#D97230]/10 px-1.5 py-0.5 rounded">Cant: {item.quantity}</span>
-                         <p className="font-black text-white text-sm">{formatPrice(item.unitPrice * item.quantity)}</p>
+                         <p className="font-black text-[#1C1612] text-sm">{formatPrice(item.unitPrice * item.quantity)}</p>
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-8 border-t border-white/10 space-y-5">
-                <div className="flex justify-between text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+              <div className="pt-8 border-t border-[#1C1612]/10 space-y-5">
+                <div className="flex justify-between text-[10px] font-black uppercase tracking-[0.2em] text-[#B08B8B]">
                   <span>Subtotal</span>
-                  <span className="text-white">{formatPrice(total)}</span>
+                  <span className="text-[#1C1612] text-sm">{formatPrice(total)}</span>
                 </div>
-                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-white/40">
+                <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-[0.2em] text-[#B08B8B]">
                   <span>Envío</span>
-                  <span className="text-white/60">En proceso</span>
+                  <span className="text-[#B08B8B] text-xs">En proceso</span>
                 </div>
-                <div className="flex justify-between items-center pt-8 border-t border-white/10 mt-8">
-                  <span className="text-sm font-bold text-white/40 uppercase tracking-widest">Total</span>
-                  <span className="text-3xl lg:text-4xl font-black text-white tracking-tighter leading-none">{formatPrice(total)}</span>
+                <div className="flex justify-between items-center pt-8 border-t border-[#1C1612]/10 mt-8">
+                  <span className="text-sm font-bold text-[#B08B8B] uppercase tracking-widest">Total</span>
+                  <span className="text-2xl lg:text-3xl font-black text-[#1C1612] tracking-tighter leading-none">{formatPrice(total)}</span>
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/10 pt-8">
-                <div className="flex items-center gap-3 text-white/60 hover:text-white transition-colors">
-                  <Lock size={18} className="text-[#34D399]" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Pago Seguro</span>
+              <div className="mt-10 flex flex-col gap-4 border-t border-[#1C1612]/10 pt-8">
+                <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Lock size={18} className="text-[#34D399]" />
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Pago Seguro</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-white/60 hover:text-white transition-colors">
-                  <Truck size={18} className="text-[#D97230]" />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-white/90">Envío Prioritario</span>
+                <div className="flex items-center justify-between text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                  <div className="flex items-center gap-3">
+                    <Truck size={18} className="text-[#D97230]" />
+                    <span className="text-[9px] font-bold uppercase tracking-widest text-[#1C1612]">Envío Prioritario</span>
+                  </div>
                 </div>
               </div>
             </div>
