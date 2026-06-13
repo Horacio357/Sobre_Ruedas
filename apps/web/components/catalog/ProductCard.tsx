@@ -47,18 +47,18 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <div className="pt-8 pb-6 px-6 md:p-8 flex flex-col flex-1 text-center">
         <div className="mb-6 flex-1 flex flex-col justify-start">
-          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D97230]/80 mb-3 block">
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#D97230]/80 mb-2 block">
             {product.brand_name}
           </span>
           
-          <div className="min-h-[3.5rem] flex items-start justify-center mb-3">
+          <div className="min-h-[3rem] flex items-start justify-center mb-2">
             <h3 className="text-[#1C1612] text-[clamp(1.1rem,2.2vw,1.3rem)] font-medium tracking-tight leading-snug break-words line-clamp-2">
               {product.name}
             </h3>
           </div>
           
-          <div className="min-h-[4.5rem] flex items-start justify-center">
-            <p className="text-[#B08B8B] text-[13px] leading-relaxed max-w-[240px] mx-auto font-light opacity-80 break-words line-clamp-3">
+          <div className="min-h-[2.5rem] flex items-start justify-center">
+            <p className="text-[#B08B8B] text-[13px] leading-relaxed max-w-[240px] mx-auto font-light opacity-80 break-words line-clamp-2">
               {product.short_desc}
             </p>
           </div>
