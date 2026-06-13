@@ -259,7 +259,7 @@ export default function CheckoutPage() {
 
           {/* ── Resumen de Compra (Derecha) ───────────────────────── */}
           <div className="lg:col-span-4">
-            <div className="bg-[#F9EAEA] rounded-3xl p-8 lg:p-12 text-[#1C1612] shadow-2xl sticky top-32 border border-[#1C1612]/5 overflow-hidden">
+            <div className="bg-[#F9EAEA] rounded-[40px] p-10 lg:p-16 text-[#1C1612] shadow-2xl sticky top-32 border border-[#1C1612]/5 overflow-hidden">
               {/* Sutil gradiente de fondo */}
               <div className="absolute -top-20 -right-20 w-48 h-48 bg-[#D97230] rounded-full blur-[90px] opacity-10" />
               
