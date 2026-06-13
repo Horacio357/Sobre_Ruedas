@@ -166,7 +166,7 @@ export default function Navbar() {
                           {link.dropdown.map(cat => (
                             <Link key={cat.id} href={cat.href} className="group/cat flex flex-col items-center gap-4 text-center">
                               <div className="w-20 h-20 rounded-2xl bg-[#FAF7F2] flex items-center justify-center p-3 group-hover/cat:scale-110 group-hover/cat:bg-[#F5F0EA] transition-all duration-500 overflow-hidden relative">
-                                <img src={cat.image} alt={cat.label} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply" />
+                                <img src={cat.image || '/images/placeholder.png'} alt={cat.label} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply" />
                               </div>
                               <span className="text-[9px] font-black uppercase tracking-widest text-[#1C1612] group-hover/cat:text-[#D97230] transition-colors leading-tight">
                                 {cat.label}
