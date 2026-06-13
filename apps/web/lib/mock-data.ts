@@ -292,7 +292,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha Giotto es la elección de los campeones mundiales de figuras. Su precisión milimétrica y su construcción en aleación de aluminio de grado aeronáutico la hacen insuperable.',
     short_desc: 'Precisión absoluta para la disciplina de figuras.',
     images: [
-      { id: 'img5_1', product_id: 'p5', url: 'https://i.ibb.co/k51S22Kx/Roll-Line-ruedas-giotto.png', sort_order: 0, is_primary: true }
+      { id: 'img5_1', product_id: 'p5', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -437,7 +437,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Plancha técnica de alta gama con tren de aluminio y suspensiones en elastómero de primera calidad.',
     short_desc: 'Chasis excelente para deportistas de alto nivel y saltos.',
     images: [
-      { id: 'img_pm4', product_id: 'pm4', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm4', product_id: 'pm4', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -465,7 +465,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Perfectamente calibrada para figuras obligatorias y saltos intermedios. Excelente relación calidad/precio.',
     short_desc: 'Estabilidad superior y diseño clásico comprobado.',
     images: [
-      { id: 'img_pm5', product_id: 'pm5', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm5', product_id: 'pm5', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,

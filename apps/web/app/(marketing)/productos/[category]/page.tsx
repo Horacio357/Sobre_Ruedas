@@ -11,17 +11,18 @@ interface Props {
   };
 }
 
-export default function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params }: Props) {
+  const resolvedParams = await params;
   // Las categorías vienen en plural desde la URL ej: 'botas', 'planchas'
   // Buscamos si existe la categoría (quitando la 's' final de forma simple, en la vida real sería más robusto)
-  let catId = params.category.endsWith('s') ? params.category.slice(0, -1) : params.category;
-  if (params.category === 'rulemanes') catId = 'ruleman';
+  let catId = resolvedParams.category.endsWith('s') ? resolvedParams.category.slice(0, -1) : resolvedParams.category;
+  if (resolvedParams.category === 'rulemanes') catId = 'ruleman';
   
   const categoryInfo = CATEGORIES.find(c => c.id === catId);
   
-  if (!categoryInfo && params.category !== 'accesorios') {
+  if (!categoryInfo && resolvedParams.category !== 'accesorios') {
     // Casos especiales (ej. accesorios)
-    if (params.category !== 'accesorios') {
+    if (resolvedParams.category !== 'accesorios') {
       return notFound();
     }
   }
@@ -31,13 +32,13 @@ export default function CategoryPage({ params }: Props) {
     // Excluir productos exclusivos de hielo
     if (p.skate_type === 'hielo') return false;
 
-    if (params.category === 'accesorios' || catId === 'accesorio') {
+    if (resolvedParams.category === 'accesorios' || resolvedParams.category === 'bolsos' || catId === 'accesorio' || catId === 'bolso') {
       return p.component_type === 'accesorio';
     }
     return p.component_type === catId;
   });
 
-  const categoryName = categoryInfo ? categoryInfo.label : (params.category === 'accesorios' ? 'Bolsos y Accesorios' : params.category);
+  const categoryName = categoryInfo ? categoryInfo.label : ((resolvedParams.category === 'accesorios' || resolvedParams.category === 'bolsos') ? 'Bolsos y Accesorios' : resolvedParams.category);
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] pt-32 pb-40">
@@ -62,7 +63,7 @@ export default function CategoryPage({ params }: Props) {
             Todos
           </Link>
           {CATEGORIES.map(cat => {
-            const isCurrent = cat.id === catId || (cat.id === 'accesorio' && params.category === 'accesorios');
+            const isCurrent = cat.id === catId || (cat.id === 'accesorio' && (resolvedParams.category === 'accesorios' || resolvedParams.category === 'bolsos'));
             return (
               <Link 
                 key={cat.id} 

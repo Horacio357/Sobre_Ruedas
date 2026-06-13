@@ -11,9 +11,10 @@ interface Props {
   };
 }
 
-export default function HieloCategoryPage({ params }: Props) {
-  let catId = params.category.endsWith('s') ? params.category.slice(0, -1) : params.category;
-  if (params.category === 'accesorios') catId = 'accesorio';
+export default async function HieloCategoryPage({ params }: Props) {
+  const resolvedParams = await params;
+  let catId = resolvedParams.category.endsWith('s') ? resolvedParams.category.slice(0, -1) : resolvedParams.category;
+  if (resolvedParams.category === 'accesorios') catId = 'accesorio';
   
   if (!['bota', 'cuchilla', 'accesorio'].includes(catId)) {
     return notFound();
@@ -25,7 +26,7 @@ export default function HieloCategoryPage({ params }: Props) {
     return isIce && p.component_type === catId;
   });
 
-  const categoryName = params.category;
+  const categoryName = resolvedParams.category;
 
   return (
     <main className="min-h-screen bg-[#FAF7F2] pt-32 pb-40">
@@ -51,7 +52,7 @@ export default function HieloCategoryPage({ params }: Props) {
           </Link>
           {['Botas', 'Cuchillas', 'Accesorios'].map(cat => {
             const catLower = cat.toLowerCase();
-            const isCurrent = params.category === catLower;
+            const isCurrent = resolvedParams.category === catLower;
             return (
               <Link 
                 key={cat} 
