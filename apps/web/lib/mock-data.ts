@@ -743,35 +743,6 @@ export const PRODUCTS: MockProduct[] = [
     badgeType: 'discount',
     skate_discipline: ['libre'],
   },
-
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-  {
-
-
   {
     id: 'ice_1',
     name: 'Cuchilla John Wilson Pattern 99',
