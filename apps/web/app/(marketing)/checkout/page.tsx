@@ -286,18 +286,18 @@ export default function CheckoutPage() {
                   ))}
                 </div>
 
-                <div className="pt-6 border-t border-[#1C1612]/10 space-y-4">
-                  <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest text-[#B08B8B]">
-                    <span className="pl-1">Subtotal</span>
-                    <span className="text-[#1C1612] text-xs pr-1">{formatPrice(total)}</span>
+                <div className="pt-6 border-t border-[#1C1612]/10 space-y-4 px-2">
+                  <div className="flex justify-between items-center text-[9px] font-bold uppercase tracking-wider text-[#B08B8B]">
+                    <span>Subtotal</span>
+                    <span className="text-[#1C1612] text-xs">{formatPrice(total)}</span>
                   </div>
-                  <div className="flex justify-between items-center text-[9px] font-black uppercase tracking-widest text-[#B08B8B]">
-                    <span className="pl-1">Envío</span>
-                    <span className="text-[#B08B8B] text-[10px] pr-1">En proceso</span>
+                  <div className="flex justify-between items-center text-[9px] font-bold uppercase tracking-wider text-[#B08B8B]">
+                    <span>Envío</span>
+                    <span className="text-[#B08B8B] text-[10px]">En proceso</span>
                   </div>
                   <div className="flex justify-between items-center pt-6 border-t border-[#1C1612]/10 mt-6">
-                    <span className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest pl-1">Total</span>
-                    <span className="text-xl lg:text-2xl font-black text-[#1C1612] tracking-tighter leading-none pr-1">{formatPrice(total)}</span>
+                    <span className="text-xs font-bold text-[#B08B8B] uppercase tracking-wider">Total</span>
+                    <span className="text-xl lg:text-2xl font-bold text-[#1C1612] tracking-tight leading-none">{formatPrice(total)}</span>
                   </div>
                 </div>
               </div>
