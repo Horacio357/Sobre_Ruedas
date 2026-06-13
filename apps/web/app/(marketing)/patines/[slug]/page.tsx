@@ -157,7 +157,7 @@ export default function ProductDetailPage() {
                 Agregar al carrito
               </button>
               
-              <div className="grid sm:grid-cols-3 gap-6 pt-10">
+              <div className="grid sm:grid-cols-3 gap-6 mt-8 pt-12 border-t border-[#F9EAEA]/50">
                 <div className="flex flex-col items-center text-center p-6 bg-white rounded-[32px] border border-[#F9EAEA] shadow-sm">
                   <ShieldCheck size={24} strokeWidth={1.5} className="text-[#D97230] mb-4" />
                   <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#1C1612]">Garantía Oficial</span>

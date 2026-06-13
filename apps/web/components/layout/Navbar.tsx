@@ -56,7 +56,7 @@ export default function Navbar() {
   return (
     <>
       {/* ── Barra Superior (Anuncios) ────────────────────────── */}
-      <div className="bg-[#1C1612] text-white text-[10px] font-black uppercase tracking-[0.3em] py-3 hidden md:block">
+      <div className="bg-[#D97230] text-white text-[10px] font-black uppercase tracking-[0.3em] py-3 hidden md:block">
         <div className="container-apple flex items-center justify-between">
           <span>🚚 Envíos a todo el mundo</span>
           <Link href="/outlet" className="hover:text-[#D97230] transition-colors">Descubre el Outlet</Link>
