@@ -37,9 +37,9 @@ const createMercadoPagoPreference = async (req, res) => {
         },
       },
       back_urls: {
-        success: backUrls?.success || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/success`,
-        failure: backUrls?.failure || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/failure`,
-        pending: backUrls?.pending || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/pending`,
+        success: (backUrls?.success || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/success`).replace('http://localhost', 'https://localhost'),
+        failure: (backUrls?.failure || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/failure`).replace('http://localhost', 'https://localhost'),
+        pending: (backUrls?.pending || `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/checkout/pending`).replace('http://localhost', 'https://localhost'),
       },
       auto_return: 'approved',
       external_reference: orderId,
@@ -58,6 +58,8 @@ const createMercadoPagoPreference = async (req, res) => {
         ],
       }),
     };
+
+    console.log('[MP Preference Debug]:', JSON.stringify(preference, null, 2));
 
     const response = await axios.post(
       'https://api.mercadopago.com/checkout/preferences',
