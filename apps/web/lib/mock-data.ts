@@ -624,16 +624,16 @@ export const PRODUCTS: MockProduct[] = [
   },
   {
     id: 'p6',
-    name: 'Ruedas Komplex Angel',
-    slug: 'komplex-angel',
-    brand_name: 'Komplex',
+    name: 'Ruedas Roll-Line Giotto',
+    slug: 'roll-line-ruedas-giotto',
+    brand_name: 'Roll-Line',
     component_type: 'rueda',
     skate_level: ['avanzado'],
     price_ars: 45000,
-    description: 'Ruedas profesionales con núcleo de elastómero que proporcionan un agarre excepcional en superficies resbaladizas sin comprometer la velocidad.',
-    short_desc: 'Set de 8 ruedas profesionales de alta densidad.',
+    description: 'Ruedas profesionales con excelente agarre, ideales para patinaje libre.',
+    short_desc: 'Set de 8 ruedas profesionales.',
     images: [
-      { id: 'img6_1', product_id: 'p6', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
+      { id: 'img6_1', product_id: 'p6', url: 'https://i.ibb.co/k51S22Kx/Roll-Line-ruedas-giotto.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -658,15 +658,15 @@ export const PRODUCTS: MockProduct[] = [
   {
     id: 'p6_2',
     name: 'Ruedas Roll-Line Magnum',
-    slug: 'roll-line-magnum',
+    slug: 'roll-line-ruedas-magnum',
     brand_name: 'Roll-Line',
     component_type: 'rueda',
     skate_level: ['intermedio'],
     price_ars: 40000,
-    description: 'Perfectas para superficies rugosas and asfalto.',
+    description: 'Perfectas para superficies rugosas y asfalto.',
     short_desc: 'Set de 8 ruedas para piso rugoso.',
     images: [
-      { id: 'img62_1', product_id: 'p6_2', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
+      { id: 'img62_1', product_id: 'p6_2', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -688,16 +688,16 @@ export const PRODUCTS: MockProduct[] = [
   },
   {
     id: 'p6_3',
-    name: 'Ruedas Edea Fox',
-    slug: 'edea-fox',
-    brand_name: 'Edea',
+    name: 'Ruedas Roll-Line Helium',
+    slug: 'roll-line-ruedas-helium',
+    brand_name: 'Roll-Line',
     component_type: 'rueda',
     skate_level: ['avanzado'],
     price_ars: 42000,
-    description: 'Equilibrio perfecto para quienes cambian de pista frecuentemente.',
+    description: 'Equilibrio perfecto para asfalto y superficies exteriores.',
     short_desc: 'Set de 8 ruedas mixtas.',
     images: [
-      { id: 'img63_1', product_id: 'p6_3', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 0, is_primary: true }
+      { id: 'img63_1', product_id: 'p6_3', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -708,6 +708,37 @@ export const PRODUCTS: MockProduct[] = [
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
     floorType: 'mixto',
+    skate_discipline: ['libre'],
+    specs: [
+      { label: 'Agarre', value: 90 },
+      { label: 'Velocidad', value: 85 },
+      { label: 'Deslize', value: 80 },
+      { label: 'Durabilidad', value: 85 },
+      { label: 'Amortiguación', value: 95 },
+    ],
+  },
+  {
+    id: 'p6_4',
+    name: 'Ruedas Roll-Line Boxer',
+    slug: 'roll-line-ruedas-boxer',
+    brand_name: 'Roll-Line',
+    component_type: 'rueda',
+    skate_level: ['iniciacion'],
+    price_ars: 35000,
+    description: 'Ruedas ideales para quienes comienzan en el patinaje artístico.',
+    short_desc: 'Set de 8 ruedas de iniciación.',
+    images: [
+      { id: 'img64_1', product_id: 'p6_4', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 30,
+    low_stock_threshold: 5,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    floorType: 'liso',
     skate_discipline: ['libre', 'danza'],
     specs: [
       { label: 'Agarre', value: 80 },
