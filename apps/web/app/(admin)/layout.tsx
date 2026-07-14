@@ -9,10 +9,10 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <aside className="w-16 md:w-56 lg:w-64 bg-white border-r border-[#1C1612]/5 flex flex-col shrink-0 transition-all duration-300">
         <div className="p-4 md:p-6 border-b border-[#1C1612]/5 h-[72px] flex items-center justify-center md:justify-start">
           <Link href="/admin">
-            <h2 className="hidden md:block text-lg md:text-xl font-black tracking-tighter text-[#1C1612] uppercase truncate">
+            <h2 className="hidden md:block text-base font-black tracking-tighter text-[#1C1612] uppercase truncate">
               SR Admin<span className="text-[#D97230]">.</span>
             </h2>
-            <h2 className="block md:hidden text-lg font-black tracking-tighter text-[#1C1612] uppercase">
+            <h2 className="block md:hidden text-sm font-black tracking-tighter text-[#1C1612] uppercase">
               SR<span className="text-[#D97230]">.</span>
             </h2>
           </Link>
