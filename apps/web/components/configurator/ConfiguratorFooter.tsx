@@ -94,7 +94,7 @@ export default function ConfiguratorFooter() {
                 textTransform: 'uppercase',
                 letterSpacing: '0.4em',
                 border: 'none',
-                boxShadow: (!isComplete || currentStep === 6) ? 'none' : '0 10px 40px -10px rgba(217,114,48,0.8)',
+                boxShadow: (!isComplete || (currentStep as number) === 6) ? 'none' : '0 10px 40px -10px rgba(217,114,48,0.8)',
                 transition: 'all 0.3s ease'
               }}
             >

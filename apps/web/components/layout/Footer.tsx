@@ -39,6 +39,12 @@ const PAYMENT_METHODS = [
   { id: 'payway', name: 'Payway', logo: 'https://i.ibb.co/TDZjFfdZ/descarga-2.png' }
 ];
 
+const BRANDS = [
+  { id: 'roll-line', name: 'Roll Line', logo: 'https://i.ibb.co/4xK0GNt/1-2.png' },
+  { id: 'risport', name: 'Risport', logo: 'https://i.ibb.co/zWp29cwW/2-2.png' },
+  { id: 'edea', name: 'Edea', logo: 'https://i.ibb.co/hQM3gJM/3-2.png' },
+];
+
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
@@ -93,10 +99,10 @@ export default function Footer() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 lg:gap-24"
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-16 lg:gap-24"
         >
           {/* Brand column */}
-          <motion.div variants={itemVariants} className="col-span-2 md:col-span-1">
+          <motion.div variants={itemVariants} className="col-span-1 flex flex-col">
             <Link href="/" className="flex flex-col items-start gap-0 w-fit group mb-8">
               <Logo className="h-16 w-auto" variant="dark" />
             </Link>
@@ -121,7 +127,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <div className="flex flex-wrap items-center gap-6 mt-20">
+            <div className="flex flex-wrap items-center gap-6 mt-20 md:mt-auto pt-8">
               <motion.a
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
@@ -180,23 +186,40 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Link columns */}
-          {(['tienda', 'ayuda', 'empresa'] as const).map((section) => (
-            <motion.div key={section} variants={itemVariants}>
-              <h4 className="text-[#1C1612] font-semibold text-sm mb-16 tracking-tight capitalize">
-                {section === 'empresa' ? 'Empresa' : section === 'ayuda' ? 'Ayuda' : 'Tienda'}
-              </h4>
-              <ul className="space-y-8">
-                {FOOTER_LINKS[section].map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-[#B08B8B] hover:text-[#1C1612] transition-colors">
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Right Area (Links + Brands) */}
+          <div className="col-span-1 md:col-span-3 flex flex-col">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
+              {(['tienda', 'ayuda', 'empresa'] as const).map((section) => (
+                <motion.div key={section} variants={itemVariants}>
+                  <h4 className="text-[#1C1612] font-semibold text-sm mb-16 tracking-tight capitalize">
+                    {section === 'empresa' ? 'Empresa' : section === 'ayuda' ? 'Ayuda' : 'Tienda'}
+                  </h4>
+                  <ul className="space-y-8">
+                    {FOOTER_LINKS[section].map((link) => (
+                      <li key={link.href}>
+                        <Link href={link.href} className="text-sm text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Marcas - en el espacio inferior */}
+            <motion.div variants={itemVariants} className="mt-16 md:mt-auto pt-8 flex flex-wrap items-center justify-start md:justify-end gap-8 md:gap-14 opacity-70">
+              {BRANDS.map((brand) => (
+                <img 
+                  key={brand.id} 
+                  src={brand.logo} 
+                  alt={brand.name} 
+                  title={brand.name}
+                  className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              ))}
             </motion.div>
-          ))}
+          </div>
         </motion.div>
       </div>
 
