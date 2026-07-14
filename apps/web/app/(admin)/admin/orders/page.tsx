@@ -159,13 +159,33 @@ export default function AdminOrders() {
               
               <div>
                 <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-3">Artículos (Mock)</p>
-                <div className="flex items-center gap-4 p-4 border border-[#1C1612]/10 rounded-2xl">
+                <div className="flex items-center gap-4 p-4 border border-[#1C1612]/10 rounded-2xl mb-6">
                   <div className="w-12 h-12 bg-gray-200 rounded-xl overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1520687556754-5264b3c00424?w=400&q=80" alt="mock" className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <p className="font-bold text-[#1C1612] text-sm">Botas Edea Fly - Blanco</p>
                     <p className="text-xs text-[#B08B8B]">1 unidad</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Logística y Envío */}
+              <div className="bg-white border-2 border-dashed border-[#1C1612]/10 p-6 rounded-2xl">
+                <h4 className="text-sm font-black text-[#1C1612] mb-4 flex items-center gap-2">
+                  <ShoppingBag size={16} className="text-[#D97230]" />
+                  Logística y Envío
+                </h4>
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Código de Seguimiento (Tracking)</label>
+                    <div className="flex gap-2">
+                      <input type="text" placeholder="Ej: AND-123456789" className="flex-1 px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                      <button className="px-4 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors whitespace-nowrap">
+                        Guardar y Notificar
+                      </button>
+                    </div>
+                    <p className="text-[10px] text-[#B08B8B] mt-1">Al guardar, se enviará un email al cliente con el link de seguimiento.</p>
                   </div>
                 </div>
               </div>
