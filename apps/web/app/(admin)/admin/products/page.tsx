@@ -23,21 +23,21 @@ export default function AdminProducts() {
           <ArrowLeft size={18} /> Volver a productos
         </button>
         
-        <h1 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight mb-8">Cargar Producto</h1>
+        <h1 className="text-2xl font-black text-[#1C1612] tracking-tight mb-8">Cargar Producto</h1>
         
         <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
           {/* Info Básica */}
           <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 space-y-6">
-            <h2 className="text-lg font-black text-[#1C1612]">Información Básica</h2>
+            <h2 className="text-base md:text-lg font-black text-[#1C1612]">Información Básica</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Nombre del Producto</label>
-                <input type="text" placeholder="Ej: Botas Edea Fly" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="text" placeholder="Ej: Botas Edea Fly" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Categoría</label>
-                <select className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium">
+                <select className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium">
                   <option>Botas</option>
                   <option>Planchas</option>
                   <option>Ruedas</option>
@@ -46,38 +46,38 @@ export default function AdminProducts() {
               </div>
               <div className="space-y-2 md:col-span-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Descripción</label>
-                <textarea rows={4} placeholder="Describe los materiales, el uso recomendado..." className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium resize-none"></textarea>
+                <textarea rows={4} placeholder="Describe los materiales, el uso recomendado..." className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium resize-none"></textarea>
               </div>
             </div>
           </div>
 
           {/* Detalles Técnicos */}
           <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 space-y-6">
-            <h2 className="text-lg font-black text-[#1C1612]">Detalles Técnicos y Efectos</h2>
+            <h2 className="text-base md:text-lg font-black text-[#1C1612]">Detalles Técnicos y Efectos</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Color / Variante</label>
-                <input type="text" placeholder="Ej: Blanco Perla" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="text" placeholder="Ej: Blanco Perla" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Etiquetas / Efectos</label>
-                <input type="text" placeholder="Ej: Liviano, Triple Salto, Profesional" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="text" placeholder="Ej: Liviano, Triple Salto, Profesional" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Precio (ARS)</label>
-                <input type="number" placeholder="0.00" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="number" placeholder="0.00" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Stock</label>
-                <input type="number" placeholder="Cantidad" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="number" placeholder="Cantidad" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
             </div>
           </div>
 
           {/* Multimedia */}
           <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 space-y-6">
-            <h2 className="text-lg font-black text-[#1C1612]">Imágenes y Videos</h2>
+            <h2 className="text-base md:text-lg font-black text-[#1C1612]">Imágenes y Videos</h2>
             
             <div className="space-y-6">
               {/* Fotos */}
@@ -87,11 +87,11 @@ export default function AdminProducts() {
                 <div className="flex gap-4">
                   {/* Opción 1: URL */}
                   <div className="flex-1 p-6 border-2 border-dashed border-[#1C1612]/10 rounded-2xl flex flex-col gap-4">
-                    <div className="flex items-center gap-2 text-[#1C1612] font-bold">
+                    <div className="flex items-center gap-2 text-[#1C1612] font-bold text-sm">
                       <LinkIcon size={18} className="text-[#D97230]" />
                       Por Enlace (URL)
                     </div>
-                    <input type="text" placeholder="https://ejemplo.com/foto.jpg" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                    <input type="text" placeholder="https://ejemplo.com/foto.jpg" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
                   </div>
                   
                   <div className="flex items-center justify-center font-bold text-[#B08B8B] text-xs uppercase tracking-widest">O</div>
@@ -110,7 +110,7 @@ export default function AdminProducts() {
               {/* Video */}
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Link de Video (YouTube/Vimeo)</label>
-                <input type="text" placeholder="https://youtube.com/watch?v=..." className="w-full px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+                <input type="text" placeholder="https://youtube.com/watch?v=..." className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
                 <p className="text-[10px] text-[#B08B8B] font-medium mt-1">Este video se mostrará en la galería del producto para el cliente.</p>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function AdminProducts() {
             <button type="button" onClick={() => setView('list')} className="px-6 py-3 bg-white text-[#1C1612] border border-[#1C1612]/10 rounded-xl font-bold text-sm hover:bg-gray-50 transition-colors">
               Cancelar
             </button>
-            <button type="submit" className="px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20">
+            <button type="submit" onClick={() => setView('list')} className="px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20">
               Guardar Producto
             </button>
           </div>
@@ -132,7 +132,7 @@ export default function AdminProducts() {
   // Vista de Tabla
   return (
     <div className="p-8 md:p-12 lg:p-16 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
         <div>
           <h1 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight">Productos</h1>
           <p className="text-sm text-[#B08B8B] mt-2 font-medium">Gestiona tu catálogo, precios y multimedia</p>
@@ -163,15 +163,15 @@ export default function AdminProducts() {
         </div>
       </div>
 
-      <div className="bg-white rounded-3xl shadow-sm border border-[#1C1612]/5 overflow-hidden">
+      <div className="bg-white rounded-[2rem] shadow-sm border border-[#1C1612]/5 overflow-hidden">
         {/* Barra de herramientas */}
-        <div className="p-6 border-b border-[#1C1612]/5 flex flex-col sm:flex-row justify-between gap-4">
-          <div className="relative flex-1 max-w-md">
+        <div className="p-8 border-b border-[#1C1612]/5 flex flex-col sm:flex-row justify-between gap-6 items-center">
+          <div className="relative w-full max-w-md">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#B08B8B]" size={18} />
             <input 
               type="text" 
               placeholder="Buscar productos..." 
-              className="w-full pl-12 pr-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium"
+              className="w-full pl-12 pr-4 py-3.5 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium"
             />
           </div>
         </div>
@@ -187,36 +187,36 @@ export default function AdminProducts() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-left border-collapse min-w-[800px]">
               <thead>
-                <tr className="bg-[#F5F1EB]/50">
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap">Producto</th>
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap">Categoría</th>
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap">Precio</th>
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap">Stock</th>
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap">Estado</th>
-                  <th className="p-4 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap text-right">Acciones</th>
+                <tr className="bg-[#F5F1EB]/30">
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Producto</th>
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Categoría</th>
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Precio</th>
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Stock</th>
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Estado</th>
+                  <th className="px-8 py-5 text-xs font-bold text-[#B08B8B] uppercase tracking-widest whitespace-nowrap border-b border-[#1C1612]/5 text-center">Acciones</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#1C1612]/5">
                 {products.map((product) => (
                   <tr key={product.id} className="hover:bg-[#F5F1EB]/30 transition-colors">
-                    <td className="p-4">
+                    <td className="px-8 py-6 text-center">
                       <p className="font-bold text-[#1C1612] text-sm">{product.name}</p>
-                      <p className="text-xs text-[#B08B8B] mt-0.5">Color: {product.color}</p>
+                      <p className="text-xs text-[#B08B8B] mt-1">Color: {product.color}</p>
                     </td>
-                    <td className="p-4 text-sm text-[#1C1612] font-medium capitalize">{product.category}</td>
-                    <td className="p-4 font-black text-[#1C1612]">${product.price}</td>
-                    <td className="p-4 font-bold text-[#1C1612]">{product.stock}</td>
-                    <td className="p-4">
-                      <span className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1.5 rounded-lg inline-flex items-center justify-center
+                    <td className="px-8 py-6 text-sm text-[#1C1612] font-medium capitalize text-center">{product.category}</td>
+                    <td className="px-8 py-6 font-black text-[#1C1612] text-center">${product.price}</td>
+                    <td className="px-8 py-6 font-bold text-[#1C1612] text-center">{product.stock}</td>
+                    <td className="px-8 py-6 text-center">
+                      <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-xl inline-flex items-center justify-center
                         ${product.status === 'Activo' ? 'bg-[#34D399]/10 text-[#34D399]' : 'bg-red-100 text-red-600'}`}
                       >
                         {product.status}
                       </span>
                     </td>
-                    <td className="p-4 text-right">
-                      <button onClick={() => setView('form')} className="p-2 text-[#B08B8B] hover:text-[#D97230] hover:bg-[#D97230]/10 rounded-lg transition-colors">
+                    <td className="px-8 py-6 text-center flex justify-center">
+                      <button onClick={() => setView('form')} className="p-3 text-[#B08B8B] hover:text-[#D97230] hover:bg-[#D97230]/10 rounded-xl transition-colors" title="Editar Producto">
                         <Edit3 size={18} />
                       </button>
                     </td>
