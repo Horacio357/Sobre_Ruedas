@@ -1,17 +1,30 @@
 "use client";
-import React, { useState } from 'react';
-import { RefreshCw, Trash2, Search, Edit3, Image as ImageIcon, Plus, ArrowLeft, Link as LinkIcon, Upload } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { RefreshCw, Trash2, Search, Edit3, Image as ImageIcon, Plus, ArrowLeft, Link as LinkIcon, Upload, AlertCircle } from 'lucide-react';
 
 const mockProducts = [
   { id: '1', name: 'Botas Edea Fly', category: 'botas', price: 250000, stock: 5, color: 'Blanco', status: 'Activo' },
   { id: '2', name: 'Plancha Roll Line Mistral', category: 'planchas', price: 180000, stock: 12, color: 'Plata', status: 'Activo' },
-  { id: '3', name: 'Ruedas Giotto 57mm', category: 'ruedas', price: 45000, stock: 0, color: 'Gris', status: 'Agotado' },
+  { id: '3', name: 'Ruedas Giotto 57mm', category: 'ruedas', price: 45000, stock: 2, color: 'Gris', status: 'Activo' },
+  { id: '4', name: 'Frenos Roll Line', category: 'accesorios', price: 15000, stock: 0, color: 'Beige', status: 'Agotado' },
 ];
 
 export default function AdminProducts() {
   const [hasData, setHasData] = useState(false);
   const [view, setView] = useState<'list' | 'form'>('list');
-  const products = hasData ? mockProducts : [];
+  const [filter, setFilter] = useState<string | null>(null);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const filterParam = urlParams.get('filter');
+    if (filterParam) {
+      setFilter(filterParam);
+      setHasData(true);
+    }
+  }, []);
+
+  const baseProducts = hasData ? mockProducts : [];
+  const products = filter === 'low_stock' ? baseProducts.filter(p => p.stock < 3) : baseProducts;
 
   if (view === 'form') {
     return (
@@ -138,6 +151,18 @@ export default function AdminProducts() {
           <p className="text-sm text-[#B08B8B] mt-2 font-medium">Gestiona tu catálogo, precios y multimedia</p>
         </div>
         <div className="flex flex-wrap gap-4">
+          {filter === 'low_stock' && (
+            <button 
+              onClick={() => {
+                setFilter(null);
+                window.history.pushState({}, '', '/admin/products');
+              }}
+              className="flex items-center gap-2 px-5 py-3 bg-red-50 text-red-600 border border-red-200 rounded-xl font-bold text-sm hover:bg-red-100 transition-colors shadow-sm"
+            >
+              <AlertCircle size={16} />
+              Viendo: Bajo Stock (X)
+            </button>
+          )}
           <button 
             onClick={() => setView('form')}
             className="flex items-center gap-2 px-5 py-3 bg-[#D97230] text-white rounded-xl font-bold text-sm hover:bg-[#c26225] transition-colors shadow-lg shadow-[#D97230]/20"
@@ -207,7 +232,15 @@ export default function AdminProducts() {
                     </td>
                     <td className="px-8 py-6 text-sm text-[#1C1612] font-medium capitalize text-center">{product.category}</td>
                     <td className="px-8 py-6 font-black text-[#1C1612] text-center">${product.price}</td>
-                    <td className="px-8 py-6 font-bold text-[#1C1612] text-center">{product.stock}</td>
+                    <td className="px-8 py-6 text-center">
+                      {product.stock < 3 ? (
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-600 rounded-lg font-black text-sm">
+                          <AlertCircle size={14} /> {product.stock}
+                        </span>
+                      ) : (
+                        <span className="font-bold text-[#1C1612] text-sm">{product.stock}</span>
+                      )}
+                    </td>
                     <td className="px-8 py-6 text-center">
                       <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-xl inline-flex items-center justify-center
                         ${product.status === 'Activo' ? 'bg-[#34D399]/10 text-[#34D399]' : 'bg-red-100 text-red-600'}`}

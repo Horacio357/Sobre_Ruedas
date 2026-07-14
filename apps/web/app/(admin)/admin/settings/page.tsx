@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { Settings, Save, LayoutTemplate, Megaphone, Image as ImageIcon } from 'lucide-react';
+import { Settings, Save, LayoutTemplate, Megaphone, Image as ImageIcon, Undo2 } from 'lucide-react';
 
 export default function AdminSettings() {
   return (
@@ -10,10 +10,16 @@ export default function AdminSettings() {
           <h1 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight">Configuración de la Tienda</h1>
           <p className="text-sm text-[#B08B8B] mt-2 font-medium">Personaliza el diseño y anuncios de la página principal</p>
         </div>
-        <button className="flex items-center gap-2 px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20">
-          <Save size={16} />
-          Guardar Cambios
-        </button>
+        <div className="flex gap-3 w-full md:w-auto">
+          <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 bg-white text-[#1C1612] border-2 border-[#1C1612]/10 rounded-xl font-bold text-sm hover:bg-[#F5F1EB] transition-colors">
+            <Undo2 size={16} />
+            Restaurar
+          </button>
+          <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20">
+            <Save size={16} />
+            Guardar
+          </button>
+        </div>
       </div>
 
       <div className="space-y-8">

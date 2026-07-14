@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { TrendingUp, Users, ShoppingBag, AlertCircle, RefreshCw, Trash2 } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import Link from 'next/link';
 
 // Datos de muestra iniciales (vacíos)
 const emptyData = [
@@ -91,15 +92,15 @@ export default function AdminDashboard() {
           <h3 className="text-3xl font-black text-[#1C1612] tracking-tighter">{clientes}</h3>
         </div>
 
-        <div className="bg-[#1C1612] p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 text-white flex flex-col items-center justify-center text-center gap-4 min-h-[180px]">
+        <Link href="/admin/products?filter=low_stock" className="bg-[#1C1612] p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 text-white flex flex-col items-center justify-center text-center gap-4 min-h-[180px] hover:bg-[#2A231C] transition-colors cursor-pointer group">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white">
+            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
               <AlertCircle size={24} />
             </div>
             <p className="text-xs font-bold text-white/60 uppercase tracking-widest">Bajo Stock</p>
           </div>
           <h3 className="text-3xl font-black text-white tracking-tighter">{alertas}</h3>
-        </div>
+        </Link>
       </div>
 
       {/* Content Area */}
