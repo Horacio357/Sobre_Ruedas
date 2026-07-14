@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { LayoutDashboard, Package, ShoppingCart, Settings, LogOut } from 'lucide-react';
+import { LayoutDashboard, Package, ShoppingCart, Settings, LogOut, Users, Ticket } from 'lucide-react';
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
@@ -30,6 +30,14 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
           <Link href="/admin/orders" className="flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#1C1612] hover:bg-[#F9EAEA] transition-colors font-bold text-sm" title="Pedidos">
             <ShoppingCart size={18} className="text-[#B08B8B] shrink-0" />
             <span className="hidden md:inline">Pedidos</span>
+          </Link>
+          <Link href="/admin/customers" className="flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#1C1612] hover:bg-[#F9EAEA] transition-colors font-bold text-sm" title="Clientes">
+            <Users size={18} className="text-[#B08B8B] shrink-0" />
+            <span className="hidden md:inline">Clientes</span>
+          </Link>
+          <Link href="/admin/coupons" className="flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#1C1612] hover:bg-[#F9EAEA] transition-colors font-bold text-sm" title="Cupones">
+            <Ticket size={18} className="text-[#B08B8B] shrink-0" />
+            <span className="hidden md:inline">Cupones</span>
           </Link>
         </nav>
 
