@@ -37,7 +37,15 @@ const NAV_LINKS = [
   { label: 'Ayuda', href: '/guia' },
 ];
 
-export default function Navbar() {
+interface NavbarProps {
+  announcementText?: string;
+  announcementEnabled?: boolean;
+}
+
+export default function Navbar({ 
+  announcementText = '¡Envío gratis superando los $150.000!', 
+  announcementEnabled = true 
+}: NavbarProps) {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -55,14 +63,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Barra Superior (Anuncios) ────────────────────────── */}
-      <div className="bg-[#D97230] text-white text-[10px] font-black uppercase tracking-[0.3em] py-3 hidden md:block">
-        <div className="container-apple flex items-center justify-between">
-          <span>🚚 Envíos a todo el mundo</span>
-          <Link href="/outlet" className="hover:text-[#D97230] transition-colors">Descubre el Outlet</Link>
-          <span>🎧 Soporte Personalizado</span>
+      {announcementEnabled && (
+        <div className="bg-[#D97230] text-white text-[10px] font-black uppercase tracking-[0.3em] py-3 hidden md:block">
+          <div className="container-apple flex items-center justify-between">
+            <span>🚚 Envíos a todo el mundo</span>
+            <span className="text-[#1C1612] bg-white/90 px-3 py-1 rounded-full shadow-sm">{announcementText}</span>
+            <span>🎧 Soporte Personalizado</span>
+          </div>
         </div>
-      </div>
+      )}
 
       <motion.nav
         initial={{ y: -20, opacity: 0 }}

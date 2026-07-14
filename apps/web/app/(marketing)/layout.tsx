@@ -9,18 +9,29 @@ import FloatingChatWidget from '@/components/shared/FloatingChatWidget';
 import CartDrawer from '@/components/cart/CartDrawer';
 import TotalsSync from '@/components/shared/TotalsSync';
 import Script from 'next/script';
+import { createClient } from '@/lib/supabase-server';
 
-export default function MarketingLayout({
+export default async function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const supabase = createClient();
+  const { data: settings } = await supabase
+    .from('store_settings')
+    .select('*')
+    .eq('id', 'default')
+    .single();
+
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: `
         #srp-chat-btn { display: none !important; }
       `}} />
-      <Navbar />
+      <Navbar 
+        announcementText={settings?.announcement_text} 
+        announcementEnabled={settings?.announcement_enabled} 
+      />
       <CartDrawer />
       <TotalsSync />
       <main className="min-h-screen">

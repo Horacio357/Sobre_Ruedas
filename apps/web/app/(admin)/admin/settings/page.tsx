@@ -1,8 +1,53 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Settings, Save, LayoutTemplate, Megaphone, Image as ImageIcon, Undo2 } from 'lucide-react';
+import { createClient } from '@/lib/supabase';
+import { toast } from 'react-hot-toast';
 
 export default function AdminSettings() {
+  const [announcementText, setAnnouncementText] = useState('¡Envío gratis superando los $150.000!');
+  const [announcementEnabled, setAnnouncementEnabled] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
+  const supabase = createClient();
+
+  useEffect(() => {
+    async function loadSettings() {
+      const { data, error } = await supabase
+        .from('store_settings')
+        .select('*')
+        .eq('id', 'default')
+        .single();
+        
+      if (data) {
+        setAnnouncementText(data.announcement_text);
+        setAnnouncementEnabled(data.announcement_enabled);
+      }
+      setIsLoading(false);
+    }
+    loadSettings();
+  }, [supabase]);
+
+  const handleSave = async () => {
+    setIsSaving(true);
+    const { error } = await supabase
+      .from('store_settings')
+      .upsert({
+        id: 'default',
+        announcement_text: announcementText,
+        announcement_enabled: announcementEnabled,
+        updated_at: new Date().toISOString()
+      });
+
+    if (error) {
+      toast.error('Error al guardar configuración');
+      console.error(error);
+    } else {
+      toast.success('Configuración guardada exitosamente');
+    }
+    setIsSaving(false);
+  };
+
   return (
     <div className="p-8 md:p-12 lg:p-16 max-w-5xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
@@ -15,9 +60,13 @@ export default function AdminSettings() {
             <Undo2 size={16} />
             Restaurar
           </button>
-          <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20">
+          <button 
+            onClick={handleSave}
+            disabled={isSaving || isLoading}
+            className="flex-1 md:flex-none flex items-center justify-center gap-2 px-8 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors shadow-lg shadow-[#D97230]/20 disabled:opacity-50"
+          >
             <Save size={16} />
-            Guardar
+            {isSaving ? 'Guardando...' : 'Guardar'}
           </button>
         </div>
       </div>
@@ -33,7 +82,12 @@ export default function AdminSettings() {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <label className="relative inline-flex items-center cursor-pointer">
-                <input type="checkbox" className="sr-only peer" defaultChecked />
+                <input 
+                  type="checkbox" 
+                  className="sr-only peer" 
+                  checked={announcementEnabled}
+                  onChange={(e) => setAnnouncementEnabled(e.target.checked)}
+                />
                 <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#D97230]"></div>
                 <span className="ml-3 text-sm font-bold text-[#1C1612]">Mostrar barra de anuncios</span>
               </label>
@@ -41,7 +95,12 @@ export default function AdminSettings() {
 
             <div className="space-y-2">
               <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Texto del Anuncio</label>
-              <input type="text" defaultValue="¡Envío gratis superando los $150.000!" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
+              <input 
+                type="text" 
+                value={announcementText}
+                onChange={(e) => setAnnouncementText(e.target.value)}
+                className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" 
+              />
             </div>
 
             <div className="space-y-2">
