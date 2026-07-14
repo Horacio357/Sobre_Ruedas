@@ -80,10 +80,10 @@ export default function ConfiguratorFooter() {
               onClick={nextStep}
               disabled={!isComplete || (currentStep as number) === 6}
               style={{
-                backgroundColor: (!isComplete || currentStep === 6) ? '#EAE3D9' : '#D97230',
-                color: (!isComplete || currentStep === 6) ? '#9A8A72' : '#FFFFFF',
-                opacity: (!isComplete || currentStep === 6) ? 0.5 : 1,
-                cursor: (!isComplete || currentStep === 6) ? 'not-allowed' : 'pointer',
+                backgroundColor: (!isComplete || (currentStep as number) === 6) ? '#EAE3D9' : '#D97230',
+                color: (!isComplete || (currentStep as number) === 6) ? '#9A8A72' : '#FFFFFF',
+                opacity: (!isComplete || (currentStep as number) === 6) ? 0.5 : 1,
+                cursor: (!isComplete || (currentStep as number) === 6) ? 'not-allowed' : 'pointer',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '12px',

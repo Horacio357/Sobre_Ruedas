@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import { LayoutDashboard, Package, ShoppingCart, Settings, LogOut, Users, Ticket } from 'lucide-react';
+import { Toaster } from 'react-hot-toast';
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
@@ -39,16 +40,16 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
             <Ticket size={18} className="text-[#B08B8B] shrink-0" />
             <span className="hidden md:inline">Cupones</span>
           </Link>
-        </nav>
-
-        <div className="p-2 md:p-4 border-t border-[#1C1612]/5 space-y-2">
-          <Link href="/admin/settings" className="flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#B08B8B] hover:text-[#1C1612] transition-colors font-bold text-sm" title="Configuración">
-            <Settings size={18} className="shrink-0" />
+          <Link href="/admin/settings" className="flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#1C1612] hover:bg-[#F9EAEA] transition-colors font-bold text-sm mt-8" title="Configuración">
+            <Settings size={18} className="text-[#B08B8B] shrink-0" />
             <span className="hidden md:inline">Configuración</span>
           </Link>
-          <button className="w-full flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-[#B08B8B] hover:text-red-500 transition-colors font-bold text-sm" title="Cerrar Sesión">
+        </nav>
+        
+        <div className="p-2 md:p-4 border-t border-[#1C1612]/5">
+          <button className="w-full flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-red-500 hover:bg-red-50 transition-colors font-bold text-sm" title="Cerrar Sesión">
             <LogOut size={18} className="shrink-0" />
-            <span className="hidden md:inline">Cerrar Sesión</span>
+            <span className="hidden md:inline">Salir</span>
           </button>
         </div>
       </aside>
@@ -57,6 +58,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 overflow-y-auto">
         {children}
       </main>
+      <Toaster position="bottom-right" />
     </div>
   );
 }
