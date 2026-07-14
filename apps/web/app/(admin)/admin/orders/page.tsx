@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { RefreshCw, Trash2, Search, Eye, Filter, ShoppingBag, X } from 'lucide-react';
+import { RefreshCw, Trash2, Search, Eye, Filter, ShoppingBag, X, Package } from 'lucide-react';
 
 const mockOrders = [
   { id: '1005', customer: 'Martina Rossi', email: 'marti.rossi@email.com', date: '14 Jul 2026', total: 101500, status: 'Pagado', method: 'Mercado Pago' },
