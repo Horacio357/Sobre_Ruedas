@@ -132,60 +132,60 @@ export default function AdminOrders() {
       </div>
 
       {/* Mock Modal */}
-      {showModal && selectedOrder && (
-        <div className="fixed inset-0 bg-[#1C1612]/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-[2rem] shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            <div className="p-8 border-b border-[#1C1612]/5 flex justify-between items-center">
-              <div>
-                <h3 className="text-xl font-black text-[#1C1612] tracking-tight">Pedido #{selectedOrder.id}</h3>
-                <p className="text-sm text-[#B08B8B] mt-1">{selectedOrder.date}</p>
+      {showModal && selectedOrder && <div className="fixed inset-0 bg-[#1C1612]/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-[2rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div className="p-6 md:p-10 border-b border-[#1C1612]/5 flex justify-between items-start shrink-0">
+              <div className="text-center md:text-left w-full">
+                <h3 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight">Pedido #{selectedOrder.id}</h3>
+                <p className="text-[#B08B8B] mt-1 font-medium text-sm">14 Jul 2026</p>
               </div>
-              <button onClick={() => setShowModal(false)} className="p-2 bg-[#F5F1EB] text-[#1C1612] rounded-full hover:bg-red-100 hover:text-red-500 transition-colors">
+              <button onClick={() => setSelectedOrder(null)} className="p-2 text-[#B08B8B] hover:text-[#1C1612] transition-colors rounded-xl hover:bg-[#F5F1EB] absolute top-6 right-6 md:static">
                 <X size={20} />
               </button>
             </div>
-            <div className="p-8 space-y-6">
-              <div className="bg-[#F5F1EB] p-6 rounded-2xl flex items-center justify-between">
+            
+            <div className="p-6 md:p-10 space-y-8 overflow-y-auto">
+              <div className="bg-[#F5F1EB] p-6 rounded-2xl flex flex-col md:flex-row gap-6 justify-between items-center text-center md:text-left">
                 <div>
-                  <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-1">Cliente</p>
-                  <p className="font-bold text-[#1C1612]">{selectedOrder.customer}</p>
-                  <p className="text-sm text-[#B08B8B]">{selectedOrder.email}</p>
+                  <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-2">Cliente</p>
+                  <p className="font-bold text-[#1C1612] text-lg">Martina Rossi</p>
+                  <p className="text-sm text-[#B08B8B]">marti.rossi@email.com</p>
                 </div>
-                <div className="text-right">
-                  <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-1">Total Pagado</p>
-                  <p className="text-2xl font-black text-[#1C1612]">${selectedOrder.total}</p>
+                <div className="md:text-right">
+                  <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-2">Total Pagado</p>
+                  <p className="font-black text-[#D97230] text-3xl">$101.500</p>
                 </div>
               </div>
               
               <div>
-                <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-3">Artículos (Mock)</p>
-                <div className="flex items-center gap-4 p-4 border border-[#1C1612]/10 rounded-2xl mb-6">
-                  <div className="w-12 h-12 bg-gray-200 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1520687556754-5264b3c00424?w=400&q=80" alt="mock" className="w-full h-full object-cover" />
+                <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-3 text-center md:text-left">Artículos (Mock)</p>
+                <div className="flex flex-col sm:flex-row items-center gap-4 p-4 border border-[#1C1612]/10 rounded-2xl mb-6 text-center sm:text-left">
+                  <div className="w-16 h-16 bg-[#F5F1EB] rounded-xl overflow-hidden shrink-0 flex items-center justify-center text-[#B08B8B]">
+                    <Package size={24} />
                   </div>
                   <div>
-                    <p className="font-bold text-[#1C1612] text-sm">Botas Edea Fly - Blanco</p>
-                    <p className="text-xs text-[#B08B8B]">1 unidad</p>
+                    <p className="font-bold text-[#1C1612] text-base">Botas Edea Fly - Blanco</p>
+                    <p className="text-sm text-[#B08B8B] mt-1">1 unidad</p>
                   </div>
                 </div>
               </div>
 
               {/* Logística y Envío */}
               <div className="bg-white border-2 border-dashed border-[#1C1612]/10 p-6 rounded-2xl">
-                <h4 className="text-sm font-black text-[#1C1612] mb-4 flex items-center gap-2">
-                  <ShoppingBag size={16} className="text-[#D97230]" />
+                <h4 className="text-base font-black text-[#1C1612] mb-6 flex items-center justify-center md:justify-start gap-2">
+                  <ShoppingBag size={18} className="text-[#D97230]" />
                   Logística y Envío
                 </h4>
-                <div className="space-y-4">
-                  <div className="space-y-2">
+                <div className="space-y-4 text-center md:text-left">
+                  <div className="space-y-3">
                     <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Código de Seguimiento (Tracking)</label>
-                    <div className="flex gap-2">
-                      <input type="text" placeholder="Ej: AND-123456789" className="flex-1 px-4 py-3 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
-                      <button className="px-4 py-3 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors whitespace-nowrap">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      <input type="text" placeholder="Ej: AND-123456789" className="flex-1 w-full px-4 py-3.5 bg-[#F5F1EB] rounded-xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-bold text-center sm:text-left text-[#1C1612]" />
+                      <button className="w-full sm:w-auto px-6 py-3.5 bg-[#1C1612] text-white rounded-xl font-bold text-sm hover:bg-[#D97230] transition-colors">
                         Guardar y Notificar
                       </button>
                     </div>
-                    <p className="text-[10px] text-[#B08B8B] mt-1">Al guardar, se enviará un email al cliente con el link de seguimiento.</p>
+                    <p className="text-[11px] font-medium text-[#B08B8B] mt-2">Al guardar, se enviará un email al cliente con el link de seguimiento.</p>
                   </div>
                 </div>
               </div>
