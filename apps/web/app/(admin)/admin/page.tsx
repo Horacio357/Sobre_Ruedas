@@ -123,7 +123,7 @@ export default function AdminDashboard() {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1C1612" opacity={0.05} />
                 <Tooltip 
                   contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', fontSize: '13px' }}
-                  formatter={(value: number) => [`$${value}`, 'Ventas']}
+                  formatter={(value: any) => [`$${value}`, 'Ventas']}
                 />
                 <Area type="monotone" dataKey="ventas" stroke="#D97230" strokeWidth={4} fillOpacity={1} fill="url(#colorVentas)" />
               </AreaChart>
