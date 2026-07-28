@@ -51,52 +51,39 @@ export default function CheckoutPage() {
     setIsProcessing(true);
     
     try {
-      const orderId = `ORD-${Date.now()}`;
-      const order = {
-        id: orderId,
-        order_number: orderId,
-        buyer_name: `${formData.firstName} ${formData.lastName}`,
-        buyer_email: formData.email,
-        buyer_phone: formData.phone || '',
-        shipping_address: {
-          street: formData.address,
-          city: formData.city,
-          zip: formData.zip,
-          province: '',
-          country: 'AR'
-        },
-        subtotal_ars: total,
-        discount_amount: 0,
-        shipping_cost: 0,
-        total_ars: total,
-        payment_status: 'pending' as any,
-        status: 'pending' as any,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-        items: items.map(item => ({
-          id: `ITEM-${Date.now()}-${item.product.id}`,
-          order_id: orderId,
-          product_id: item.product.id,
-          product_name: item.product.name,
-          unit_price_ars: item.unitPrice,
-          quantity: item.quantity,
-          subtotal_ars: item.subtotal,
-          created_at: new Date().toISOString()
-        }))
-      };
+      if (selectedMethod === 'mercadopago') {
+        const response = await fetch('/api/checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: items.map(item => ({
+              id: item.product.id,
+              name: item.product.name,
+              price: item.unitPrice,
+              quantity: item.quantity,
+              image: item.product.images?.[0] || 'https://via.placeholder.com/150'
+            })),
+            customer: formData
+          })
+        });
 
-      const { PaymentController } = await import('@/lib/payments/paymentController');
-      const response = await PaymentController.initializePayment(order as any, selectedMethod as any);
-      
-      if (response.success && response.redirect_url) {
-        window.location.href = response.redirect_url;
+        const data = await response.json();
+
+        if (response.ok && data.init_point) {
+          // Redirigir a Mercado Pago
+          window.location.href = data.init_point;
+        } else {
+          alert('Error al iniciar el pago: ' + (data.error || 'Desconocido'));
+          setIsProcessing(false);
+        }
       } else {
-        alert('Error al iniciar el pago: ' + (response.error || 'Desconocido'));
+        // Otros métodos de pago...
+        alert('Este método de pago aún no está integrado. Por favor elegí Mercado Pago.');
         setIsProcessing(false);
       }
     } catch (error) {
       console.error(error);
-      alert('Ocurrió un error al procesar el pago.');
+      alert('Ocurrió un error de red al procesar el pago.');
       setIsProcessing(false);
     }
   };
