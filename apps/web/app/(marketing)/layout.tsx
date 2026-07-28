@@ -16,7 +16,7 @@ export default async function MarketingLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: settings } = await supabase
     .from('store_settings')
     .select('*')
