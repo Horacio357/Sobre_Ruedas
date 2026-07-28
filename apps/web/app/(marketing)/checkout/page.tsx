@@ -76,9 +76,34 @@ export default function CheckoutPage() {
           alert('Error al iniciar el pago: ' + (data.error || 'Desconocido'));
           setIsProcessing(false);
         }
+      } else if (selectedMethod === 'payway') {
+        const response = await fetch('/api/checkout/payway', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: items.map(item => ({
+              id: item.product.id,
+              name: item.product.name,
+              price: item.unitPrice,
+              quantity: item.quantity,
+              image: typeof item.product.images?.[0] === 'string' ? item.product.images?.[0] : item.product.images?.[0]?.url || 'https://via.placeholder.com/150'
+            })),
+            customer: formData
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.init_point) {
+          // Redirigir a Payway (o a nuestro mock por ahora)
+          window.location.href = data.init_point;
+        } else {
+          alert('Error al iniciar el pago con Payway: ' + (data.error || 'Desconocido'));
+          setIsProcessing(false);
+        }
       } else {
         // Otros métodos de pago...
-        alert('Este método de pago aún no está integrado. Por favor elegí Mercado Pago.');
+        alert('Este método de pago aún no está integrado. Por favor elegí Mercado Pago o Payway.');
         setIsProcessing(false);
       }
     } catch (error) {
