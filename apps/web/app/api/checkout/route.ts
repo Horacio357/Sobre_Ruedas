@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/headers';
+import { NextRequest, NextResponse } from 'next/server';
 import { MercadoPagoConfig, Preference } from 'mercadopago';
 import { createClient } from '@/lib/supabase-server';
 import { v4 as uuidv4 } from 'uuid';
