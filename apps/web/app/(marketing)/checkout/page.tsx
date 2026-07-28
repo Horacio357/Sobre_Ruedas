@@ -61,7 +61,7 @@ export default function CheckoutPage() {
               name: item.product.name,
               price: item.unitPrice,
               quantity: item.quantity,
-              image: item.product.images?.[0] || 'https://via.placeholder.com/150'
+              image: typeof item.product.images?.[0] === 'string' ? item.product.images?.[0] : item.product.images?.[0]?.url || 'https://via.placeholder.com/150'
             })),
             customer: formData
           })
