@@ -94,8 +94,8 @@ export async function POST(req: Request) {
       order_id: orderId 
     });
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error en checkout:', error);
-    return NextResponse.json({ error: 'Error al procesar el pago' }, { status: 500 });
+    return NextResponse.json({ error: error.message || 'Error al procesar el pago' }, { status: 500 });
   }
 }
