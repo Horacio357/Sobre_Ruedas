@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
         if (orderId) {
           console.log(`[Webhook MP] Pago aprobado para la orden ${orderId}`);
           
-          const supabase = createClient();
+          const supabase = await createClient();
           // Actualizar el estado en Supabase usando nuestra Supabase Admin Key o Anon Key
           const { error } = await supabase
             .from('orders')

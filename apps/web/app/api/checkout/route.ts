@@ -56,7 +56,7 @@ export async function POST(req: Request) {
 
     // 4. Guardar la Orden como "Pendiente" en Supabase
     // NOTA: Para hacer el INSERT desde el servidor con Anon Key, necesitamos asegurar que la política RLS en Supabase permita INSERTS a anónimos.
-    const supabase = createClient();
+    const supabase = await createClient();
     
     const { error: orderError } = await supabase
       .from('orders')
