@@ -34,9 +34,9 @@ export async function POST(req: Request) {
           id: item.id,
           title: item.name,
           quantity: item.quantity,
-          unit_price: item.price,
+          unit_price: Number(item.price),
           currency_id: 'ARS',
-          picture_url: item.image,
+          picture_url: typeof item.image === 'string' ? item.image : 'https://via.placeholder.com/150',
         })),
         payer: {
           name: customer?.firstName || 'Cliente',
