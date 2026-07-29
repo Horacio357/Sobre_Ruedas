@@ -242,7 +242,7 @@ export default function AplicacionesPage() {
                         >
                           {feature.icon}
                         </div>
-                        <span className="text-sm font-medium text-[#1C1612] tracking-tight">
+                        <span className="text-base font-semibold text-[#1C1612] tracking-tight">
                           {feature.text}
                         </span>
                       </div>
@@ -273,10 +273,8 @@ export default function AplicacionesPage() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto bg-white border border-[#F9EAEA] rounded-[48px] p-10 md:p-20 text-center shadow-lg relative overflow-hidden mt-20 md:mt-32"
+          className="max-w-5xl mx-auto p-10 md:p-20 text-center relative mt-20 md:mt-32"
         >
-          {/* Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#FAF7F2]/50 to-[#FFF9F9]/50 pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto space-y-16 md:space-y-20">
             <span className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full bg-[#FAF7F2] border border-[#F9EAEA] text-[9px] font-black uppercase tracking-[0.2em] text-[#D97230]">
@@ -288,7 +286,7 @@ export default function AplicacionesPage() {
                 Instala la aplicación en tu celular
               </h2>
               <p className="text-[#B08B8B] text-sm md:text-base font-light leading-relaxed text-center max-w-2xl">
-                Disponible ahora para cualquier dispositivo móvil. Si eres entrenador, aprovecha tus **8 días de prueba gratis** para conectar con patinadores de todo el mundo hoy mismo.
+                Disponible ahora para cualquier dispositivo móvil. Si eres entrenador, aprovecha tus 8 días de prueba gratis para conectar con patinadores de todo el mundo hoy mismo.
               </p>
             </div>
 

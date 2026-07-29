@@ -148,7 +148,7 @@ export default function CheckoutPage() {
             
             {/* Paso 1: Envío */}
             <section className={cn(
-              "bg-white rounded-3xl shadow-sm border border-[#EAE3D9]/50 overflow-hidden transition-all duration-500",
+              "bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden transition-all duration-500",
               step === 1 ? "ring-1 ring-[#D97230]/10" : "opacity-50"
             )}>
               <div className="p-10 md:p-16">
@@ -160,7 +160,7 @@ export default function CheckoutPage() {
                     )}>
                       {step > 1 ? <CheckCircle2 size={20} /> : "1"}
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-black tracking-tight text-[#1C1612]">Datos de Envío</h2>
+                    <h2 className="text-2xl md:text-3xl font-black tracking-[0.05em] text-[#1C1612]">Datos de Envío</h2>
                   </div>
                   {step > 1 && (
                     <button onClick={() => setStep(1)} className="text-[11px] font-black text-[#D97230] uppercase tracking-widest hover:underline bg-[#D97230]/5 px-4 py-2 rounded-full">Editar</button>
@@ -191,7 +191,7 @@ export default function CheckoutPage() {
                         <button 
                           onClick={() => setStep(2)}
                           disabled={!formData.email || !formData.address || !formData.firstName}
-                          className="btn-primary w-full md:w-auto px-16 py-5 text-sm font-black uppercase tracking-[0.2em] shadow-xl disabled:opacity-30 transition-all"
+                          className="btn-primary w-full md:w-auto px-16 py-5 text-sm font-semibold shadow-xl disabled:opacity-30 transition-all"
                         >
                           Continuar al pago
                         </button>
@@ -214,13 +214,13 @@ export default function CheckoutPage() {
 
             {/* Paso 2: Pago */}
             <section className={cn(
-              "bg-white rounded-3xl shadow-sm border border-[#EAE3D9]/50 overflow-hidden transition-all duration-500",
+              "bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-hidden transition-all duration-500 mt-8",
               step === 2 ? "ring-1 ring-[#D97230]/10" : "opacity-30 pointer-events-none"
             )}>
               <div className="p-10 md:p-16">
                 <div className="flex items-center gap-6 mb-12">
                   <div className="w-12 h-12 rounded-2xl bg-[#1C1612] text-white flex items-center justify-center font-black text-lg shadow-sm">2</div>
-                  <h2 className="text-3xl font-black tracking-tight text-[#1C1612]">Método de Pago</h2>
+                  <h2 className="text-3xl font-black tracking-[0.05em] text-[#1C1612]">Método de Pago</h2>
                 </div>
 
                 <AnimatePresence>
@@ -257,7 +257,7 @@ export default function CheckoutPage() {
                         <button 
                           onClick={handlePayment}
                           disabled={!selectedMethod || isProcessing}
-                          className="btn-primary w-full py-6 text-base font-black uppercase tracking-[0.2em] shadow-2xl disabled:opacity-30"
+                          className="btn-primary w-full py-6 text-base font-semibold shadow-2xl disabled:opacity-30 transition-all"
                         >
                           {isProcessing ? "Procesando pago..." : "Finalizar Compra"}
                         </button>
@@ -328,7 +328,7 @@ function Input({ label, ...props }: any) {
       <label className="text-[10px] font-black uppercase tracking-[0.2em] text-[#9A8A72] block ml-2">{label}</label>
       <input 
         {...props}
-        className="w-full px-6 py-4 bg-[#FAF7F2] border-2 border-transparent rounded-xl text-[#1C1612] font-semibold placeholder:text-[#D8CEBC]/40 focus:border-[#D97230]/30 focus:bg-white transition-all outline-none text-sm shadow-inner"
+        className="w-full px-5 py-4 bg-white border border-[#EAE3D9] rounded-[0.375rem] text-[#1C1612] font-medium placeholder:text-[#9A8A72]/40 focus:border-[#D97230] focus:ring-1 focus:ring-[#D97230]/20 transition-all outline-none text-sm"
       />
     </div>
   );
