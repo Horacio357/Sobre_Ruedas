@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import { LayoutDashboard, Package, ShoppingCart, Settings, LogOut, Users, Ticket } from 'lucide-react';
 import { Toaster } from 'react-hot-toast';
+import { clearAdminSession } from '@/app/actions/auth';
+import { redirect } from 'next/navigation';
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
@@ -47,10 +49,16 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         </nav>
         
         <div className="p-2 md:p-4 border-t border-[#1C1612]/5">
-          <button className="w-full flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-red-500 hover:bg-red-50 transition-colors font-bold text-sm" title="Cerrar Sesión">
-            <LogOut size={18} className="shrink-0" />
-            <span className="hidden md:inline">Salir</span>
-          </button>
+          <form action={async () => {
+            'use server';
+            await clearAdminSession();
+            redirect('/login');
+          }}>
+            <button type="submit" className="w-full flex items-center justify-center md:justify-start gap-3 p-3 md:px-4 md:py-3 rounded-xl text-red-500 hover:bg-red-50 transition-colors font-bold text-sm" title="Cerrar Sesión">
+              <LogOut size={18} className="shrink-0" />
+              <span className="hidden md:inline">Salir</span>
+            </button>
+          </form>
         </div>
       </aside>
 

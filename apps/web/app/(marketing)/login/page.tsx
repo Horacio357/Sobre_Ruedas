@@ -11,6 +11,7 @@ import { useAuthStore } from '@/store/authStore';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowRight, Mail, Lock } from 'lucide-react';
+import { setAdminSession } from '@/app/actions/auth';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -22,8 +23,9 @@ export default function LoginPage() {
     e.preventDefault();
     setIsLoading(true);
     // Simulación de auth
-    setTimeout(() => {
+    setTimeout(async () => {
       login(email, email.split('@')[0]);
+      await setAdminSession(email);
       router.push('/cuenta');
     }, 1500);
   };

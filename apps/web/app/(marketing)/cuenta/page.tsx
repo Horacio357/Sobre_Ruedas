@@ -18,6 +18,7 @@ import {
   ChevronRight,
   ExternalLink
 } from 'lucide-react';
+import { clearAdminSession } from '@/app/actions/auth';
 import Link from 'next/link';
 
 export default function AccountPage() {
@@ -67,7 +68,10 @@ export default function AccountPage() {
             </div>
           </div>
           <button 
-            onClick={() => logout()}
+            onClick={async () => {
+              logout();
+              await clearAdminSession();
+            }}
             className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white border border-[#EAE3D9] text-[11px] font-black uppercase tracking-widest text-[#9A8A72] hover:text-red-500 hover:border-red-100 hover:bg-red-50 transition-all group"
           >
             <LogOut size={16} className="group-hover:-translate-x-1 transition-transform" />
