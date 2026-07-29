@@ -13,19 +13,19 @@ const FEATURES = [
     title: 'Soporte de Élite',
     desc: 'Botas termoformables diseñadas con anatomía de precisión italiana que proporciona soporte óptimo y máximo confort al tobillo.',
     color: '#B08B8B',
-    img: '/images/products/risport-rf1-elite.png'
+    img: 'https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png'
   },
   {
     title: 'Precisión Milimétrica',
     desc: 'Cada plancha es mecanizada con control numérico en aluminio de grado aeronáutico, ofreciendo la respuesta más rápida en cada salto técnico.',
     color: '#D97230',
-    img: '/images/products/plancha-magic1.png'
+    img: 'https://i.ibb.co/wNm85s07/Roll-Line-giotto.png'
   },
   {
     title: 'Desplazamiento Infinito',
     desc: 'Ruedas de alta tecnología con núcleos elásticos para un agarre excepcional en pista de competencia y máxima velocidad.',
     color: '#1C1612',
-    img: '/images/products/wheels-angel.png'
+    img: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png'
   }
 ];
 

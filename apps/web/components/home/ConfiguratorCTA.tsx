@@ -11,9 +11,9 @@ import { ArrowRight, MessageCircle } from 'lucide-react';
 
 const STEPS = [
   { step: 1, label: 'Elegí tu nivel', icon: '⭐' },
-  { step: 2, label: 'Seleccioná la bota', icon: <img src="/images/products/risport-royal-pro.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
-  { step: 3, label: 'Elegí la plancha', icon: <img src="/images/products/plancha-magic1.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
-  { step: 4, label: 'Configurá las ruedas', icon: <img src="/images/products/wheels-angel.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
+  { step: 2, label: 'Seleccioná la bota', icon: <img src="https://i.ibb.co/Z4rXynv/Risport-Royal-pro.png" alt="Bota" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
+  { step: 3, label: 'Elegí la plancha', icon: <img src="https://i.ibb.co/wNm85s07/Roll-Line-giotto.png" alt="Plancha" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
+  { step: 4, label: 'Configurá las ruedas', icon: <img src="https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png" alt="Ruedas" className="w-7 h-7 object-contain drop-shadow-sm"  referrerPolicy="no-referrer" /> },
   { step: 5, label: 'Setup final y checkout', icon: '✅' },
 ];
 

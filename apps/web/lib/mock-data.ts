@@ -24,7 +24,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Creado para los campeones del mañana. Construido con cuero natural de la más alta resistencia y termoformado anatómico ultra-preciso.',
     short_desc: 'Rigidez extrema y control absoluto para campeones mundiales.',
     images: [
-      { id: 'img310_1', product_id: 'p3_10', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img310_1', product_id: 'p3_10', url: 'https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png', sort_order: 0, is_primary: true }
     ],
     is_featured: true,
     is_active: true,
@@ -52,7 +52,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La bota Dance Prime ha sido diseñada específicamente para las exigencias de la danza y solo danza. Excelente flexibilidad combinada con un perfil bajo y acolchado de espuma termoformable.',
     short_desc: 'El máximo estándar de excelencia para danza y precisión técnica.',
     images: [
-      { id: 'img35_1', product_id: 'p3_5', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img35_1', product_id: 'p3_5', url: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png', sort_order: 0, is_primary: true }
     ],
     is_featured: true,
     is_active: true,
@@ -82,7 +82,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Diseñada para patinadores profesionales que exigen un control absoluto en saltos y figuras.',
     short_desc: 'Soporte y rigidez premium para patinaje libre y figuras.',
     images: [
-      { id: 'img36_1', product_id: 'p3_6', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img36_1', product_id: 'p3_6', url: 'https://i.ibb.co/M5nrdD57/Risport-Ambra.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -110,7 +110,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Para patinadores de nivel avanzado que prefieren el tacto y la respuesta de las botas de cuero tradicionales combinadas con materiales modernos.',
     short_desc: 'El estándar de excelencia en botas de cuero profesionales.',
     images: [
-      { id: 'img34_1', product_id: 'p3_4', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img34_1', product_id: 'p3_4', url: 'https://i.ibb.co/Z4rXynv/Risport-Royal-pro.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -140,7 +140,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Diseño liviano para patinadores que inician en competencias intermedias y saltos simples.',
     short_desc: 'Soporte y confort equilibrado para competidores en desarrollo.',
     images: [
-      { id: 'img38_1', product_id: 'p3_8', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img38_1', product_id: 'p3_8', url: 'https://i.ibb.co/WvtzdycW/Risport-antares.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -196,7 +196,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Una bota muy confortable diseñada especialmente para los patinadores más jóvenes en sus fases iniciales de aprendizaje.',
     short_desc: 'Ideal para niños y principiantes. Suave acolchado y gran flexibilidad.',
     images: [
-      { id: 'img39_1', product_id: 'p3_9', url: 'https://i.ibb.co/84tmmn28/Risport-Venus.png', sort_order: 0, is_primary: true }
+      { id: 'img39_1', product_id: 'p3_9', url: 'https://i.ibb.co/4wh55MjV/Risport-gemma.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -224,7 +224,9 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Bolso térmico de diseño italiano para llevar tus patines artísticos. Compartimento impermeable y bolsillos ventilados para proteger tu equipamiento técnico.',
     short_desc: 'Diseño elegante impermeable para transportar tus patines con comodidad.',
     images: [
-      { id: 'img_b1', product_id: 'b1', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 0, is_primary: true }
+      { id: 'img_b1', product_id: 'b1', url: 'https://i.ibb.co/S4phhGjZ/Bolso-Edea-always-with-me-2.png', sort_order: 0, is_primary: true },
+      { id: 'img_b1_2', product_id: 'b1', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 1, is_primary: false },
+      { id: 'img_b1_3', product_id: 'b1', url: 'https://i.ibb.co/sv4GnzwL/Bolso-Edea-always-with-me-1.png', sort_order: 2, is_primary: false }
     ],
     is_featured: true,
     is_active: true,
@@ -248,7 +250,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Bolso ultra liviano y resistente con bolsillos para herramientas y rodamientos.',
     short_desc: 'Bolso compacto y juvenil para tus entrenamientos diarios.',
     images: [
-      { id: 'img_b2', product_id: 'b2', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 0, is_primary: true }
+      { id: 'img_b2', product_id: 'b2', url: 'https://i.ibb.co/HDGYg4Yw/Magic-Eraser-260526-151119-1.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -270,13 +272,79 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Bolso ergonómico diseñado para la comodidad en el transporte diario.',
     short_desc: 'Espacioso y con ventilación lateral integrada.',
     images: [
-      { id: 'img_b3', product_id: 'b3', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 0, is_primary: true }
+      { id: 'img_b3', product_id: 'b3', url: 'https://i.ibb.co/cKRFtfnD/Magic-Eraser-260526-151135.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
     is_outlet: false,
     stock_quantity: 12,
     low_stock_threshold: 3,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'r1',
+    name: 'Rulemanes Roll Line ABEC 9',
+    slug: 'rulemanes-roll-line-abec-9',
+    brand_name: 'Roll-Line',
+    component_type: 'ruleman',
+    skate_level: ['alto_rendimiento'],
+    price_ars: 50000,
+    description: 'Juego de 16 rulemanes ABEC 9 de alta velocidad y precisión, blindados para máxima protección.',
+    short_desc: 'Velocidad máxima para competición profesional.',
+    images: [
+      { id: 'img_r1', product_id: 'r1', url: 'https://i.ibb.co/JwjdLSJ7/Magic-Eraser-260526-155252.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: true,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 20,
+    low_stock_threshold: 5,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'r2',
+    name: 'Rulemanes Edea ABEC 7',
+    slug: 'rulemanes-edea-abec-7',
+    brand_name: 'Edea',
+    component_type: 'ruleman',
+    skate_level: ['intermedio', 'avanzado'],
+    price_ars: 35000,
+    description: 'Juego de rulemanes ABEC 7 ideales para entrenamientos intensivos, excelente relación calidad-precio.',
+    short_desc: 'Deslizamiento suave y durabilidad comprobada.',
+    images: [
+      { id: 'img_r2', product_id: 'r2', url: 'https://i.ibb.co/39rnGdV7/Magic-Eraser-260526-155309.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 30,
+    low_stock_threshold: 10,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'r3',
+    name: 'Rulemanes BSB ABEC 5',
+    slug: 'rulemanes-bsb-abec-5',
+    brand_name: 'BSB',
+    component_type: 'ruleman',
+    skate_level: ['iniciacion', 'intermedio'],
+    price_ars: 25000,
+    description: 'Rulemanes de entrenamiento ideales para iniciación y saltos básicos. Resistentes y duraderos.',
+    short_desc: 'Ideales para primeros saltos y figuras.',
+    images: [
+      { id: 'img_r3', product_id: 'r3', url: 'https://i.ibb.co/JRmtZBYd/Magic-Eraser-260526-155332.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 40,
+    low_stock_threshold: 10,
     track_inventory: true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -292,7 +360,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha Giotto es la elección de los campeones mundiales de figuras. Su precisión milimétrica y su construcción en aleación de aluminio de grado aeronáutico la hacen insuperable.',
     short_desc: 'Precisión absoluta para la disciplina de figuras.',
     images: [
-      { id: 'img5_1', product_id: 'p5', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
+      { id: 'img5_1', product_id: 'p5', url: 'https://i.ibb.co/wNm85s07/Roll-Line-giotto.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -322,7 +390,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha de competición por excelencia. Agilidad extrema y respuesta instantánea.',
     short_desc: 'La elección de los profesionales para saltos y piruetas.',
     images: [
-      { id: 'img52_1', product_id: 'p5_2', url: '/images/products/plate-energy.png', sort_order: 0, is_primary: true }
+      { id: 'img52_1', product_id: 'p5_2', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -352,7 +420,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha de más alto nivel para patinadores profesionales. Estructura rebajada y geometría diferenciada.',
     short_desc: 'Estructura ultraliviana rebajada de máxima precisión.',
     images: [
-      { id: 'img_pm1', product_id: 'pm1', url: 'https://i.ibb.co/JWZ7ZvF6/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm1', product_id: 'pm1', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -381,7 +449,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Una evolución tecnológica en el mundo de las planchas profesionales, con suspensiones de click micrométrico.',
     short_desc: 'Ajuste micrométrico y diseño de vanguardia.',
     images: [
-      { id: 'img_pm2', product_id: 'pm2', url: 'https://i.ibb.co/YTw3VGP8/Roll-Line-Evo.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm2', product_id: 'pm2', url: 'https://i.ibb.co/8g4WfdjR/Roll-Line-Evo.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -409,7 +477,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha Variant M está diseñada para patinadores en ascenso. Excelente rigidez estructural de aluminio.',
     short_desc: 'Durabilidad y respuesta ágil de nivel intermedio.',
     images: [
-      { id: 'img_pm3', product_id: 'pm3', url: 'https://i.ibb.co/nq9g9Td7/Roll-Line-Saturno.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm3', product_id: 'pm3', url: 'https://i.ibb.co/95XjMJG/Roll-Line-Variant-M.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -437,7 +505,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Plancha técnica de alta gama con tren de aluminio y suspensiones en elastómero de primera calidad.',
     short_desc: 'Chasis excelente para deportistas de alto nivel y saltos.',
     images: [
-      { id: 'img_pm4', product_id: 'pm4', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm4', product_id: 'pm4', url: 'https://i.ibb.co/vCcLCJzm/Roll-Line-Mistral-2.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -465,7 +533,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Perfectamente calibrada para figuras obligatorias y saltos intermedios. Excelente relación calidad/precio.',
     short_desc: 'Estabilidad superior y diseño clásico comprobado.',
     images: [
-      { id: 'img_pm5', product_id: 'pm5', url: '/images/placeholder.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm5', product_id: 'pm5', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -493,7 +561,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'El chasis de iniciación ideal para academias y escuelas. Ligero, duradero y de fácil mantenimiento.',
     short_desc: 'Ligereza y confort para tus primeros giros.',
     images: [
-      { id: 'img_pm6', product_id: 'pm6', url: 'https://i.ibb.co/vCcLCJzm/Roll-Line-Mistral-2.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm6', product_id: 'pm6', url: 'https://i.ibb.co/nq9g9Td7/Roll-Line-Saturno.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -521,7 +589,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Plancha ultra-especializada de figuras obligatorias con ejes de titanio para una ligereza inalcanzable.',
     short_desc: 'Edición limitada en titanio para la máxima precisión técnica.',
     images: [
-      { id: 'img_pm7', product_id: 'pm7', url: 'https://i.ibb.co/LdKwnRPZ/Roll-Line-Mirage.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm7', product_id: 'pm7', url: 'https://i.ibb.co/wNm85s07/Roll-Line-giotto.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -549,7 +617,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La plancha más vendida para saltos triples y cuádruples, equipada con ejes de acero reforzado.',
     short_desc: 'Máxima durabilidad para los saltos más extremos.',
     images: [
-      { id: 'img_pm8', product_id: 'pm8', url: '/images/products/plancha-magic8.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm8', product_id: 'pm8', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -577,7 +645,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'La joya de la corona. Plancha Energy con ejes de titanio para saltar más alto y girar más rápido.',
     short_desc: 'La plancha definitiva de competición para saltos y piruetas.',
     images: [
-      { id: 'img_pm9', product_id: 'pm9', url: '/images/products/plancha-magic9.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm9', product_id: 'pm9', url: 'https://i.ibb.co/S4fM9kns/Roll-Line-Matrix.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -605,7 +673,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Geometría rebajada y trenes de ruedas optimizados para los movimientos fluidos y giros de solo danza.',
     short_desc: 'Diseñada específicamente para danza y precisión rítmica.',
     images: [
-      { id: 'img_pm10', product_id: 'pm10', url: '/images/products/plancha-magic10.png', sort_order: 0, is_primary: true }
+      { id: 'img_pm10', product_id: 'pm10', url: 'https://i.ibb.co/KpQ2QW3f/Roll-Line-dance.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -633,7 +701,9 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Ruedas profesionales con excelente agarre, ideales para patinaje libre.',
     short_desc: 'Set de 8 ruedas profesionales.',
     images: [
-      { id: 'img6_1', product_id: 'p6', url: 'https://i.ibb.co/k51S22Kx/Roll-Line-ruedas-giotto.png', sort_order: 0, is_primary: true }
+      { id: 'img6_1', product_id: 'p6', url: 'https://i.ibb.co/MyV1qWJR/Roll-Line-ruedas-giotto-1.png', sort_order: 0, is_primary: true },
+      { id: 'img6_2', product_id: 'p6', url: 'https://i.ibb.co/27x4zKRP/Roll-Line-ruedas-giotto.png', sort_order: 1, is_primary: false },
+      { id: 'img6_3', product_id: 'p6', url: 'https://i.ibb.co/21cx1KRz/Roll-Line-ruedas-giotto-2.png', sort_order: 2, is_primary: false }
     ],
     is_featured: false,
     is_active: true,
@@ -666,7 +736,11 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Perfectas para superficies rugosas y asfalto.',
     short_desc: 'Set de 8 ruedas para piso rugoso.',
     images: [
-      { id: 'img62_1', product_id: 'p6_2', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 0, is_primary: true }
+      { id: 'img62_1', product_id: 'p6_2', url: 'https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png', sort_order: 0, is_primary: true },
+      { id: 'img62_2', product_id: 'p6_2', url: 'https://i.ibb.co/B5Jvgkrp/Roll-Line-ruedas-magnum-1.png', sort_order: 1, is_primary: false },
+      { id: 'img62_3', product_id: 'p6_2', url: 'https://i.ibb.co/bjVtkfBr/Roll-Line-ruedas-magnum-2.png', sort_order: 2, is_primary: false },
+      { id: 'img62_4', product_id: 'p6_2', url: 'https://i.ibb.co/qL6cCZXX/Roll-Line-ruedas-magnum-3.png', sort_order: 3, is_primary: false },
+      { id: 'img62_5', product_id: 'p6_2', url: 'https://i.ibb.co/HMs8SvT/Roll-Line-ruedas-magnum-4.png', sort_order: 4, is_primary: false }
     ],
     is_featured: false,
     is_active: true,
@@ -697,7 +771,8 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Equilibrio perfecto para asfalto y superficies exteriores.',
     short_desc: 'Set de 8 ruedas mixtas.',
     images: [
-      { id: 'img63_1', product_id: 'p6_3', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true }
+      { id: 'img63_1', product_id: 'p6_3', url: 'https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png', sort_order: 0, is_primary: true },
+      { id: 'img63_2', product_id: 'p6_3', url: 'https://i.ibb.co/1Jtv6ptc/Roll-Line-ruedas-helium-1.png', sort_order: 1, is_primary: false }
     ],
     is_featured: false,
     is_active: true,
@@ -728,7 +803,9 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Ruedas ideales para quienes comienzan en el patinaje artístico.',
     short_desc: 'Set de 8 ruedas de iniciación.',
     images: [
-      { id: 'img64_1', product_id: 'p6_4', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 0, is_primary: true }
+      { id: 'img64_1', product_id: 'p6_4', url: 'https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png', sort_order: 0, is_primary: true },
+      { id: 'img64_2', product_id: 'p6_4', url: 'https://i.ibb.co/twkfFR0L/Roll-Line-ruedas-boxer-1.png', sort_order: 1, is_primary: false },
+      { id: 'img64_3', product_id: 'p6_4', url: 'https://i.ibb.co/tPhmhZQy/Roll-Line-ruedas-boxer-2.png', sort_order: 2, is_primary: false }
     ],
     is_featured: false,
     is_active: true,
@@ -760,7 +837,7 @@ export const PRODUCTS: MockProduct[] = [
     description: 'Todo lo que necesitas para empezar con el pie derecho. Incluye bota de cuero reforzado, plancha de aluminio liviano y ruedas de dureza media aptas para todo tipo de superficies.',
     short_desc: 'Set completo: Bota + Plancha + Ruedas + Rodamientos.',
     images: [
-      { id: 'img4_1', product_id: 'p4', url: '/images/products/risport-antares.png', sort_order: 0, is_primary: true }
+      { id: 'img4_1', product_id: 'p4', url: 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png', sort_order: 0, is_primary: true }
     ],
     is_featured: false,
     is_active: true,
@@ -837,6 +914,291 @@ export const PRODUCTS: MockProduct[] = [
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString()
   },
+  {
+    id: 'f1',
+    name: 'Roll-Line Frenos Grises',
+    slug: 'roll-line-frenos-grises',
+    brand_name: 'Roll-Line',
+    component_type: 'frenos',
+    skate_level: ['intermedio', 'avanzado'],
+    price_ars: 35000,
+    description: 'Frenos grises Roll-Line ideales para superficies resbaladizas o de madera. Excelente agarre.',
+    short_desc: 'Frenos de agarre superior para pistas resbaladizas.',
+    images: [
+      { id: 'img_f1', product_id: 'f1', url: 'https://i.ibb.co/KjhD9tg0/Roll-Line-frenos-grises.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: true,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 15,
+    low_stock_threshold: 5,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+  {
+    id: 'f2',
+    name: 'Roll-Line Frenos Rosas',
+    slug: 'roll-line-frenos-rosas',
+    brand_name: 'Roll-Line',
+    component_type: 'frenos',
+    skate_level: ['iniciacion', 'intermedio'],
+    price_ars: 32000,
+    description: 'Frenos rosas Roll-Line de dureza media, perfectos para entrenamientos diarios en todo tipo de pistas.',
+    short_desc: 'Frenos polivalentes para entrenamiento diario.',
+    images: [
+      { id: 'img_f2', product_id: 'f2', url: 'https://i.ibb.co/B515yXm1/Roll-Line-frenos-rosas.png', sort_order: 0, is_primary: true }
+    ],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 25,
+    low_stock_threshold: 10,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }
+,
+  {
+    id: 'bota_ambra',
+    name: 'Bota Risport Ambra',
+    slug: 'bota-risport-ambra',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["intermedio"],
+    price_ars: 250000,
+    description: 'Bota Risport Ambra ideal para saltos dobles.',
+    short_desc: 'Bota para nivel intermedio.',
+    images: [{"id":"img_ambra","product_id":"bota_ambra","url":"https://i.ibb.co/M5nrdD57/Risport-Ambra.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'bota_antares',
+    name: 'Bota Risport Antares',
+    slug: 'bota-risport-antares',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["iniciacion"],
+    price_ars: 180000,
+    description: 'Bota Risport Antares, perfecta para principiantes.',
+    short_desc: 'Iniciación al patinaje.',
+    images: [{"id":"img_antares","product_id":"bota_antares","url":"https://i.ibb.co/WvtzdycW/Risport-antares.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'bota_gemma',
+    name: 'Bota Risport Gemma',
+    slug: 'bota-risport-gemma',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["iniciacion","intermedio"],
+    price_ars: 200000,
+    description: 'Bota Risport Gemma con excelente confort.',
+    short_desc: 'Confort y diseño.',
+    images: [{"id":"img_gemma","product_id":"bota_gemma","url":"https://i.ibb.co/4wh55MjV/Risport-gemma.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'bota_rf1',
+    name: 'Bota Risport RF1 Elite',
+    slug: 'bota-risport-rf1-elite',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["alto_rendimiento"],
+    price_ars: 450000,
+    description: 'Bota de alto rendimiento para cuádruples.',
+    short_desc: 'Bota Elite.',
+    images: [{"id":"img_rf1","product_id":"bota_rf1","url":"https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'bota_royal',
+    name: 'Bota Risport Royal Pro',
+    slug: 'bota-risport-royal-pro',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["avanzado"],
+    price_ars: 380000,
+    description: 'Ligereza y soporte extremo.',
+    short_desc: 'Bota profesional ligera.',
+    images: [{"id":"img_royal","product_id":"bota_royal","url":"https://i.ibb.co/Z4rXynv/Risport-Royal-pro.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'bota_venus',
+    name: 'Bota Risport Venus',
+    slug: 'bota-risport-venus',
+    brand_name: 'Risport',
+    component_type: 'bota',
+    skate_level: ["iniciacion"],
+    price_ars: 150000,
+    description: 'Bota Risport Venus para primeros pasos.',
+    short_desc: 'Primeros pasos.',
+    images: [{"id":"img_venus","product_id":"bota_venus","url":"https://i.ibb.co/j32vSNDV/Risport-Venus.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'plancha_variant',
+    name: 'Plancha Roll Line Variant M',
+    slug: 'plancha-roll-line-variant-m',
+    brand_name: 'Roll-Line',
+    component_type: 'plancha',
+    skate_level: ["intermedio"],
+    price_ars: 190000,
+    description: 'Plancha Variant M, ideal para escuela y libre.',
+    short_desc: 'Plancha versátil intermedia.',
+    images: [{"id":"img_variant","product_id":"plancha_variant","url":"https://i.ibb.co/95XjMJG/Roll-Line-Variant-M.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'plancha_giotto',
+    name: 'Plancha Roll Line Giotto',
+    slug: 'plancha-roll-line-giotto',
+    brand_name: 'Roll-Line',
+    component_type: 'plancha',
+    skate_level: ["avanzado"],
+    price_ars: 350000,
+    description: 'Plancha profesional Giotto para figuras obligatorias.',
+    short_desc: 'Plancha profesional de escuela.',
+    images: [{"id":"img_pl_giotto","product_id":"plancha_giotto","url":"https://i.ibb.co/wNm85s07/Roll-Line-giotto.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'p6_5',
+    name: 'Ruedas Roll-Line Fluido',
+    slug: 'roll-line-ruedas-fluido',
+    brand_name: 'Roll-Line',
+    component_type: 'rueda',
+    skate_level: ["avanzado"],
+    price_ars: 48000,
+    description: 'Excelente rendimiento en pistas resbaladizas.',
+    short_desc: 'Ruedas de alto agarre.',
+    images: [{"id":"img_fluido","product_id":"p6_5","url":"https://i.ibb.co/MyV1qWJR/Roll-Line-ruedas-giotto-1.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'p6_6',
+    name: 'Ruedas Roll-Line Centurion',
+    slug: 'roll-line-ruedas-centurion',
+    brand_name: 'Roll-Line',
+    component_type: 'rueda',
+    skate_level: ["intermedio"],
+    price_ars: 41000,
+    description: 'Ruedas polivalentes para escuela y libre.',
+    short_desc: 'Polivalencia y control.',
+    images: [{"id":"img_centurion","product_id":"p6_6","url":"https://i.ibb.co/SDTQ8ZBB/Roll-Line-ruedas-helium.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'p6_7',
+    name: 'Ruedas Komplex Angel',
+    slug: 'komplex-ruedas-angel',
+    brand_name: 'Komplex',
+    component_type: 'rueda',
+    skate_level: ["iniciacion","intermedio"],
+    price_ars: 38000,
+    description: 'Ruedas Komplex para un deslizamiento suave.',
+    short_desc: 'Deslizamiento suave.',
+    images: [{"id":"img_angel","product_id":"p6_7","url":"https://i.ibb.co/jvMxyczh/Roll-Line-ruedas-magnum.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
+  {
+    id: 'p6_8',
+    name: 'Ruedas Komplex Azzurra',
+    slug: 'komplex-ruedas-azzurra',
+    brand_name: 'Komplex',
+    component_type: 'rueda',
+    skate_level: ["avanzado"],
+    price_ars: 47000,
+    description: 'Ruedas de nivel profesional Komplex.',
+    short_desc: 'Nivel profesional.',
+    images: [{"id":"img_azzurra","product_id":"p6_8","url":"https://i.ibb.co/7NSXMRkk/Roll-Line-ruedas-boxer.png","sort_order":0,"is_primary":true}],
+    is_featured: false,
+    is_active: true,
+    is_outlet: false,
+    stock_quantity: 10,
+    low_stock_threshold: 2,
+    track_inventory: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  },
 ];
 
 export const BRANDS = ['Edea', 'Risport', 'Roll-Line', 'Komplex', 'Jackson', 'Sobre Ruedas', 'Sobre Ruedas Academy'];
@@ -848,10 +1210,13 @@ export const CATEGORIES = [
   { id: 'combo', label: 'Combos' },
   { id: 'curso', label: 'Cursos' },
   { id: 'cuchilla', label: 'Cuchillas' },
+  { id: 'ruleman', label: 'Rulemanes' },
+  { id: 'frenos', label: 'Frenos' },
 ];
 export const LEVELS = [
   { id: 'iniciacion', label: 'Iniciación' },
   { id: 'intermedio', label: 'Intermedio' },
   { id: 'avanzado', label: 'Avanzado' },
   { id: 'alto_rendimiento', label: 'Alto Rendimiento' },
+
 ];

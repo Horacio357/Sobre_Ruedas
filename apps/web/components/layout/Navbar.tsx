@@ -20,12 +20,13 @@ const PRODUCT_CATEGORIES = [
   { id: 'planchas', label: 'Planchas', href: '/productos/planchas', image: 'https://i.ibb.co/95XjMJG/Roll-Line-Variant-M.png' },
   { id: 'ruedas', label: 'Ruedas', href: '/productos/ruedas', image: 'https://i.ibb.co/27x4zKRP/Roll-Line-ruedas-giotto.png' },
   { id: 'rulemanes', label: 'Rulemanes', href: '/productos/rulemanes', image: 'https://i.ibb.co/vxr81s5f/Magic-Eraser-260526-155236.png' },
-  { id: 'bolsos', label: 'Bolsos y Accesorios', href: '/productos/bolsos', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
+  { id: 'frenos', label: 'Frenos', href: '/productos/frenos', image: 'https://i.ibb.co/KjhD9tg0/Roll-Line-frenos-grises.png' },
+  { id: 'bolsos', label: 'Bolsos y Accesorios', href: '/productos/accesorio', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
 ];
 
 const HIELO_CATEGORIES = [
   { id: 'botas_hielo', label: 'Botas', href: '/hielo/botas', image: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png' },
-  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: '/images/placeholder.png' },
+  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png' },
   { id: 'accesorios_hielo', label: 'Accesorios', href: '/hielo/accesorios', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
 ];
 
@@ -176,7 +177,7 @@ export default function Navbar({
                           {link.dropdown.map(cat => (
                             <Link key={cat.id} href={cat.href} className="group/cat flex flex-col items-center gap-4 text-center">
                               <div className="w-20 h-20 rounded-2xl bg-[#FAF7F2] flex items-center justify-center p-3 group-hover/cat:scale-110 group-hover/cat:bg-[#F5F0EA] transition-all duration-500 overflow-hidden relative">
-                                <img src={cat.image || '/images/placeholder.png'} alt={cat.label} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply" />
+                                <img src={cat.image || 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png'} alt={cat.label} referrerPolicy="no-referrer" className="w-full h-full object-contain mix-blend-multiply" />
                               </div>
                               <span className="text-[9px] font-black uppercase tracking-widest text-[#1C1612] group-hover/cat:text-[#D97230] transition-colors leading-tight">
                                 {cat.label}

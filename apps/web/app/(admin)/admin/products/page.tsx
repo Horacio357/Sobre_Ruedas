@@ -13,6 +13,17 @@ export default function AdminProducts() {
   const [hasData, setHasData] = useState(false);
   const [view, setView] = useState<'list' | 'form'>('list');
   const [filter, setFilter] = useState<string | null>(null);
+  const [customCategories, setCustomCategories] = useState<string[]>(['Frenos']);
+  const [isAddingCategory, setIsAddingCategory] = useState(false);
+  const [newCategoryName, setNewCategoryName] = useState('');
+
+  const handleAddCategory = () => {
+    if (newCategoryName.trim()) {
+      setCustomCategories([...customCategories, newCategoryName.trim()]);
+      setIsAddingCategory(false);
+      setNewCategoryName('');
+    }
+  };
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -49,13 +60,44 @@ export default function AdminProducts() {
                 <input type="text" placeholder="Ej: Botas Edea Fly" className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium" />
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Categoría</label>
-                <select className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium">
-                  <option>Botas</option>
-                  <option>Planchas</option>
-                  <option>Ruedas</option>
-                  <option>Accesorios</option>
-                </select>
+                <div className="flex justify-between items-center">
+                  <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Categoría</label>
+                  <button 
+                    type="button" 
+                    onClick={() => setIsAddingCategory(!isAddingCategory)}
+                    className="text-[10px] font-bold text-[#D97230] hover:text-[#c26225] uppercase tracking-widest flex items-center gap-1"
+                  >
+                    <Plus size={12} /> {isAddingCategory ? 'Cancelar' : 'Nueva Categoría'}
+                  </button>
+                </div>
+                {isAddingCategory ? (
+                  <div className="flex gap-2">
+                    <input 
+                      type="text" 
+                      value={newCategoryName}
+                      onChange={(e) => setNewCategoryName(e.target.value)}
+                      placeholder="Nombre de categoría" 
+                      className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium"
+                    />
+                    <button 
+                      type="button"
+                      onClick={handleAddCategory}
+                      className="px-4 py-3 bg-[#1C1612] text-white rounded-2xl font-bold text-sm hover:bg-[#D97230] transition-colors"
+                    >
+                      Añadir
+                    </button>
+                  </div>
+                ) : (
+                  <select className="w-full px-4 py-3 bg-[#F5F1EB] rounded-2xl outline-none focus:ring-2 focus:ring-[#D97230]/20 text-sm font-medium">
+                    <option>Botas</option>
+                    <option>Planchas</option>
+                    <option>Ruedas</option>
+                    <option>Accesorios</option>
+                    {customCategories.map(cat => (
+                      <option key={cat}>{cat}</option>
+                    ))}
+                  </select>
+                )}
               </div>
               <div className="space-y-2 md:col-span-2">
                 <label className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Descripción</label>

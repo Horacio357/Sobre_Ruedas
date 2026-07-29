@@ -285,7 +285,7 @@ export default function CheckoutPage() {
                   {items.map(item => (
                     <div key={item.id} className="flex gap-4 items-center">
                       <div className="w-12 h-12 shrink-0 rounded-xl bg-white border border-[#1C1612]/5 flex items-center justify-center shadow-sm overflow-hidden relative p-1.5">
-                        <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || '/images/placeholder.png'} alt={item.product.name} className="object-contain w-full h-full"  referrerPolicy="no-referrer" />
+                        <img src={item.product?.images?.[0]?.url || item.product?.primary_image_url || 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png'} alt={item.product.name} className="object-contain w-full h-full"  referrerPolicy="no-referrer" />
                       </div>
                       <div className="flex-1 min-w-0 pr-2">
                         <p className="font-bold text-[#1C1612] text-[11px] leading-tight mb-1 line-clamp-2">{item.product.name}</p>

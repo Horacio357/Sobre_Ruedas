@@ -119,7 +119,7 @@ export default function HeroSection() {
                 {/* Glow behind product */}
                 <div className="absolute inset-0 bg-[#D97230]/20 blur-[100px] rounded-full scale-75 group-hover:scale-110 transition-transform duration-1000" />
                 <motion.img 
-                  src="/images/hero-skate.png"
+                  src="https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png"
                   alt="Patín Artístico Premium"
                   className="relative h-[280px] md:h-[420px] w-auto object-contain drop-shadow-[0_20px_40px_rgba(217,114,48,0.15)] cursor-pointer"
                   animate={{

@@ -67,9 +67,9 @@ export default function CartDrawer() {
                 </div>
               ) : (
                 items.map((item) => {
-                  const itemImage = item.product.slug.includes('concerto') ? '/images/products/edea-concerto-black.jpg' :
-                                    item.product.slug.includes('chorus') ? '/images/products/edea-chorus-white.jpg' :
-                                    item.product.slug.includes('combo') ? '/images/products/edea-chorus-heel.jpg' :
+                  const itemImage = item.product.slug.includes('concerto') ? 'https://i.ibb.co/4wh55MjV/Risport-gemma.png' :
+                                    item.product.slug.includes('chorus') ? 'https://i.ibb.co/WvtzdycW/Risport-antares.png' :
+                                    item.product.slug.includes('combo') ? 'https://i.ibb.co/NQHrh87/Risport-RF1-elite-1.png' :
                                     (item.product.images && item.product.images[0]?.url) || '';
                   
                   return (

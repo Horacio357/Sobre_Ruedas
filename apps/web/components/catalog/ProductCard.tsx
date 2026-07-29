@@ -36,7 +36,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         {/* Product Image */}
         <div className="w-full h-full p-10 md:p-12 transition-transform duration-[1.5s] ease-out group-hover:scale-105 flex items-center justify-center relative">
           <Image 
-            src={product.images?.[0]?.url || '/images/placeholder.png'} 
+            src={product.images?.[0]?.url || 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png'} 
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

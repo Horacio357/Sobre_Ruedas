@@ -24,7 +24,7 @@ const FEATURED_PRODUCTS = [
     short_desc: 'El estándar de excelencia en botas de cuero profesionales. Confort inigualable.',
     description: 'Bota de cuero natural premium.',
     slug: 'risport-royal-pro',
-    images: [{ id: 'img34_1', product_id: 'p3_4', url: '/images/products/risport-royal-pro.png', sort_order: 0, is_primary: true }],
+    images: [{ id: 'img34_1', product_id: 'p3_4', url: 'https://i.ibb.co/Z4rXynv/Risport-Royal-pro.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: true,
     is_outlet: false,
@@ -46,7 +46,7 @@ const FEATURED_PRODUCTS = [
     short_desc: 'El máximo estándar de excelencia para danza artística. Perfil bajo y máxima flexión.',
     description: 'Bota para danza elite.',
     slug: 'risport-dance-prime',
-    images: [{ id: 'img35_1', product_id: 'p3_5', url: '/images/products/dance-prime.png', sort_order: 0, is_primary: true }],
+    images: [{ id: 'img35_1', product_id: 'p3_5', url: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: true,
     is_outlet: false,
@@ -68,7 +68,7 @@ const FEATURED_PRODUCTS = [
     short_desc: 'Bolso térmico de diseño italiano para llevar tus patines protegidos con elegancia.',
     description: 'Bolso térmico para patines.',
     slug: 'bolso-edea-always-with-me',
-    images: [{ id: 'img_b1', product_id: 'b1', url: '/images/products/bolso-edea-always.png', sort_order: 0, is_primary: true }],
+    images: [{ id: 'img_b1', product_id: 'b1', url: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: true,
     is_outlet: false,
@@ -130,7 +130,7 @@ export default function FeaturedProducts() {
                 <div className="absolute inset-0 p-8 flex items-center justify-center pointer-events-none">
                   <div className="relative w-full h-[75%] transition-transform duration-[1.5s] ease-out group-hover:scale-105">
                     <Image
-                      src={product.images?.[0]?.url || '/images/placeholder.png'}
+                      src={product.images?.[0]?.url || 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png'}
                       alt={product.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

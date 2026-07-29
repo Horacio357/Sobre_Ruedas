@@ -58,9 +58,9 @@ const DATA: Record<Brand, SizeMapping[]> = {
 };
 
 const BRANDS = [
-  { id: 'edea', name: 'Edea', logo: '/images/brands/edea.png' },
-  { id: 'risport', name: 'Risport', logo: '/images/brands/risport.png' },
-  { id: 'belati', name: 'Belati / Graf', logo: '/images/brands/belati.png' },
+  { id: 'edea', name: 'Edea', logo: 'https://i.ibb.co/JwjdLSJ7/Magic-Eraser-260526-155252.png' },
+  { id: 'risport', name: 'Risport', logo: 'https://i.ibb.co/JRmtZBYd/Magic-Eraser-260526-155332.png' },
+  { id: 'belati', name: 'Belati / Graf', logo: 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png' },
 ];
 
 export default function SizeCalculator() {
