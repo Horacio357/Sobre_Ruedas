@@ -76,15 +76,15 @@ export default function Footer() {
               </h3>
               <p className="text-[#B08B8B] text-sm">Suscribite y recibí descuentos antes que nadie.</p>
             </div>
-            <form className="flex w-full md:w-auto gap-2" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col md:flex-row w-full md:w-auto gap-3 mt-6 md:mt-0" onSubmit={(e) => e.preventDefault()}>
               <input
                 id="newsletter-email"
                 type="email"
                 placeholder="tu@email.com"
                 required
-                className="flex-1 md:w-64 px-4 py-2.5 rounded bg-white/50 border border-[#1C1612]/20 text-[#1C1612] placeholder-[#6B5E4A] text-sm focus:outline-none focus:border-[#D97230] transition-colors"
+                className="flex-1 md:w-64 px-4 h-12 rounded bg-white/50 border border-[#1C1612]/20 text-[#1C1612] placeholder-[#6B5E4A] text-sm focus:outline-none focus:border-[#D97230] transition-colors"
               />
-              <button type="submit" className="btn-primary text-sm px-5 py-2.5 shrink-0">
+              <button type="submit" className="btn-primary text-sm px-5 h-12 shrink-0">
                 Suscribirme
               </button>
             </form>
@@ -93,7 +93,7 @@ export default function Footer() {
       </div>
 
       {/* Links grid */}
-      <div className="container-apple py-20 md:py-24">
+      <div className="container-apple py-10 md:py-24">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -106,10 +106,10 @@ export default function Footer() {
             <Link href="/" className="flex flex-col items-start gap-0 w-fit group mb-8">
               <Logo className="h-16 w-auto" variant="dark" />
             </Link>
-            <p className="text-sm text-[#B08B8B] leading-relaxed mb-14">
+            <p className="text-sm text-slate-600 leading-relaxed mb-10 md:mb-14">
               Tu tienda especializada en patines artísticos. Expertos en equipamiento de competición y disfrute.
             </p>
-            <ul className="space-y-8 text-sm">
+            <ul className="space-y-6 text-sm">
               <li className="flex items-center gap-2 text-[#B08B8B]">
                 <MapPin size={14} className="text-[#D97230] shrink-0" />
                 <span>Buenos Aires, Argentina</span>
@@ -191,13 +191,13 @@ export default function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16">
               {(['tienda', 'ayuda', 'empresa'] as const).map((section) => (
                 <motion.div key={section} variants={itemVariants}>
-                  <h4 className="text-[#1C1612] font-semibold text-sm mb-16 tracking-tight capitalize">
+                  <h4 className="text-lg font-bold text-slate-900 mb-4 tracking-tight capitalize">
                     {section === 'empresa' ? 'Empresa' : section === 'ayuda' ? 'Ayuda' : 'Tienda'}
                   </h4>
-                  <ul className="space-y-8">
+                  <ul className="space-y-5">
                     {FOOTER_LINKS[section].map((link) => (
                       <li key={link.href}>
-                        <Link href={link.href} className="text-sm text-[#B08B8B] hover:text-[#1C1612] transition-colors">
+                        <Link href={link.href} className="text-sm text-slate-600 hover:text-slate-900 leading-relaxed transition-colors">
                           {link.label}
                         </Link>
                       </li>

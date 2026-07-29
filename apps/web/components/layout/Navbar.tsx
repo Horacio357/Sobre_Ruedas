@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Menu, X, Search, User as UserIcon } from 'lucide-react';
+import { ShoppingBag, Menu, X, Search, User as UserIcon, ChevronDown } from 'lucide-react';
 import { useCartStore } from '@/store/cartStore';
 import { useAuthStore } from '@/store/authStore';
 import { cn } from '@/lib/utils';
@@ -49,6 +49,7 @@ export default function Navbar({
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const cartStore = useCartStore();
   const { user, isAuthenticated } = useAuthStore();
   const itemCount = cartStore.items.reduce((acc, i) => acc + i.quantity, 0);
@@ -201,9 +202,9 @@ export default function Navbar({
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: '100%', opacity: 0 }}
             transition={{ type: 'spring' as const, damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl flex flex-col p-12 md:hidden"
+            className="fixed inset-0 z-[100] bg-white/95 backdrop-blur-2xl flex flex-col p-6 md:hidden overflow-y-auto"
           >
-            <div className="flex justify-end mb-20">
+            <div className="flex justify-end mb-10">
               <button onClick={() => setIsMobileOpen(false)} className="p-4 text-[#1C1612]">
                 <X size={32} strokeWidth={1.5} />
               </button>
@@ -214,7 +215,7 @@ export default function Navbar({
               variants={{
                 visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } }
               }}
-              className="space-y-16 flex-1 flex flex-col justify-center pb-32"
+              className="flex-1 flex flex-col pb-10"
             >
               {NAV_LINKS.map((link) => (
                 <motion.li 
@@ -225,28 +226,43 @@ export default function Navbar({
                   }}
                 >
                   {link.dropdown ? (
-                    <div className="space-y-6">
+                    <div className="border-b border-slate-100">
+                      <button
+                        onClick={() => setOpenMobileDropdown(openMobileDropdown === link.label ? null : link.label)}
+                        className="w-full text-left py-4 text-xl md:text-2xl font-semibold text-slate-900 flex items-center justify-between"
+                      >
+                        {link.label}
+                        <ChevronDown size={24} className={cn("transition-transform duration-300", openMobileDropdown === link.label ? "rotate-180 text-[#D97230]" : "text-slate-400")} />
+                      </button>
+                      <AnimatePresence>
+                        {openMobileDropdown === link.label && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pb-4 space-y-4 pt-1">
+                              {link.dropdown.map(cat => (
+                                <Link key={cat.id} href={cat.href} onClick={() => setIsMobileOpen(false)} className="text-base font-normal text-slate-600 hover:text-[#D97230] transition-colors block">
+                                  {cat.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <div className="border-b border-slate-100">
                       <Link
                         href={link.href}
-                        className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
+                        onClick={() => setIsMobileOpen(false)}
+                        className="py-4 text-xl md:text-2xl font-semibold text-slate-900 hover:text-[#D97230] transition-colors block"
                       >
                         {link.label}
                       </Link>
-                      <div className="pl-6 space-y-5 border-l-2 border-[#EAE3D9]/50 py-2">
-                        {link.dropdown.map(cat => (
-                          <Link key={cat.id} href={cat.href} className="text-2xl font-light text-[#1C1612]/60 hover:text-[#D97230] transition-colors block">
-                            {cat.label}
-                          </Link>
-                        ))}
-                      </div>
                     </div>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-4xl font-medium text-[#1C1612] tracking-tight hover:text-[#D97230] transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
                   )}
                 </motion.li>
               ))}
@@ -255,14 +271,15 @@ export default function Navbar({
                   hidden: { opacity: 0, y: 20 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } }
                 }}
-                className="pt-12 border-t border-[#F5F0EA] mt-12"
+                className="mt-auto pt-8"
               >
                 <Link
                   href={isAuthenticated ? "/cuenta" : "/login"}
-                  className="text-4xl font-medium text-[#D97230] tracking-tight flex items-center justify-between"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="bg-slate-50 p-4 rounded-xl text-xl md:text-2xl font-semibold text-slate-900 flex items-center justify-between shadow-sm border border-slate-100"
                 >
                   {isAuthenticated ? 'Mi Cuenta' : 'Ingresar'}
-                  <UserIcon size={32} strokeWidth={1.5} />
+                  <UserIcon size={28} strokeWidth={1.5} className="text-[#D97230]" />
                 </Link>
               </motion.li>
             </motion.ul>

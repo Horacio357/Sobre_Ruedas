@@ -291,7 +291,7 @@ export default function AplicacionesPage() {
             </div>
 
             {/* Apple & Android Symmetrical Dark Premium Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-10 pt-6 md:pt-10">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-10 pt-6 md:pt-10 block w-full relative z-20 my-8">
               <button 
                 onClick={() => alert('¡Próximamente disponible en App Store!')}
                 className="flex items-center gap-4 text-white px-10 py-5 rounded-[24px] shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center hover:opacity-90 active:scale-95"
@@ -323,9 +323,11 @@ export default function AplicacionesPage() {
               </button>
             </div>
             
-            <p className="text-[10px] text-[#B08B8B] tracking-wider uppercase font-semibold pt-4">
-              * La versión de entrenamiento requiere registro y acreditación de coach.
-            </p>
+            <div className="block w-full relative z-10 my-8">
+              <p className="text-[10px] text-[#B08B8B] tracking-wider uppercase font-semibold pt-4">
+                * La versión de entrenamiento requiere registro y acreditación de coach.
+              </p>
+            </div>
           </div>
         </motion.div>
 
