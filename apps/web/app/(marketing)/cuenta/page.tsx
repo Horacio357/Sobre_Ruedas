@@ -80,10 +80,10 @@ export default function AccountPage() {
         </div>
 
         {/* Dashboard Grid */}
-        <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10 items-start">
           
           {/* Columna Izquierda: Accesos rápidos */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 flex flex-col gap-6 relative z-10">
              <SectionCard title="Menú de Cuenta">
                 <nav className="space-y-2">
                    <MenuLink icon={<Package size={18} />} label="Mis Pedidos" active />
@@ -101,7 +101,7 @@ export default function AccountPage() {
                 </nav>
              </SectionCard>
 
-             <div className="bg-[#1C1612] rounded-[2.5rem] p-10 text-white overflow-hidden relative shadow-2xl">
+             <div className="bg-[#1C1612] rounded-[2.5rem] p-10 text-white overflow-hidden relative shadow-2xl z-10">
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-[#D97230] rounded-full blur-[60px] opacity-20" />
                 <h4 className="text-xl font-black mb-4 relative z-10">¿Necesitas ayuda?</h4>
                 <p className="text-white/50 text-sm mb-8 leading-relaxed relative z-10">Nuestro equipo de expertos está disponible para asistirte con tus patines.</p>
@@ -110,7 +110,7 @@ export default function AccountPage() {
           </div>
 
           {/* Columna Derecha: Contenido Dinámico */}
-          <div className="lg:col-span-8 space-y-8">
+          <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
              <SectionCard title="Pedidos Recientes">
                 <div className="space-y-4">
                    {/* Mock de pedidos */}
@@ -151,7 +151,7 @@ function SectionCard({ title, children }: { title: string, children: React.React
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="bg-white rounded-[2.5rem] p-10 md:p-12 shadow-sm border border-[#EAE3D9]/50"
+      className="bg-white rounded-[2.5rem] p-10 md:p-12 shadow-sm border border-[#EAE3D9]/50 relative z-10"
     >
       <h3 className="text-[11px] font-black uppercase tracking-[0.4em] text-[#9A8A72] mb-10 border-b border-[#F5F0EA] pb-6">{title}</h3>
       {children}
