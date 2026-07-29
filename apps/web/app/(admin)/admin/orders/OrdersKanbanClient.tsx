@@ -202,7 +202,6 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
               </div>
             </div>
           </div>
-        </div>
       )}
     </div>
   );
