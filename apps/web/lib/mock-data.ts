@@ -862,7 +862,7 @@ export const PRODUCTS: MockProduct[] = [
     price_ars: 550000,
     description: 'La cuchilla elegida por los campeones mundiales. Acero al carbono de la más alta calidad.',
     short_desc: 'Cuchilla de nivel elite para saltos triples y cuádruples.',
-    images: [{ id: 'img_ice_1', product_id: 'ice_1', url: '', sort_order: 0, is_primary: true }], // placeholder
+    images: [{ id: 'img_ice_1', product_id: 'ice_1', url: 'https://i.ibb.co/Hf0BJyQ5/Magic-Eraser-260526-151540.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: true,
     is_outlet: false,
@@ -883,7 +883,7 @@ export const PRODUCTS: MockProduct[] = [
     price_ars: 280000,
     description: 'La cuchilla más popular para patinadores en desarrollo. Excelente balance y control.',
     short_desc: 'Cuchilla ideal para saltos simples y dobles.',
-    images: [{ id: 'img_ice_2', product_id: 'ice_2', url: '', sort_order: 0, is_primary: true }], // placeholder
+    images: [{ id: 'img_ice_2', product_id: 'ice_2', url: 'https://i.ibb.co/wFHxdLNN/Magic-Eraser-260526-151710.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: false,
     is_outlet: false,
@@ -904,7 +904,7 @@ export const PRODUCTS: MockProduct[] = [
     price_ars: 420000,
     description: 'Chasis de aluminio ligero con filo de acero inoxidable. 33% más liviana que las cuchillas tradicionales.',
     short_desc: 'Cuchilla ultraligera de rendimiento avanzado.',
-    images: [{ id: 'img_ice_3', product_id: 'ice_3', url: '', sort_order: 0, is_primary: true }], // placeholder
+    images: [{ id: 'img_ice_3', product_id: 'ice_3', url: 'https://i.ibb.co/Hf0BJyQ5/Magic-Eraser-260526-151540.png', sort_order: 0, is_primary: true }],
     is_active: true,
     is_featured: false,
     is_outlet: false,

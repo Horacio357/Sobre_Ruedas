@@ -26,7 +26,7 @@ const PRODUCT_CATEGORIES = [
 
 const HIELO_CATEGORIES = [
   { id: 'botas_hielo', label: 'Botas', href: '/hielo/botas', image: 'https://i.ibb.co/d4VhV7bb/Dance-prime.png' },
-  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: 'https://i.ibb.co/SwNbdXCN/Magic-Eraser-260526-160355.png' },
+  { id: 'cuchillas', label: 'Cuchillas', href: '/hielo/cuchillas', image: 'https://i.ibb.co/Hf0BJyQ5/Magic-Eraser-260526-151540.png' },
   { id: 'accesorios_hielo', label: 'Accesorios', href: '/hielo/accesorios', image: 'https://i.ibb.co/8gcN7Lc1/Bolso-Edea-always-with-me.png' },
 ];
 
