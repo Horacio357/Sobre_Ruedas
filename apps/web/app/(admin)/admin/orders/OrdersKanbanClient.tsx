@@ -9,10 +9,10 @@ interface OrdersKanbanClientProps {
 }
 
 const COLUMNS = [
-  { id: 'pending', title: 'Pendiente de Pago', icon: <Clock size={18} className="text-orange-500" />, bgColor: 'bg-orange-50', borderColor: 'border-orange-200' },
-  { id: 'processing', title: 'En Armado', icon: <Inbox size={18} className="text-blue-500" />, bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
-  { id: 'confirmed', title: 'Listo para Despachar', icon: <CheckCircle2 size={18} className="text-emerald-500" />, bgColor: 'bg-emerald-50', borderColor: 'border-emerald-200' },
-  { id: 'shipped', title: 'Enviado', icon: <Truck size={18} className="text-purple-500" />, bgColor: 'bg-purple-50', borderColor: 'border-purple-200' }
+  { id: 'pending', title: 'Pendiente de pago', icon: <Clock size={18} className="text-orange-500" />, bgColor: 'bg-orange-50', borderColor: 'border-orange-200' },
+  { id: 'ready', title: 'Listo para empaquetar', icon: <Inbox size={18} className="text-blue-500" />, bgColor: 'bg-blue-50', borderColor: 'border-blue-200' },
+  { id: 'shipped', title: 'Despachado / En camino', icon: <Truck size={18} className="text-purple-500" />, bgColor: 'bg-purple-50', borderColor: 'border-purple-200' },
+  { id: 'delivered', title: 'Entregado', icon: <CheckCircle2 size={18} className="text-emerald-500" />, bgColor: 'bg-emerald-50', borderColor: 'border-emerald-200' }
 ];
 
 export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClientProps) {
@@ -64,8 +64,7 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
   };
 
   const filteredOrders = orders.filter(o => 
-    o.buyer_name?.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    o.order_number?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    o.customer_name?.toLowerCase().includes(searchTerm.toLowerCase()) || 
     o.id.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -103,13 +102,13 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
                 <h3 className="font-black text-[#1C1612] text-sm">{column.title}</h3>
               </div>
               <span className="bg-white px-2 py-0.5 rounded-full text-xs font-bold text-[#1C1612] shadow-sm">
-                {filteredOrders.filter(o => o.status === column.id || (column.id === 'shipped' && o.status === 'delivered')).length}
+                {filteredOrders.filter(o => o.status === column.id).length}
               </span>
             </div>
             
             <div className={`flex-1 p-4 rounded-b-3xl border-b border-x ${column.borderColor} bg-white/50 space-y-4 min-h-[500px]`}>
               {filteredOrders
-                .filter(o => o.status === column.id || (column.id === 'shipped' && o.status === 'delivered'))
+                .filter(o => o.status === column.id)
                 .map(order => (
                 <div 
                   key={order.id}
@@ -119,13 +118,13 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
                   onClick={() => { setSelectedOrder(order); setShowModal(true); }}
                 >
                   <div className="flex justify-between items-start mb-3">
-                    <span className="text-xs font-bold text-[#B08B8B]">#{order.order_number || order.id.slice(0,6)}</span>
+                    <span className="text-xs font-bold text-[#B08B8B]">#{order.id.slice(0,6)}</span>
                     <span className="text-xs font-bold text-[#1C1612] bg-[#F5F1EB] px-2 py-1 rounded-lg">
                       {new Date(order.created_at).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' })}
                     </span>
                   </div>
-                  <h4 className="font-black text-[#1C1612] text-sm mb-1">{order.buyer_name}</h4>
-                  <p className="text-xs text-[#B08B8B] mb-4">{order.buyer_email}</p>
+                  <h4 className="font-black text-[#1C1612] text-sm mb-1">{order.customer_name}</h4>
+                  <p className="text-xs text-[#B08B8B] mb-4">{order.customer_email}</p>
                   
                   <div className="flex items-center justify-between pt-4 border-t border-[#1C1612]/5">
                     <span className="font-black text-[#D97230]">${order.total_ars?.toLocaleString('es-AR')}</span>
@@ -137,19 +136,19 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
                   {/* Botones de acción rápida para móvil */}
                   <div className="mt-3 flex gap-2 lg:hidden">
                     {column.id === 'pending' && (
-                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'processing'); }} className="flex-1 py-2 bg-blue-50 text-blue-600 text-xs font-bold rounded-xl">En Armado</button>
+                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'ready'); }} className="flex-1 py-2 bg-blue-50 text-blue-600 text-xs font-bold rounded-xl">Empaquetar</button>
                     )}
-                    {column.id === 'processing' && (
-                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'confirmed'); }} className="flex-1 py-2 bg-emerald-50 text-emerald-600 text-xs font-bold rounded-xl">Listo</button>
+                    {column.id === 'ready' && (
+                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'shipped'); }} className="flex-1 py-2 bg-purple-50 text-purple-600 text-xs font-bold rounded-xl">Despachar</button>
                     )}
-                    {column.id === 'confirmed' && (
-                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'shipped'); }} className="flex-1 py-2 bg-purple-50 text-purple-600 text-xs font-bold rounded-xl">Enviado</button>
+                    {column.id === 'shipped' && (
+                      <button onClick={(e) => { e.stopPropagation(); updateOrderStatus(order.id, 'delivered'); }} className="flex-1 py-2 bg-emerald-50 text-emerald-600 text-xs font-bold rounded-xl">Entregado</button>
                     )}
                   </div>
                 </div>
               ))}
               
-              {filteredOrders.filter(o => o.status === column.id || (column.id === 'shipped' && o.status === 'delivered')).length === 0 && (
+              {filteredOrders.filter(o => o.status === column.id).length === 0 && (
                 <div className="h-32 border-2 border-dashed border-[#1C1612]/10 rounded-2xl flex items-center justify-center">
                   <span className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest">Vacío</span>
                 </div>
@@ -164,7 +163,7 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
           <div className="bg-white rounded-[2rem] w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh] relative">
             <div className="p-6 md:p-8 border-b border-[#1C1612]/5 relative shrink-0">
               <div className="text-center w-full">
-                <h3 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight">Pedido #{selectedOrder.order_number || selectedOrder.id.slice(0,6)}</h3>
+                <h3 className="text-xl md:text-2xl font-black text-[#1C1612] tracking-tight">Pedido #{selectedOrder.id.slice(0,6)}</h3>
                 <p className="text-[#B08B8B] mt-1 font-medium text-sm">{new Date(selectedOrder.created_at).toLocaleString('es-AR')}</p>
               </div>
               <button onClick={() => setSelectedOrder(null)} className="absolute right-6 top-1/2 -translate-y-1/2 p-2 text-[#B08B8B] hover:text-[#1C1612] transition-colors rounded-xl hover:bg-[#F5F1EB]">
@@ -176,9 +175,9 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
               <div className="bg-[#F5F1EB] p-6 rounded-3xl flex flex-col md:flex-row gap-6 justify-between items-center text-center md:text-left w-full">
                 <div className="flex-1">
                   <p className="text-xs font-bold text-[#B08B8B] uppercase tracking-widest mb-2">Cliente</p>
-                  <p className="font-black text-[#1C1612] text-lg">{selectedOrder.buyer_name}</p>
-                  <p className="text-sm font-medium text-[#B08B8B] mt-1">{selectedOrder.buyer_email}</p>
-                  <p className="text-sm font-medium text-[#B08B8B]">{selectedOrder.buyer_phone}</p>
+                  <p className="font-black text-[#1C1612] text-lg">{selectedOrder.customer_name}</p>
+                  <p className="text-sm font-medium text-[#B08B8B] mt-1">{selectedOrder.customer_email}</p>
+                  <p className="text-sm font-medium text-[#B08B8B]">{selectedOrder.customer_phone}</p>
                 </div>
                 <div className="hidden md:block w-px h-16 bg-[#1C1612]/10"></div>
                 <div className="flex-1 md:text-right">
@@ -194,14 +193,11 @@ export default function OrdersKanbanClient({ initialOrders }: OrdersKanbanClient
                 </h4>
                 <div className="text-sm font-medium text-[#1C1612] space-y-1 text-center md:text-left">
                    {selectedOrder.shipping_address ? (
-                     <>
-                        <p>{selectedOrder.shipping_address.street}</p>
-                        <p>{selectedOrder.shipping_address.city}, {selectedOrder.shipping_address.province}</p>
-                        <p>CP: {selectedOrder.shipping_address.zip}</p>
-                     </>
+                     <p>{selectedOrder.shipping_address}</p>
                    ) : (
-                     <p className="text-[#B08B8B]">Retiro en local o sin especificar</p>
+                     <p className="text-[#B08B8B]">Sin dirección de envío</p>
                    )}
+                </div>
                 </div>
               </div>
             </div>

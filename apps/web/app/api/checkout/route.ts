@@ -62,12 +62,14 @@ export async function POST(req: Request) {
       .from('orders')
       .insert({
         id: orderId,
-        customer_name: `${customer?.firstName} ${customer?.lastName}`,
-        customer_email: customer?.email,
-        customer_phone: customer?.phone,
-        total_amount: totalAmount,
+        customer_name: `${customer?.firstName || ''} ${customer?.lastName || ''}`.trim() || 'Cliente',
+        customer_email: customer?.email || 'test@test.com',
+        customer_phone: customer?.phone || null,
+        shipping_address: customer?.address ? `${customer.address}, ${customer.city || ''}, ${customer.zip || ''}` : null,
+        total_ars: totalAmount,
+        payment_method: 'mercadopago',
         status: 'pending',
-        mp_preference_id: prefResult.id,
+        payment_id: prefResult.id,
       });
 
     if (orderError) {
@@ -80,8 +82,10 @@ export async function POST(req: Request) {
       const orderItems = items.map((item: any) => ({
         order_id: orderId,
         product_id: item.id,
+        product_name: item.name,
         quantity: item.quantity,
-        price_at_time: item.price,
+        unit_price: Number(item.price),
+        subtotal: Number(item.price) * item.quantity,
       }));
       
       await supabase.from('order_items').insert(orderItems);

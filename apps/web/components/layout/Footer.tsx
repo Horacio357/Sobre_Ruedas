@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const FOOTER_LINKS = {
   tienda: [
@@ -57,6 +59,15 @@ const itemVariants = {
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const [email, setEmail] = useState('');
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      toast.success('¡Gracias por suscribirte! Recibirás nuestras novedades.');
+      setEmail('');
+    }
+  };
 
   return (
     <footer className="bg-[#F9EAEA] text-[#1C1612]" role="contentinfo">
@@ -76,11 +87,13 @@ export default function Footer() {
               </h3>
               <p className="text-[#B08B8B] text-sm">Suscribite y recibí descuentos antes que nadie.</p>
             </div>
-            <form className="flex flex-col md:flex-row w-full md:w-auto gap-3 mt-6 md:mt-0" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col md:flex-row w-full md:w-auto gap-3 mt-6 md:mt-0" onSubmit={handleSubscribe}>
               <input
                 id="newsletter-email"
                 type="email"
                 placeholder="tu@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 className="flex-1 md:w-64 px-4 h-12 rounded bg-white/50 border border-[#1C1612]/20 text-[#1C1612] placeholder-[#6B5E4A] text-sm focus:outline-none focus:border-[#D97230] transition-colors"
               />

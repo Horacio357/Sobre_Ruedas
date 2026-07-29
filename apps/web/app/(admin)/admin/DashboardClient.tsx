@@ -27,8 +27,8 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
       </div>
 
       {/* KPIs */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4 min-h-[180px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4">
           <div className="flex flex-col items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-[#D97230]/10 flex items-center justify-center text-[#D97230]">
               <TrendingUp size={24} />
@@ -40,7 +40,7 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
           </h3>
         </div>
         
-        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4 min-h-[180px]">
+        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4">
           <div className="flex flex-col items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-[#34D399]/10 flex items-center justify-center text-[#34D399]">
               <ShoppingBag size={24} />
@@ -50,7 +50,7 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
           <h3 className="text-3xl font-black text-[#1C1612] tracking-tighter">{kpis.pedidos}</h3>
         </div>
 
-        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4 min-h-[180px]">
+        <div className="bg-white p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4">
           <div className="flex flex-col items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-[#60A5FA]/10 flex items-center justify-center text-[#60A5FA]">
               <Users size={24} />
@@ -60,7 +60,7 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
           <h3 className="text-3xl font-black text-[#1C1612] tracking-tighter">{kpis.clientes}</h3>
         </div>
 
-        <Link href="/admin/products?filter=low_stock" className={`p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4 min-h-[180px] transition-colors cursor-pointer group ${kpis.alertasStock > 0 ? 'bg-[#1C1612] text-white hover:bg-[#2A231C]' : 'bg-white hover:bg-[#F5F1EB]'}`}>
+        <Link href="/admin/products?filter=low_stock" className={`p-8 rounded-[2rem] shadow-sm border border-[#1C1612]/5 flex flex-col items-center justify-center text-center gap-4 transition-colors cursor-pointer group ${kpis.alertasStock > 0 ? 'bg-[#1C1612] text-white hover:bg-[#2A231C]' : 'bg-white hover:bg-[#F5F1EB]'}`}>
           <div className="flex flex-col items-center gap-3">
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110 ${kpis.alertasStock > 0 ? 'bg-white/10 text-white' : 'bg-orange-100 text-orange-500'}`}>
               <AlertCircle size={24} />
@@ -101,7 +101,7 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
 
       {/* Content Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm border border-[#1C1612]/5 min-h-[450px]">
+        <div className="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm border border-[#1C1612]/5 h-auto flex flex-col">
           <div className="mb-10 text-center md:text-left">
             <h3 className="text-xl font-black text-[#1C1612] tracking-tight">Gráfico de Ventas</h3>
             <p className="text-sm text-[#B08B8B] mt-2">Rendimiento de los últimos 30 días</p>
@@ -128,7 +128,7 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
           </div>
         </div>
         
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#1C1612]/5 min-h-[450px]">
+        <div className="bg-white rounded-3xl p-8 shadow-sm border border-[#1C1612]/5 h-auto flex flex-col">
           <div className="flex items-center justify-between mb-8">
             <h3 className="text-xl font-black text-[#1C1612] tracking-tight">Últimos Pedidos</h3>
             <Link href="/admin/orders" className="text-xs font-bold text-[#D97230] hover:underline">Ver todos</Link>
@@ -143,8 +143,8 @@ export default function DashboardClient({ kpis, chartData, recentOrders, lowStoc
               {recentOrders.map((order) => (
                 <Link href={`/admin/orders?id=${order.id}`} key={order.id} className="block flex items-center justify-between p-4 hover:bg-[#F5F1EB] rounded-2xl transition-colors cursor-pointer group">
                   <div>
-                    <p className="font-bold text-[#1C1612] text-sm group-hover:text-[#D97230] transition-colors">Pedido #{order.order_number || order.id.slice(0, 6)}</p>
-                    <p className="text-xs text-[#B08B8B] mt-1 line-clamp-1 w-32">{order.buyer_name}</p>
+                    <p className="font-bold text-[#1C1612] text-sm group-hover:text-[#D97230] transition-colors">Pedido #{order.id.slice(0, 6)}</p>
+                    <p className="text-xs text-[#B08B8B] mt-1 line-clamp-1 w-32">{order.customer_name}</p>
                   </div>
                   <div className="text-right flex flex-col items-end">
                     <p className="font-black text-[#1C1612] text-sm">${order.total_ars?.toLocaleString('es-AR')}</p>
