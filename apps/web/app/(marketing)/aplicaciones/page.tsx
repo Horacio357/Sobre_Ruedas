@@ -30,7 +30,7 @@ const APPS = [
     tagline: 'El gimnasio y la pista de patinaje, en la palma de tu mano.',
     desc: 'Diseñada específicamente para entrenadores (coaches) y atletas de alto rendimiento. Planifica rutinas complejas, analiza saltos mediante inteligencia artificial de video, y entrena a patinadores de cualquier parte del mundo de forma remota.',
     price: 'Suscripción Premium tras los 8 días de prueba. Consulta planes personalizados para clubes.',
-    img: 'https://i.ibb.co/v62XwXnT/Magic-Eraser-260526-160524.png',
+    img: 'https://i.ibb.co/jPr49Qy3/Captura-de-pantalla-2026-07-29-224402.png',
     bgGradient: 'from-[#D97230] to-[#E8BA50]',
     accentColor: '#D97230',
     features: [
@@ -49,7 +49,7 @@ const APPS = [
     tagline: 'Conecta, comparte y brilla junto a la comunidad global.',
     desc: 'La primera red social exclusiva para patinadores artísticos. Comparte tus progresos, sube videos de tus rutinas, obtén feedback de otros skaters de nivel avanzado y participa en los desafíos y rankings globales semanales.',
     price: 'Completamente gratuita. Disponible para iOS y Android.',
-    img: 'https://i.ibb.co/39rnGdV7/Magic-Eraser-260526-155309.png',
+    img: 'https://i.ibb.co/cK3FxD58/Captura-de-pantalla-2026-07-29-224428.png',
     bgGradient: 'from-[#1C1612] to-[#6B5E4A]',
     accentColor: '#1C1612',
     features: [
