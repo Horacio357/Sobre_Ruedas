@@ -292,35 +292,16 @@ export default function AplicacionesPage() {
 
             {/* Apple & Android Symmetrical Dark Premium Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 md:gap-10 pt-6 md:pt-10 block w-full relative z-20 my-8">
-              <button 
-                onClick={() => alert('¡Próximamente disponible en App Store!')}
-                className="flex items-center gap-4 text-white px-10 py-5 rounded-[24px] shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center hover:opacity-90 active:scale-95"
-                style={{ backgroundColor: '#1C1612' }}
+              <Link 
+                href="https://srpatin.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 text-white px-12 py-5 rounded-[24px] shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center hover:opacity-90 active:scale-95 bg-[#D97230] shadow-[#D97230]/20"
               >
-                {/* Simple Apple Icon svg */}
-                <svg className="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
-                  <path d="M18.71,19.5C17.88,20.74,17,21.95,15.66,22c-1.28,0-1.69-.78-3.15-.78s-1.92.76-3.14.78c-1.34,0-2.31-1.33-3.15-2.53C4.5,17,3.21,11.39,4.95,8.36a5.66,5.66,0,0,1,4.8-2.88c1.3,0,2.52.9,3.32.9s1.82-.9,3.37-.74a5.27,5.27,0,0,1,4.13,2.88c-3.18,1.92-2.67,6.13.62,7.46A12,12,0,0,1,18.71,19.5M15.9,5.55A5.27,5.27,0,0,0,17.15,1.7a5.41,5.41,0,0,0-3.5,1.82,5,5,0,0,0-1.29,3.77A4.63,4.63,0,0,0,15.9,5.55Z"/>
-                </svg>
-                <div className="text-left leading-none">
-                  <p className="text-[9px] uppercase tracking-wider text-white/60 mb-1.5">Consíguelo en el</p>
-                  <p className="text-base font-bold tracking-tight text-white">App Store</p>
+                <div className="text-center leading-none">
+                  <p className="text-lg font-bold tracking-wide text-white uppercase">Probala</p>
                 </div>
-              </button>
-
-              <button 
-                onClick={() => alert('¡Próximamente disponible en Google Play!')}
-                className="flex items-center gap-4 text-white px-10 py-5 rounded-[24px] shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto justify-center hover:opacity-90 active:scale-95"
-                style={{ backgroundColor: '#1C1612' }}
-              >
-                {/* Simple Play Store Icon svg */}
-                <svg className="w-6 h-6 fill-current text-[#D97230]" viewBox="0 0 24 24">
-                  <path d="M5,3.31a2,2,0,0,0-1,1.73V18.96a2,2,0,0,0,1,1.73L13.88,12Z M18,9.75,15.1,8.08,14.63,11.38Z M4.3,20.46,12.72,13.88,14.63,12.62,17.2,11.12Z M4.3,3.54,12.72,10.12,14.63,11.38,17.2,12.88Z"/>
-                </svg>
-                <div className="text-left leading-none">
-                  <p className="text-[9px] uppercase tracking-wider text-white/60 mb-1.5">Disponible en</p>
-                  <p className="text-base font-bold tracking-tight text-white">Google Play</p>
-                </div>
-              </button>
+              </Link>
             </div>
             
             <div className="block w-full relative z-10 my-8">
