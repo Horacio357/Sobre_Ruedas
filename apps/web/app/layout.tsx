@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'es_AR',
-    url: 'https://sobreruedas.com.ar',
+    url: 'https://srpatin.me',
     siteName: 'Sobre Ruedas',
     title: 'Sobre Ruedas — Patines Artísticos Premium',
     description: 'Tu tienda especializada en patines artísticos en Argentina.',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL ?? 'https://srpatin.me'),
 };
 
 export default function RootLayout({
